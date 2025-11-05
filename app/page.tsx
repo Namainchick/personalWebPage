@@ -7,13 +7,13 @@ import { projects } from "@/data/projects";
 
 export default function Home() {
   return (
-    <div className="mx-auto max-w-[1200px] px-6 md:px-8 lg:px-12">
+    <div className="mx-auto max-w-[1200px] px-4 md:px-6 lg:px-8">
       {/* Hero Section */}
       <section className="min-h-[85vh] flex flex-col justify-center items-center py-20 md:py-32 text-center">
         <div className="max-w-3xl mx-auto">
           {/* Decorative Line - centered mit Glow */}
           <div 
-            className="w-16 h-px bg-gradient-to-r from-transparent via-[#4f46e5] to-transparent mb-8 mx-auto" 
+            className="w-64 h-px bg-gradient-to-r from-transparent via-[#4f46e5] to-transparent mb-8 mx-auto" 
             style={{
               boxShadow: '0 0 20px rgba(79, 70, 229, 0.6)'
             }}
