@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function ErfahrungenPage() {
   return (
     <div className="mx-auto max-w-[1200px] px-6 md:px-8 lg:px-12 py-20">
-      <SectionHeading>Erfahrungen</SectionHeading>
+      <SectionHeading>/Erfahrungen</SectionHeading>
 
       <p className="text-gray-300 text-lg mb-12 max-w-2xl">
         Hier sind meine bisherigen beruflichen Stationen und Engagements – von Praktika über
@@ -31,8 +31,13 @@ export default function ErfahrungenPage() {
                 {exp.period}
               </span>
             </div>
-            <div className="border-l-2 border-[#4f46e5] pl-4">
-              <p className="text-gray-300 leading-relaxed">{exp.impact}</p>
+            <div 
+              className="border-l-2 border-[#4f46e5] pl-4"
+              style={{
+                boxShadow: '-2px 0 15px rgba(79, 70, 229, 0.2)'
+              }}
+            >
+              <p className="text-gray-300 leading-relaxed whitespace-pre-line">{exp.impact}</p>
             </div>
           </Card>
         ))}

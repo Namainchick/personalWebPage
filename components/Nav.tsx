@@ -4,10 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const navItems = [
-  { label: "Über mich", href: "/" },
   { label: "Erfahrungen", href: "/erfahrungen" },
   { label: "Projekte", href: "/projekte" },
-  { label: "Kontakt", href: "/kontakt" },
 ];
 
 export default function Nav() {
@@ -20,10 +18,10 @@ export default function Nav() {
         boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3), 0 0 40px rgba(79, 70, 229, 0.05)'
       }}
     >
-      <nav className="mx-auto max-w-[1200px] px-4 md:px-6 lg:px-8">
+      <nav className="mx-auto w-full max-w-[95%] px-2 md:px-3 lg:px-4">
         <div className="flex h-16 items-center justify-between">
           {/* Left: Logo + Navigation */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-6">
             {/* Logo/Name */}
             <Link href="/" className="group">
               <span className="text-lg font-semibold tracking-tight hover:text-[#4f46e5] transition-colors duration-200">

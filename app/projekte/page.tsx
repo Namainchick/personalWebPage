@@ -1,5 +1,6 @@
 import Card from "@/components/Card";
 import SectionHeading from "@/components/SectionHeading";
+import ProjectLink from "@/components/ProjectLink";
 import { projects } from "@/data/projects";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
 export default function ProjektePage() {
   return (
     <div className="mx-auto max-w-[1200px] px-6 md:px-8 lg:px-12 py-20">
-      <SectionHeading>Projekte</SectionHeading>
+      <SectionHeading>/Projekte</SectionHeading>
 
       <p className="text-gray-300 text-lg mb-12 max-w-2xl">
         Eine Auswahl meiner persönlichen und beruflichen Projekte – von kleinen Experimenten bis
@@ -45,7 +46,7 @@ export default function ProjektePage() {
               {project.techStack.map((tech) => (
                 <span
                   key={tech}
-                  className="tech-tag px-3 py-1 text-xs font-mono bg-white/5 border border-white/10 rounded-lg"
+                  className="tech-tag px-3 py-1 text-xs font-mono bg-white/[0.03] border border-white/10 rounded-lg"
                 >
                   {tech}
                 </span>
@@ -55,24 +56,14 @@ export default function ProjektePage() {
             {/* Links */}
             <div className="flex gap-4 text-sm font-medium">
               {project.demoUrl && (
-                <a
-                  href={project.demoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="animated-link text-[#4f46e5] hover:text-[#4338ca]"
-                >
-                  Demo ansehen →
-                </a>
+                <ProjectLink href={project.demoUrl} variant="primary">
+                  Demo ansehen
+                </ProjectLink>
               )}
               {project.repoUrl && (
-                <a
-                  href={project.repoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="animated-link text-gray-400 hover:text-white"
-                >
-                  Code auf GitHub →
-                </a>
+                <ProjectLink href={project.repoUrl} variant="secondary">
+                  Code auf GitHub
+                </ProjectLink>
               )}
             </div>
           </Card>

@@ -1,7 +1,6 @@
-import Button from "@/components/Button";
 import Card from "@/components/Card";
 import SectionHeading from "@/components/SectionHeading";
-import Link from "next/link";
+import ViewAllButton from "@/components/ViewAllButton";
 import { experiences } from "@/data/experiences";
 import { projects } from "@/data/projects";
 
@@ -29,11 +28,11 @@ export default function Home() {
           </h1>
           
           <p className="text-xl md:text-2xl text-gray-300 mb-10 leading-relaxed max-w-2xl mx-auto">
-            Ich baue manchmal Sachen mit KI.
+            Computer Science Student, der Sachen mit KI baut
           </p>
           
           <a 
-            href="mailto:kontakt@namanh.dev"
+            href="mailto:namanh.bui2005@gmail.com"
             className="glass-button inline-flex items-center justify-center px-8 py-4 rounded-2xl font-medium text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4f46e5] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
           >
             Schreib mir
@@ -41,9 +40,47 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Über mich */}
+      <section className="py-20">
+        <SectionHeading>/ über mich</SectionHeading>
+        
+        <div>
+          <Card>
+            <div className="space-y-6 text-gray-300 leading-relaxed">
+              <p className="text-lg">
+                Moin! Ich bin Namanh, 20 Jahre alt und studiere Computer Science an der Technischen Universität Hamburg.
+              </p>
+              
+              <p>
+                Meine Leidenschaft liegt in der Entwicklung von KI-gestützten Anwendungen und modernen Web-Technologien. 
+                Ich liebe es, komplexe Probleme zu lösen und innovative Lösungen zu entwickeln, die echten Mehrwert schaffen.
+              </p>
+              
+              <div>
+                <p className="mb-3 text-gray-400 text-sm font-medium">Mein Tech Stack:</p>
+                <div className="flex flex-wrap gap-2">
+                  {['JavaScript', 'React', 'Python', 'PostgreSQL', 'C++', 'Next.js', 'TypeScript', 'Node.js'].map((tech) => (
+                    <span
+                      key={tech}
+                      className="tech-tag px-3 py-1 text-xs font-mono bg-white/[0.03] border border-white/10 rounded-lg"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              
+              <p>
+                Außerhalb der Arbeit mache ich entweder Calisthenics oder spiele in meiner Band. Manchmal mache ich auch Sachen mit der Kamera.
+              </p>
+            </div>
+          </Card>
+        </div>
+      </section>
+
       {/* Teaser: Erfahrungen */}
       <section className="py-20">
-        <SectionHeading>Erfahrungen</SectionHeading>
+        <SectionHeading>/ erfahrungen</SectionHeading>
         
         <div className="grid gap-6 md:gap-8 mb-8">
           {experiences.slice(0, 2).map((exp) => (
@@ -62,17 +99,14 @@ export default function Home() {
           ))}
         </div>
         
-        <Link 
-          href="/erfahrungen" 
-          className="animated-link text-[#4f46e5] font-medium hover:text-[#4338ca]"
-        >
-          Alle Erfahrungen ansehen →
-        </Link>
+        <ViewAllButton href="/erfahrungen">
+          Alle Erfahrungen ansehen
+        </ViewAllButton>
       </section>
 
       {/* Teaser: Projekte */}
       <section className="py-20">
-        <SectionHeading>Projekte</SectionHeading>
+        <SectionHeading>/ projekte</SectionHeading>
         
         <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-8">
           {projects.slice(0, 2).map((project) => (
@@ -85,7 +119,7 @@ export default function Home() {
                 {project.techStack.map((tech) => (
                   <span
                     key={tech}
-                    className="tech-tag px-3 py-1 text-xs font-mono bg-white/5 border border-white/10 rounded-lg"
+                    className="tech-tag px-3 py-1 text-xs font-mono bg-white/[0.03] border border-white/10 rounded-lg"
                   >
                     {tech}
                   </span>
@@ -95,27 +129,9 @@ export default function Home() {
           ))}
         </div>
         
-        <Link 
-          href="/projekte" 
-          className="animated-link text-[#4f46e5] font-medium hover:text-[#4338ca]"
-        >
-          Alle Projekte ansehen →
-        </Link>
-      </section>
-
-      {/* CTA Kontakt */}
-      <section className="py-20 text-center">
-        <div className="max-w-2xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Lass uns zusammenarbeiten
-          </h2>
-          <p className="text-gray-300 text-lg mb-8">
-            Interesse an einem Projekt oder einfach nur Hallo sagen?
-          </p>
-          <Button href="/kontakt">
-            Kontakt aufnehmen
-          </Button>
-        </div>
+        <ViewAllButton href="/projekte">
+          Alle Projekte ansehen
+        </ViewAllButton>
       </section>
     </div>
   );
