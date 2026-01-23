@@ -1,41 +1,38 @@
+"use client";
+
 import Button from "@/components/Button";
 import Card from "@/components/Card";
 import SectionHeading from "@/components/SectionHeading";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Kontakt – Namanh Bui Vu",
-  description: "Kontaktiere mich via E-Mail oder auf LinkedIn und GitHub.",
-};
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function KontaktPage() {
+  const { t } = useLanguage();
   return (
     <div className="mx-auto max-w-[1200px] px-6 md:px-8 lg:px-12 py-20">
-      <SectionHeading>Kontakt</SectionHeading>
+      <SectionHeading>{t.contact.heading}</SectionHeading>
 
       <div className="max-w-2xl">
         <p className="text-gray-300 text-lg mb-12 leading-relaxed">
-          Du möchtest zusammenarbeiten, hast eine Projektidee oder einfach nur Hallo sagen? Schreib
-          mir gerne eine Mail oder melde dich über meine Social-Media-Kanäle.
+          {t.contact.intro}
         </p>
 
         {/* E-Mail */}
         <Card className="mb-8">
-          <h3 className="text-xl font-semibold mb-4">E-Mail</h3>
+          <h3 className="text-xl font-semibold mb-4">{t.contact.email.heading}</h3>
           <p className="text-gray-300 mb-6">
-            Die schnellste Möglichkeit, mich zu erreichen.
+            {t.contact.email.description}
           </p>
           <Button href="mailto:kontakt@namanh.dev">
-            Schreib mir
+            {t.contact.email.cta}
           </Button>
         </Card>
 
         {/* Social Links */}
         <div className="grid md:grid-cols-2 gap-6">
           <Card hoverable>
-            <h3 className="text-xl font-semibold mb-3">LinkedIn</h3>
+            <h3 className="text-xl font-semibold mb-3">{t.contact.linkedin.heading}</h3>
             <p className="text-gray-300 mb-4">
-              Vernetze dich mit mir professionell.
+              {t.contact.linkedin.description}
             </p>
             <a
               href="https://linkedin.com/in/username"
@@ -43,14 +40,14 @@ export default function KontaktPage() {
               rel="noopener noreferrer"
               className="animated-link text-[#4f46e5] hover:text-[#4338ca] font-medium"
             >
-              Profil ansehen →
+              {t.contact.linkedin.cta}
             </a>
           </Card>
 
           <Card hoverable>
-            <h3 className="text-xl font-semibold mb-3">GitHub</h3>
+            <h3 className="text-xl font-semibold mb-3">{t.contact.github.heading}</h3>
             <p className="text-gray-300 mb-4">
-              Schau dir meinen Code und meine Projekte an.
+              {t.contact.github.description}
             </p>
             <a
               href="https://github.com/username"
@@ -58,7 +55,7 @@ export default function KontaktPage() {
               rel="noopener noreferrer"
               className="animated-link text-[#4f46e5] hover:text-[#4338ca] font-medium"
             >
-              Profil ansehen →
+              {t.contact.github.cta}
             </a>
           </Card>
         </div>

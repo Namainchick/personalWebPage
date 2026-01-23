@@ -1,23 +1,21 @@
+"use client";
+
 import Card from "@/components/Card";
 import SectionHeading from "@/components/SectionHeading";
 import ProjectLink from "@/components/ProjectLink";
-import { projects } from "@/data/projects";
-import type { Metadata } from "next";
 import Image from "next/image";
-
-export const metadata: Metadata = {
-  title: "Projekte – Namanh Bui Vu",
-  description: "Eine Auswahl meiner persönlichen und beruflichen Projekte.",
-};
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useTranslatedProjects } from "@/hooks/useTranslatedData";
 
 export default function ProjektePage() {
+  const { t } = useLanguage();
+  const projects = useTranslatedProjects();
   return (
     <div className="mx-auto max-w-[1200px] px-6 md:px-8 lg:px-12 py-20">
-      <SectionHeading>/Projekte</SectionHeading>
+      <SectionHeading>{t.projects.heading}</SectionHeading>
 
       <p className="text-gray-300 text-lg mb-12 max-w-2xl">
-        Eine Auswahl meiner persönlichen und beruflichen Projekte – von kleinen Experimenten bis
-        zu vollständigen Web-Apps.
+        {t.projects.intro}
       </p>
 
       {/* Projekt-Grid */}
@@ -57,12 +55,12 @@ export default function ProjektePage() {
             <div className="flex gap-4 text-sm font-medium">
               {project.demoUrl && (
                 <ProjectLink href={project.demoUrl} variant="primary">
-                  Demo ansehen
+                  {t.projects.viewDemo}
                 </ProjectLink>
               )}
               {project.repoUrl && (
                 <ProjectLink href={project.repoUrl} variant="secondary">
-                  Code auf GitHub
+                  {t.projects.viewCode}
                 </ProjectLink>
               )}
             </div>

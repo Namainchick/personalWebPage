@@ -3,6 +3,7 @@ import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -60,12 +61,14 @@ export default function RootLayout({
   return (
     <html lang="de" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <body className="antialiased">
-        {/* Hairline Gradient */}
-        <div className="hairline-gradient" aria-hidden="true" />
-        
-        <Nav />
-        <main className="min-h-screen">{children}</main>
-        <Footer />
+        <LanguageProvider>
+          {/* Hairline Gradient */}
+          <div className="hairline-gradient" aria-hidden="true" />
+
+          <Nav />
+          <main className="min-h-screen">{children}</main>
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );

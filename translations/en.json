@@ -1,0 +1,111 @@
+{
+  "nav": {
+    "experiences": "Experience",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "home": {
+    "hero": {
+      "greeting": "Hi, I'm Namanh",
+      "tagline": "Computer Science Student building things with AI",
+      "cta": "Get in touch"
+    },
+    "about": {
+      "heading": "/ about me",
+      "intro": "Hey! I'm Namanh, 20 years old and studying Computer Science at Hamburg University of Technology.",
+      "passion": "My passion lies in developing AI-powered applications and modern web technologies. I love solving complex problems and creating innovative solutions that provide real value.",
+      "techStack": "My Tech Stack:",
+      "hobbies": "Outside of work, I'm either doing calisthenics or playing in my band. Sometimes I also do things with the camera."
+    },
+    "experiences": {
+      "heading": "/ experience",
+      "viewAll": "View all experience"
+    },
+    "projects": {
+      "heading": "/ projects",
+      "viewAll": "View all projects"
+    }
+  },
+  "experiences": {
+    "title": "Experience – Namanh Bui Vu",
+    "description": "Professional experience and engagements of Namanh Bui Vu.",
+    "heading": "/Experience",
+    "intro": "Here are my previous professional positions and engagements – from internships to working student jobs and freelance projects."
+  },
+  "projects": {
+    "title": "Projects – Namanh Bui Vu",
+    "description": "A selection of my personal and professional projects.",
+    "heading": "/Projects",
+    "intro": "A selection of my personal and professional projects – from small experiments to complete web apps.",
+    "viewDemo": "View demo",
+    "viewCode": "Code on GitHub"
+  },
+  "contact": {
+    "title": "Contact – Namanh Bui Vu",
+    "description": "Contact me via email or on LinkedIn and GitHub.",
+    "heading": "Contact",
+    "intro": "Want to collaborate, have a project idea, or just want to say hello? Feel free to send me an email or reach out via my social media channels.",
+    "email": {
+      "heading": "Email",
+      "description": "The fastest way to reach me.",
+      "cta": "Contact me"
+    },
+    "linkedin": {
+      "heading": "LinkedIn",
+      "description": "Connect with me professionally.",
+      "cta": "View profile →"
+    },
+    "github": {
+      "heading": "GitHub",
+      "description": "Check out my code and projects.",
+      "cta": "View profile →"
+    }
+  },
+  "footer": {
+    "copyright": "built and published by Namanh – All rights reserved. ©",
+    "imprint": "Imprint",
+    "privacy": "Privacy Policy"
+  },
+  "projectsData": {
+    "proj-1": {
+      "title": "Video Journal Analyzer",
+      "description": "A web app for analyzing video URLs with two modes: diary entry analysis (emotions and moods) and rhetoric coach (speaking style, articulation, improvement suggestions)."
+    },
+    "proj-2": {
+      "title": "Song Splitter",
+      "description": "An audio tool for splitting songs into individual components such as drums, guitar, bass, vocals, and other instruments using AI-powered audio source separation."
+    }
+  },
+  "experiencesData": {
+    "exp-1": {
+      "role": "Intern - Software Engineering",
+      "organization": "Position One GmbH",
+      "period": "Sept. 2025 – Oct. 2025",
+      "impact": "Development of an AI-powered application for automated creation of affiliate e-commerce shops."
+    },
+    "exp-2": {
+      "role": "Working Student - AI Automation and E-Commerce",
+      "organization": "Position One GmbH",
+      "period": "Oct. 2025 – Present",
+      "impact": "I'm expanding a project from my internship into a complete full-stack application.\n\nI develop API endpoints, connect them to the database, and design the frontend. The goal is to make the system more stable, scalable, and user-friendly.\n\nAdditionally, I support the automation of business processes using AI."
+    },
+    "exp-3": {
+      "role": "Co-Founder",
+      "organization": "Self-Employed",
+      "period": "Dec. 2025 – Present",
+      "impact": "Co-founding a startup with primary responsibility for technical implementation (software development, databases, networks & system architecture)\n\nDevelopment and operation of a production full-stack platform, including backend, data modeling, and deployment\n\nBuilding and maintaining partnerships, including communication with sponsors and contact with institutions and organizations"
+    },
+    "exp-4": {
+      "role": "Tutor",
+      "organization": "Hamburg University of Technology",
+      "period": "Sept. 2025 – Present",
+      "impact": "I support first-semester students in weekly courses for an optimal start to their studies.\n\nThrough tips, workshops, and personal advice, I help them navigate the university and study successfully."
+    },
+    "exp-5": {
+      "role": "Content Creator",
+      "organization": "TikTok/Instagram",
+      "period": "Jul. 2023 – Present",
+      "impact": "Built an Instagram theme page with over 50,000 followers and a TikTok channel with over 20 million views, all qualified for the Creator Program."
+    }
+  }
+}

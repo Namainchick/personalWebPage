@@ -1,7 +1,11 @@
+"use client";
+
 import Link from "next/link";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const { t } = useLanguage();
 
   return (
     <footer 
@@ -14,7 +18,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           {/* Copyright */}
           <p className="text-sm text-gray-400">
-            built and published by Namanh – All rights reserved. © {currentYear}
+            {t.footer.copyright} {currentYear}
           </p>
 
           {/* Rechtliches */}
@@ -23,13 +27,13 @@ export default function Footer() {
               href="/impressum"
               className="text-gray-400 hover:text-[#4f46e5] transition-all duration-200 hover:drop-shadow-[0_0_8px_rgba(79,70,229,0.5)]"
             >
-              Impressum
+              {t.footer.imprint}
             </Link>
             <Link
               href="/datenschutz"
               className="text-gray-400 hover:text-[#4f46e5] transition-all duration-200 hover:drop-shadow-[0_0_8px_rgba(79,70,229,0.5)]"
             >
-              Datenschutz
+              {t.footer.privacy}
             </Link>
           </div>
         </div>

@@ -29,16 +29,23 @@ Zusätzlich unterstütze ich bei der Automatisierung von Unternehmensprozessen m
   },
   {
     id: "exp-3",
+    role: "Co-Founder",
+    organization: "Selbstständig",
+    period: "Dez. 2025 – Heute",
+    impact: "Gründung eines Startups mit Hauptverantwortung für die technische Umsetzung (Softwareentwicklung, Datenbanken, Netzwerke & Systemarchitektur)\n\nEntwicklung und Betrieb einer produktiven Full-Stack-Plattform, inkl. Backend, Datenmodellierung und Deployment\n\nAufbau und Pflege von Partnerschaften, inkl. Kommunikation mit Sponsoren sowie \nKontakt zu Institutionen und Organisationen",
+  },
+  {
+    id: "exp-4",
     role: "Tutor",
     organization: "Technische Universität Hamburg",
     period: "Sept. 2025 – Heute",
     impact: "Ich unterstütze Erstsemester-Studenten in wöchentlichen Kursen für einen optimalen Studienstart.\n\nDurch Tipps, Workshops und persönliche Beratung helfe ich ihnen, sich an der Universität zurechtzufinden und erfolgreich zu studieren.",
   },
   {
-    id: "exp-4",
+    id: "exp-5",
     role: "Content Creator",
     organization: "TikTok/Instagram",
-    period: "Jul. 2023 – Jun. 2024",
+    period: "Jul. 2023 – Heute",
     impact: "Aufbau einer Instagram Theme Page mit über 50.000 Followern und eines TikTok-Kanals mit über 20 Millionen Views, welche alle für das Creator Programm qualifiziert sind.",
   }
 ];

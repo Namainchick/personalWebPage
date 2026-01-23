@@ -1,0 +1,111 @@
+{
+  "nav": {
+    "experiences": "Erfahrungen",
+    "projects": "Projekte",
+    "contact": "Kontakt"
+  },
+  "home": {
+    "hero": {
+      "greeting": "Hi, ich bin Namanh",
+      "tagline": "Computer Science Student, der Sachen mit KI baut",
+      "cta": "Schreib mir"
+    },
+    "about": {
+      "heading": "/ über mich",
+      "intro": "Moin! Ich bin Namanh, 20 Jahre alt und studiere Computer Science an der Technischen Universität Hamburg.",
+      "passion": "Meine Leidenschaft liegt in der Entwicklung von KI-gestützten Anwendungen und modernen Web-Technologien. Ich liebe es, komplexe Probleme zu lösen und innovative Lösungen zu entwickeln, die echten Mehrwert schaffen.",
+      "techStack": "Mein Tech Stack:",
+      "hobbies": "Außerhalb der Arbeit mache ich entweder Calisthenics oder spiele in meiner Band. Manchmal mache ich auch Sachen mit der Kamera."
+    },
+    "experiences": {
+      "heading": "/ erfahrungen",
+      "viewAll": "Alle Erfahrungen ansehen"
+    },
+    "projects": {
+      "heading": "/ projekte",
+      "viewAll": "Alle Projekte ansehen"
+    }
+  },
+  "experiences": {
+    "title": "Erfahrungen – Namanh Bui Vu",
+    "description": "Berufserfahrungen und Engagements von Namanh Bui Vu.",
+    "heading": "/Erfahrungen",
+    "intro": "Hier sind meine bisherigen beruflichen Stationen und Engagements – von Praktika über Werkstudentenjobs bis zu freiberuflichen Projekten."
+  },
+  "projects": {
+    "title": "Projekte – Namanh Bui Vu",
+    "description": "Eine Auswahl meiner persönlichen und beruflichen Projekte.",
+    "heading": "/Projekte",
+    "intro": "Eine Auswahl meiner persönlichen und beruflichen Projekte – von kleinen Experimenten bis zu vollständigen Web-Apps.",
+    "viewDemo": "Demo ansehen",
+    "viewCode": "Code auf GitHub"
+  },
+  "contact": {
+    "title": "Kontakt – Namanh Bui Vu",
+    "description": "Kontaktiere mich via E-Mail oder auf LinkedIn und GitHub.",
+    "heading": "Kontakt",
+    "intro": "Du möchtest zusammenarbeiten, hast eine Projektidee oder einfach nur Hallo sagen? Schreib mir gerne eine Mail oder melde dich über meine Social-Media-Kanäle.",
+    "email": {
+      "heading": "E-Mail",
+      "description": "Die schnellste Möglichkeit, mich zu erreichen.",
+      "cta": "Schreib mir"
+    },
+    "linkedin": {
+      "heading": "LinkedIn",
+      "description": "Vernetze dich mit mir professionell.",
+      "cta": "Profil ansehen →"
+    },
+    "github": {
+      "heading": "GitHub",
+      "description": "Schau dir meinen Code und meine Projekte an.",
+      "cta": "Profil ansehen →"
+    }
+  },
+  "footer": {
+    "copyright": "built and published by Namanh – All rights reserved. ©",
+    "imprint": "Impressum",
+    "privacy": "Datenschutz"
+  },
+  "projectsData": {
+    "proj-1": {
+      "title": "Video Journal Analyzer",
+      "description": "Eine Web-App zur Analyse von Video-URLs mit zwei Modi: Tagebucheintrag-Analyse (Emotionen und Stimmungen) und Rhetorik-Coach (Sprechweise, Artikulation, Verbesserungsvorschläge)."
+    },
+    "proj-2": {
+      "title": "Song Splitter",
+      "description": "Ein Audio-Tool zum Aufteilen von Songs in einzelne Komponenten wie Schlagzeug, Gitarre, Bass, Vocals und weitere Instrumente mittels KI-gestützter Audio-Quellentrennung."
+    }
+  },
+  "experiencesData": {
+    "exp-1": {
+      "role": "Intern - Software Engineering",
+      "organization": "Position One GmbH",
+      "period": "Sept. 2025 – Okt. 2025",
+      "impact": "Entwicklung einer KI-gestützten Applikation zur automatisierten Erstellung von Affiliate E-Commerce Shops."
+    },
+    "exp-2": {
+      "role": "Werkstudent - KI Automation und E-Commerce",
+      "organization": "Position One GmbH",
+      "period": "Okt. 2025 – Heute",
+      "impact": "Ich erweitere ein Projekt aus meinem Praktikum zu einer vollständigen Full-Stack-Anwendung.\n\nDabei entwickle ich API-Endpunkte, verbinde diese mit der Datenbank und gestalte das Frontend. Ziel ist es, das System stabiler, skalierbarer und nutzerfreundlicher zu machen.\n\nZusätzlich unterstütze ich bei der Automatisierung von Unternehmensprozessen mithilfe von KI."
+    },
+    "exp-3": {
+      "role": "Co-Founder",
+      "organization": "Selbstständig",
+      "period": "Dez. 2025 – Heute",
+      "impact": "Gründung eines Startups mit Hauptverantwortung für die technische Umsetzung (Softwareentwicklung, Datenbanken, Netzwerke & Systemarchitektur)\n\nEntwicklung und Betrieb einer produktiven Full-Stack-Plattform, inkl. Backend, Datenmodellierung und Deployment\n\nAufbau und Pflege von Partnerschaften, inkl. Kommunikation mit Sponsoren sowie \nKontakt zu Institutionen und Organisationen"
+    },
+    "exp-4": {
+      "role": "Tutor",
+      "organization": "Technische Universität Hamburg",
+      "period": "Sept. 2025 – Heute",
+      "impact": "Ich unterstütze Erstsemester-Studenten in wöchentlichen Kursen für einen optimalen Studienstart.\n\nDurch Tipps, Workshops und persönliche Beratung helfe ich ihnen, sich an der Universität zurechtzufinden und erfolgreich zu studieren."
+    },
+    "exp-5": {
+      "role": "Content Creator",
+      "organization": "TikTok/Instagram",
+      "period": "Jul. 2023 – Heute",
+      "impact": "Aufbau einer Instagram Theme Page mit über 50.000 Followern und eines TikTok-Kanals mit über 20 Millionen Views, welche alle für das Creator Programm qualifiziert sind."
+    }
+  }
+}

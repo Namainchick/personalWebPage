@@ -13,42 +13,18 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: "proj-1",
-    title: "In Bearbeitung...",
+    title: "Video Journal Analyzer",
     description:
-      "In Bearbeitung...",
-    techStack: ["In Bearbeitung..."],
-    demoUrl: "https://example.com/demo",
-    repoUrl: "https://github.com/username/repo",
-    imageUrl: "/projects/placeholder-1.png",
+      "Eine Web-App zur Analyse von Video-URLs mit zwei Modi: Tagebucheintrag-Analyse (Emotionen und Stimmungen) und Rhetorik-Coach (Sprechweise, Artikulation, Verbesserungsvorschläge).",
+    techStack: ["Next.js 16", "TypeScript", "Tailwind CSS 4"],
+    imageUrl: "/Projekt1.png",
   },
   {
     id: "proj-2",
-    title: "In Bearbeitung...",
+    title: "Song Splitter",
     description:
-      "In Bearbeitung...",
-    techStack: ["In Bearbeitung..."],
-    demoUrl: "https://example.com/demo",
-    repoUrl: "https://github.com/username/repo",
-    imageUrl: "/projects/placeholder-1.png",
-  },
-  {
-    id: "proj-3",
-    title: "In Bearbeitung...",
-    description:
-      "In Bearbeitung...",
-    techStack: ["In Bearbeitung..."],
-    demoUrl: "https://example.com/demo",
-    repoUrl: "https://github.com/username/repo",
-    imageUrl: "/projects/placeholder-1.png",
-  },
-  {
-    id: "proj-4",
-    title: "In Bearbeitung...",
-    description:
-      "In Bearbeitung...",
-    techStack: ["In Bearbeitung..."],
-    demoUrl: "https://example.com/demo",
-    repoUrl: "https://github.com/username/repo",
-    imageUrl: "/projects/placeholder-1.png",
-  },
+      "Ein Audio-Tool zum Aufteilen von Songs in einzelne Komponenten wie Schlagzeug, Gitarre, Bass, Vocals und weitere Instrumente mittels KI-gestützter Audio-Quellentrennung.",
+    techStack: ["Python", "Spleeter", "Demucs", "FFmpeg"],
+    imageUrl: "/Projekt2.png",
+  }
 ];

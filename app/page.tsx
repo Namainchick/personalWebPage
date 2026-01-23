@@ -1,10 +1,15 @@
+"use client";
+
 import Card from "@/components/Card";
 import SectionHeading from "@/components/SectionHeading";
 import ViewAllButton from "@/components/ViewAllButton";
-import { experiences } from "@/data/experiences";
-import { projects } from "@/data/projects";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useTranslatedExperiences, useTranslatedProjects } from "@/hooks/useTranslatedData";
 
 export default function Home() {
+  const { t } = useLanguage();
+  const experiences = useTranslatedExperiences();
+  const projects = useTranslatedProjects();
   return (
     <div className="mx-auto max-w-[1200px] px-4 md:px-6 lg:px-8">
       {/* Hero Section */}
@@ -23,41 +28,40 @@ export default function Home() {
               style={{
                 textShadow: '0 0 40px rgba(79, 70, 229, 0.3), 0 0 80px rgba(79, 70, 229, 0.1)'
               }}>
-            Hi, ich bin Namanh
+            {t.home.hero.greeting}
             <span className="blinking-dot">.</span>
           </h1>
-          
+
           <p className="text-xl md:text-2xl text-gray-300 mb-10 leading-relaxed max-w-2xl mx-auto">
-            Computer Science Student, der Sachen mit KI baut
+            {t.home.hero.tagline}
           </p>
-          
-          <a 
+
+          <a
             href="mailto:namanh.bui2005@gmail.com"
             className="glass-button inline-flex items-center justify-center px-8 py-4 rounded-2xl font-medium text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4f46e5] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
           >
-            Schreib mir
+            {t.home.hero.cta}
           </a>
         </div>
       </section>
 
       {/* Über mich */}
       <section className="py-20">
-        <SectionHeading>/ über mich</SectionHeading>
-        
+        <SectionHeading>{t.home.about.heading}</SectionHeading>
+
         <div>
           <Card>
             <div className="space-y-6 text-gray-300 leading-relaxed">
               <p className="text-lg">
-                Moin! Ich bin Namanh, 20 Jahre alt und studiere Computer Science an der Technischen Universität Hamburg.
+                {t.home.about.intro}
               </p>
-              
+
               <p>
-                Meine Leidenschaft liegt in der Entwicklung von KI-gestützten Anwendungen und modernen Web-Technologien. 
-                Ich liebe es, komplexe Probleme zu lösen und innovative Lösungen zu entwickeln, die echten Mehrwert schaffen.
+                {t.home.about.passion}
               </p>
-              
+
               <div>
-                <p className="mb-3 text-gray-400 text-sm font-medium">Mein Tech Stack:</p>
+                <p className="mb-3 text-gray-400 text-sm font-medium">{t.home.about.techStack}</p>
                 <div className="flex flex-wrap gap-2">
                   {['JavaScript', 'React', 'Python', 'PostgreSQL', 'C++', 'Next.js', 'TypeScript', 'Node.js'].map((tech) => (
                     <span
@@ -69,9 +73,9 @@ export default function Home() {
                   ))}
                 </div>
               </div>
-              
+
               <p>
-                Außerhalb der Arbeit mache ich entweder Calisthenics oder spiele in meiner Band. Manchmal mache ich auch Sachen mit der Kamera.
+                {t.home.about.hobbies}
               </p>
             </div>
           </Card>
@@ -80,8 +84,8 @@ export default function Home() {
 
       {/* Teaser: Erfahrungen */}
       <section className="py-20">
-        <SectionHeading>/ erfahrungen</SectionHeading>
-        
+        <SectionHeading>{t.home.experiences.heading}</SectionHeading>
+
         <div className="grid gap-6 md:gap-8 mb-8">
           {experiences.slice(0, 2).map((exp) => (
             <Card key={exp.id} hoverable>
@@ -98,16 +102,16 @@ export default function Home() {
             </Card>
           ))}
         </div>
-        
+
         <ViewAllButton href="/erfahrungen">
-          Alle Erfahrungen ansehen
+          {t.home.experiences.viewAll}
         </ViewAllButton>
       </section>
 
       {/* Teaser: Projekte */}
       <section className="py-20">
-        <SectionHeading>/ projekte</SectionHeading>
-        
+        <SectionHeading>{t.home.projects.heading}</SectionHeading>
+
         <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-8">
           {projects.slice(0, 2).map((project) => (
             <Card key={project.id} hoverable>
@@ -128,9 +132,9 @@ export default function Home() {
             </Card>
           ))}
         </div>
-        
+
         <ViewAllButton href="/projekte">
-          Alle Projekte ansehen
+          {t.home.projects.viewAll}
         </ViewAllButton>
       </section>
     </div>

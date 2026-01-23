@@ -1,21 +1,19 @@
+"use client";
+
 import Card from "@/components/Card";
 import SectionHeading from "@/components/SectionHeading";
-import { experiences } from "@/data/experiences";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Erfahrungen – Namanh Bui Vu",
-  description: "Berufserfahrungen und Engagements von Namanh Bui Vu.",
-};
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useTranslatedExperiences } from "@/hooks/useTranslatedData";
 
 export default function ErfahrungenPage() {
+  const { t } = useLanguage();
+  const experiences = useTranslatedExperiences();
   return (
     <div className="mx-auto max-w-[1200px] px-6 md:px-8 lg:px-12 py-20">
-      <SectionHeading>/Erfahrungen</SectionHeading>
+      <SectionHeading>{t.experiences.heading}</SectionHeading>
 
       <p className="text-gray-300 text-lg mb-12 max-w-2xl">
-        Hier sind meine bisherigen beruflichen Stationen und Engagements – von Praktika über
-        Werkstudentenjobs bis zu freiberuflichen Projekten.
+        {t.experiences.intro}
       </p>
 
       {/* Stack von Karten */}

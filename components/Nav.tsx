@@ -2,14 +2,17 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
-const navItems = [
-  { label: "Erfahrungen", href: "/erfahrungen" },
-  { label: "Projekte", href: "/projekte" },
-];
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Nav() {
   const pathname = usePathname();
+  const { t } = useLanguage();
+
+  const navItems = [
+    { label: t.nav.experiences, href: "/erfahrungen" },
+    { label: t.nav.projects, href: "/projekte" },
+  ];
 
   return (
     <header 
@@ -66,8 +69,9 @@ export default function Nav() {
             </ul>
           </div>
 
-          {/* Right: Social Links */}
+          {/* Right: Language Switcher + Social Links */}
           <div className="flex items-center gap-4">
+            <LanguageSwitcher />
             <a
               href="https://www.linkedin.com/in/namanh-bui-vu-37b05a2a9/"
               target="_blank"
