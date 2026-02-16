@@ -12,10 +12,10 @@
     },
     "about": {
       "heading": "/ über mich",
-      "intro": "Moin! Ich bin Namanh, 20 Jahre alt und studiere Computer Science an der Technischen Universität Hamburg.",
-      "passion": "Meine Leidenschaft liegt in der Entwicklung von KI-gestützten Anwendungen und modernen Web-Technologien. Ich liebe es, komplexe Probleme zu lösen und innovative Lösungen zu entwickeln, die echten Mehrwert schaffen.",
+      "intro": "Moin! Ich bin Namanh, 20 Jahre alt und studiere Computer Science an der Technischen Universität Hamburg. Nebenbei arbeite ich als Werkstudent im Bereich KI-Automation und baue als CTO ein Startup für Studierende.",
+      "passion": "Meine Leidenschaft liegt in der Entwicklung von KI-gestützten Anwendungen und modernen Web-Technologien. Bei drei Hackathons (Hamburg, Berlin, remote) habe ich jeweils den ersten Platz gewonnen.",
       "techStack": "Mein Tech Stack:",
-      "hobbies": "Außerhalb der Arbeit mache ich entweder Calisthenics oder spiele in meiner Band. Manchmal mache ich auch Sachen mit der Kamera."
+      "hobbies": "Außerhalb der Arbeit mache ich entweder Calisthenics, spiele in meiner Band oder erstelle Tech-Content auf TikTok (50k+ Follower)."
     },
     "experiences": {
       "heading": "/ erfahrungen",
@@ -36,7 +36,7 @@
     "title": "Projekte – Namanh Bui Vu",
     "description": "Eine Auswahl meiner persönlichen und beruflichen Projekte.",
     "heading": "/Projekte",
-    "intro": "Eine Auswahl meiner persönlichen und beruflichen Projekte – von kleinen Experimenten bis zu vollständigen Web-Apps.",
+    "intro": "Eine Auswahl meiner persönlichen und beruflichen Projekte – von Hackathon-Gewinnern bis zu vollständigen Produktions-Apps.",
     "viewDemo": "Demo ansehen",
     "viewCode": "Code auf GitHub"
   },
@@ -68,44 +68,60 @@
   },
   "projectsData": {
     "proj-1": {
+      "title": "Dip – Give LLMs Eyes",
+      "description": "1. Platz, Google DeepMind Gemini Track – Cursor AI Hackathon Hamburg (Feb 2026, 400+ Teilnehmer). Ein Tool, das LLMs visuellen Echtzeit-Kontext des Bildschirms gibt und die manuelle Beschreibung von On-Screen-Inhalten überflüssig macht."
+    },
+    "proj-2": {
+      "title": "Mindflayer – Semantischer Social-Media-Filter",
+      "description": "1. Platz Overall ($2.000 Preisgeld) – CodeRabbit × Windsurf Hackathon (Dez 2025, 110 Teilnehmer). Eine Chrome Extension, die mit Gemini Social-Media-Posts in Echtzeit semantisch filtert."
+    },
+    "proj-3": {
+      "title": "Airbn – KI Property Management",
+      "description": "1. Platz Arbio Track, 3. Platz Overall – {Tech: Europe} Hackathon Berlin (Jan 2026). Eine KI-native Immobilienverwaltungsplattform mit Microservices-Architektur, Voice-First-Gäste-Support und automatischer Schadenserkennung via OpenCV."
+    },
+    "proj-4": {
+      "title": "Hundewelt.space – KI-Hundeblog",
+      "description": "Vollautomatisierter deutscher Hundeblog mit KI-Content-Pipeline. Next.js Frontend mit SSR, Suche, RSS und Admin-Dashboard. Python LangGraph-Pipeline für Themenrecherche, Artikelgenerierung, Bildgenerierung und automatische Veröffentlichung."
+    },
+    "proj-5": {
       "title": "Video Journal Analyzer",
       "description": "Eine Web-App zur Analyse von Video-URLs mit zwei Modi: Tagebucheintrag-Analyse (Emotionen und Stimmungen) und Rhetorik-Coach (Sprechweise, Artikulation, Verbesserungsvorschläge)."
     },
-    "proj-2": {
+    "proj-6": {
       "title": "Song Splitter",
       "description": "Ein Audio-Tool zum Aufteilen von Songs in einzelne Komponenten wie Schlagzeug, Gitarre, Bass, Vocals und weitere Instrumente mittels KI-gestützter Audio-Quellentrennung."
     }
   },
   "experiencesData": {
     "exp-1": {
-      "role": "Intern - Software Engineering",
-      "organization": "Position One GmbH",
-      "period": "Sept. 2025 – Okt. 2025",
-      "impact": "Entwicklung einer KI-gestützten Applikation zur automatisierten Erstellung von Affiliate E-Commerce Shops."
-    },
-    "exp-2": {
-      "role": "Werkstudent - KI Automation und E-Commerce",
+      "role": "Werkstudent – KI Automation",
       "organization": "Position One GmbH",
       "period": "Okt. 2025 – Heute",
-      "impact": "Ich erweitere ein Projekt aus meinem Praktikum zu einer vollständigen Full-Stack-Anwendung.\n\nDabei entwickle ich API-Endpunkte, verbinde diese mit der Datenbank und gestalte das Frontend. Ziel ist es, das System stabiler, skalierbarer und nutzerfreundlicher zu machen.\n\nZusätzlich unterstütze ich bei der Automatisierung von Unternehmensprozessen mithilfe von KI."
+      "impact": "Entwicklung von Full-Stack KI-Anwendungen mit React + TailwindCSS (Frontend), Python (Backend) und PostgreSQL, inkl. KI-generierter Affiliate E-Commerce Shops.\n\nAufbau und Deployment von Multi-Level KI-Agenten und Automatisierungs-Workflows mit OpenAI API und n8n für interne und kundenseitige Produkte.\n\nDurchführung von KI-Workshops (intern & extern) zu Prompt Engineering, KI-Agenten und Automation Best Practices."
+    },
+    "exp-2": {
+      "role": "CTO / Co-Founder",
+      "organization": "Stealth Startup",
+      "period": "Dez. 2025 – Heute",
+      "impact": "Aufbau eines vertrauenswürdigen Campus-Marktplatzes für Studierende – Full-Stack-Plattform mit User-Authentifizierung, Listings, Suche und Transaktionen.\n\nAlleinige Verantwortung für Softwareentwicklung, Datenbankdesign, Systemarchitektur und Deployment der produktiven Anwendung."
     },
     "exp-3": {
-      "role": "Co-Founder",
-      "organization": "Selbstständig",
-      "period": "Dez. 2025 – Heute",
-      "impact": "Gründung eines Startups mit Hauptverantwortung für die technische Umsetzung (Softwareentwicklung, Datenbanken, Netzwerke & Systemarchitektur)\n\nEntwicklung und Betrieb einer produktiven Full-Stack-Plattform, inkl. Backend, Datenmodellierung und Deployment\n\nAufbau und Pflege von Partnerschaften, inkl. Kommunikation mit Sponsoren sowie \nKontakt zu Institutionen und Organisationen"
+      "role": "Praktikant – E-Commerce & KI Automation",
+      "organization": "Position One GmbH",
+      "period": "Sept. 2025",
+      "impact": "Automatisierung von Produktimporten in Shopware 6 mit Delta-Checks, Reduzierung manueller Dateneingabe und Sicherstellung der Katalog-Konsistenz über 1.000+ SKUs.\n\nAufbau von Datenverarbeitungs-Pipelines mit OpenAI API und n8n für automatisierte Produktbeschreibungen und strukturiertes Logging."
     },
     "exp-4": {
       "role": "Tutor",
       "organization": "Technische Universität Hamburg",
-      "period": "Sept. 2025 – Heute",
-      "impact": "Ich unterstütze Erstsemester-Studenten in wöchentlichen Kursen für einen optimalen Studienstart.\n\nDurch Tipps, Workshops und persönliche Beratung helfe ich ihnen, sich an der Universität zurechtzufinden und erfolgreich zu studieren."
+      "period": "Okt. 2025 – Jan. 2026",
+      "impact": "Betreuung von 25+ Erstsemester-Informatikstudierenden in wöchentlichen Workshops zu Lernstrategien und Programmiergrundlagen."
     },
     "exp-5": {
       "role": "Content Creator",
-      "organization": "TikTok/Instagram",
+      "organization": "TikTok",
       "period": "Jul. 2023 – Heute",
-      "impact": "Aufbau einer Instagram Theme Page mit über 50.000 Followern und eines TikTok-Kanals mit über 20 Millionen Views, welche alle für das Creator Programm qualifiziert sind."
+      "impact": "Tech Creator auf TikTok mit über 50.000 Followern und 20 Mio.+ Views. Einnahmen über das TikTok Creator Program."
     }
   }
 }

@@ -1,5 +1,3 @@
-// TODO: Inhalt ergänzen – Erfahrungen/Jobs
-
 export interface Experience {
   id: string;
   role: string;
@@ -11,41 +9,47 @@ export interface Experience {
 export const experiences: Experience[] = [
   {
     id: "exp-1",
-    role: "Intern - Software Engineering",
+    role: "Werkstudent – KI Automation",
     organization: "Position One GmbH",
-    period: "Sept. 2025 – Okt. 2025",
-    impact: "Entwicklung einer KI-gestützten Applikation zur automatisierten Erstellung von Affiliate E-Commerce Shops.",
+    period: "Okt. 2025 – Heute",
+    impact: `Entwicklung von Full-Stack KI-Anwendungen mit React + TailwindCSS (Frontend), Python (Backend) und PostgreSQL, inkl. KI-generierter Affiliate E-Commerce Shops.
+
+Aufbau und Deployment von Multi-Level KI-Agenten und Automatisierungs-Workflows mit OpenAI API und n8n für interne und kundenseitige Produkte.
+
+Durchführung von KI-Workshops (intern & extern) zu Prompt Engineering, KI-Agenten und Automation Best Practices.`,
   },
   {
     id: "exp-2",
-    role: "Werkstudent - KI Automation und E-Commerce",
-    organization: "Position One GmbH",
-    period: "Okt. 2025 – Heute",
-    impact: `Ich erweitere ein Projekt aus meinem Praktikum zu einer vollständigen Full-Stack-Anwendung.
+    role: "CTO / Co-Founder",
+    organization: "Stealth Startup",
+    period: "Dez. 2025 – Heute",
+    impact: `Aufbau eines vertrauenswürdigen Campus-Marktplatzes für Studierende – Full-Stack-Plattform mit User-Authentifizierung, Listings, Suche und Transaktionen.
 
-Dabei entwickle ich API-Endpunkte, verbinde diese mit der Datenbank und gestalte das Frontend. Ziel ist es, das System stabiler, skalierbarer und nutzerfreundlicher zu machen.
-
-Zusätzlich unterstütze ich bei der Automatisierung von Unternehmensprozessen mithilfe von KI.`,
+Alleinige Verantwortung für Softwareentwicklung, Datenbankdesign, Systemarchitektur und Deployment der produktiven Anwendung.`,
   },
   {
     id: "exp-3",
-    role: "Co-Founder",
-    organization: "Selbstständig",
-    period: "Dez. 2025 – Heute",
-    impact: "Gründung eines Startups mit Hauptverantwortung für die technische Umsetzung (Softwareentwicklung, Datenbanken, Netzwerke & Systemarchitektur)\n\nEntwicklung und Betrieb einer produktiven Full-Stack-Plattform, inkl. Backend, Datenmodellierung und Deployment\n\nAufbau und Pflege von Partnerschaften, inkl. Kommunikation mit Sponsoren sowie \nKontakt zu Institutionen und Organisationen",
+    role: "Praktikant – E-Commerce & KI Automation",
+    organization: "Position One GmbH",
+    period: "Sept. 2025",
+    impact: `Automatisierung von Produktimporten in Shopware 6 mit Delta-Checks, Reduzierung manueller Dateneingabe und Sicherstellung der Katalog-Konsistenz über 1.000+ SKUs.
+
+Aufbau von Datenverarbeitungs-Pipelines mit OpenAI API und n8n für automatisierte Produktbeschreibungen und strukturiertes Logging.`,
   },
   {
     id: "exp-4",
     role: "Tutor",
     organization: "Technische Universität Hamburg",
-    period: "Sept. 2025 – Heute",
-    impact: "Ich unterstütze Erstsemester-Studenten in wöchentlichen Kursen für einen optimalen Studienstart.\n\nDurch Tipps, Workshops und persönliche Beratung helfe ich ihnen, sich an der Universität zurechtzufinden und erfolgreich zu studieren.",
+    period: "Okt. 2025 – Jan. 2026",
+    impact:
+      "Betreuung von 25+ Erstsemester-Informatikstudierenden in wöchentlichen Workshops zu Lernstrategien und Programmiergrundlagen.",
   },
   {
     id: "exp-5",
     role: "Content Creator",
-    organization: "TikTok/Instagram",
+    organization: "TikTok",
     period: "Jul. 2023 – Heute",
-    impact: "Aufbau einer Instagram Theme Page mit über 50.000 Followern und eines TikTok-Kanals mit über 20 Millionen Views, welche alle für das Creator Programm qualifiziert sind.",
-  }
+    impact:
+      "Tech Creator auf TikTok mit über 50.000 Followern und 20 Mio.+ Views. Einnahmen über das TikTok Creator Program.",
+  },
 ];

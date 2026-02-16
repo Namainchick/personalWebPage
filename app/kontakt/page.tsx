@@ -22,7 +22,7 @@ export default function KontaktPage() {
           <p className="text-gray-600 mb-6">
             {t.contact.email.description}
           </p>
-          <Button href="mailto:kontakt@namanh.dev">
+          <Button href="mailto:namanh.bui2005@gmail.com">
             {t.contact.email.cta}
           </Button>
         </Card>
@@ -35,7 +35,7 @@ export default function KontaktPage() {
               {t.contact.linkedin.description}
             </p>
             <a
-              href="https://linkedin.com/in/username"
+              href="https://www.linkedin.com/in/namanh-bui-vu-37b05a2a9/"
               target="_blank"
               rel="noopener noreferrer"
               className="animated-link text-teal-600 hover:text-teal-700 font-medium"
@@ -50,7 +50,7 @@ export default function KontaktPage() {
               {t.contact.github.description}
             </p>
             <a
-              href="https://github.com/username"
+              href="https://github.com/Namainchick"
               target="_blank"
               rel="noopener noreferrer"
               className="animated-link text-teal-600 hover:text-teal-700 font-medium"

@@ -57,7 +57,7 @@ export default function Home() {
               <div>
                 <p className="mb-3 text-gray-400 text-sm font-medium">{t.home.about.techStack}</p>
                 <div className="flex flex-wrap gap-2">
-                  {['JavaScript', 'React', 'Python', 'PostgreSQL', 'C++', 'Next.js', 'TypeScript', 'Node.js'].map((tech) => (
+                  {['TypeScript', 'React', 'Next.js', 'Python', 'FastAPI', 'PostgreSQL', 'Node.js', 'Docker', 'OpenAI API', 'Google Gemini'].map((tech) => (
                     <span
                       key={tech}
                       className="tech-tag px-3 py-1 text-xs font-mono bg-teal-50 text-teal-700 border border-teal-200 rounded-lg"

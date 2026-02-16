@@ -12,10 +12,10 @@
     },
     "about": {
       "heading": "/ about me",
-      "intro": "Hey! I'm Namanh, 20 years old and studying Computer Science at Hamburg University of Technology.",
-      "passion": "My passion lies in developing AI-powered applications and modern web technologies. I love solving complex problems and creating innovative solutions that provide real value.",
+      "intro": "Hey! I'm Namanh, 20 years old and studying Computer Science at Hamburg University of Technology. On the side, I work as a working student in AI automation and build a startup for students as CTO.",
+      "passion": "My passion lies in developing AI-powered applications and modern web technologies. I've won first place at three hackathons (Hamburg, Berlin, remote).",
       "techStack": "My Tech Stack:",
-      "hobbies": "Outside of work, I'm either doing calisthenics or playing in my band. Sometimes I also do things with the camera."
+      "hobbies": "Outside of work, I'm either doing calisthenics, playing in my band, or creating tech content on TikTok (50k+ followers)."
     },
     "experiences": {
       "heading": "/ experience",
@@ -36,7 +36,7 @@
     "title": "Projects – Namanh Bui Vu",
     "description": "A selection of my personal and professional projects.",
     "heading": "/Projects",
-    "intro": "A selection of my personal and professional projects – from small experiments to complete web apps.",
+    "intro": "A selection of my personal and professional projects – from hackathon winners to full production apps.",
     "viewDemo": "View demo",
     "viewCode": "Code on GitHub"
   },
@@ -68,44 +68,60 @@
   },
   "projectsData": {
     "proj-1": {
+      "title": "Dip – Give LLMs Eyes",
+      "description": "1st Place, Google DeepMind Gemini Track – Cursor AI Hackathon Hamburg (Feb 2026, 400+ participants). A tool that gives LLMs real-time visual context of the user's screen, eliminating the need to manually describe on-screen content."
+    },
+    "proj-2": {
+      "title": "Mindflayer – Semantic Social Media Filter",
+      "description": "1st Place Overall ($2,000 prize) – CodeRabbit × Windsurf Hackathon (Dec 2025, 110 participants). A Chrome extension using Gemini to semantically filter social media posts in real-time."
+    },
+    "proj-3": {
+      "title": "Airbn – AI Property Management",
+      "description": "1st Place Arbio Track, 3rd Overall – {Tech: Europe} Hackathon Berlin (Jan 2026). An AI-native property management platform with microservices architecture, voice-first guest support, and automated damage detection via OpenCV."
+    },
+    "proj-4": {
+      "title": "Hundewelt.space – AI Dog Blog",
+      "description": "Fully automated German dog blog with AI content pipeline. Next.js frontend with SSR, search, RSS, and admin dashboard. Python LangGraph pipeline for topic research, article generation, image generation, and automatic publishing."
+    },
+    "proj-5": {
       "title": "Video Journal Analyzer",
       "description": "A web app for analyzing video URLs with two modes: diary entry analysis (emotions and moods) and rhetoric coach (speaking style, articulation, improvement suggestions)."
     },
-    "proj-2": {
+    "proj-6": {
       "title": "Song Splitter",
       "description": "An audio tool for splitting songs into individual components such as drums, guitar, bass, vocals, and other instruments using AI-powered audio source separation."
     }
   },
   "experiencesData": {
     "exp-1": {
-      "role": "Intern - Software Engineering",
-      "organization": "Position One GmbH",
-      "period": "Sept. 2025 – Oct. 2025",
-      "impact": "Development of an AI-powered application for automated creation of affiliate e-commerce shops."
-    },
-    "exp-2": {
-      "role": "Working Student - AI Automation and E-Commerce",
+      "role": "Working Student – AI Automation",
       "organization": "Position One GmbH",
       "period": "Oct. 2025 – Present",
-      "impact": "I'm expanding a project from my internship into a complete full-stack application.\n\nI develop API endpoints, connect them to the database, and design the frontend. The goal is to make the system more stable, scalable, and user-friendly.\n\nAdditionally, I support the automation of business processes using AI."
+      "impact": "Develop full-stack AI-powered applications using React + TailwindCSS (frontend), Python (backend), and PostgreSQL, including AI-generated affiliate e-commerce stores.\n\nBuild and deploy multi-level AI agents and automation workflows using OpenAI API and n8n for internal and client-facing products.\n\nConduct AI workshops (internal & external) on prompt engineering, AI agents, and automation best practices."
+    },
+    "exp-2": {
+      "role": "CTO / Co-Founder",
+      "organization": "Stealth Startup",
+      "period": "Dec. 2025 – Present",
+      "impact": "Building a trusted campus marketplace for students – full-stack platform handling user authentication, listings, search, and transactions.\n\nSole responsibility for software development, database design, system architecture, and deployment of the production application."
     },
     "exp-3": {
-      "role": "Co-Founder",
-      "organization": "Self-Employed",
-      "period": "Dec. 2025 – Present",
-      "impact": "Co-founding a startup with primary responsibility for technical implementation (software development, databases, networks & system architecture)\n\nDevelopment and operation of a production full-stack platform, including backend, data modeling, and deployment\n\nBuilding and maintaining partnerships, including communication with sponsors and contact with institutions and organizations"
+      "role": "Intern – E-Commerce & AI Automation",
+      "organization": "Position One GmbH",
+      "period": "Sep. 2025",
+      "impact": "Automated product imports into Shopware 6 with delta checks, reducing manual data entry and ensuring catalog consistency across 1,000+ SKUs.\n\nBuilt data processing pipelines using OpenAI API and n8n for automated product description generation and structured logging."
     },
     "exp-4": {
       "role": "Tutor",
       "organization": "Hamburg University of Technology",
-      "period": "Sept. 2025 – Present",
-      "impact": "I support first-semester students in weekly courses for an optimal start to their studies.\n\nThrough tips, workshops, and personal advice, I help them navigate the university and study successfully."
+      "period": "Oct. 2025 – Jan. 2026",
+      "impact": "Mentored 25+ first-semester CS students through weekly workshops on learning strategies and programming fundamentals."
     },
     "exp-5": {
       "role": "Content Creator",
-      "organization": "TikTok/Instagram",
+      "organization": "TikTok",
       "period": "Jul. 2023 – Present",
-      "impact": "Built an Instagram theme page with over 50,000 followers and a TikTok channel with over 20 million views, all qualified for the Creator Program."
+      "impact": "Tech creator on TikTok with 50,000+ followers and 20M+ views. Revenue via TikTok Creator Program."
     }
   }
 }
