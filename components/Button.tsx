@@ -17,13 +17,13 @@ export default function Button({
   external = false,
 }: ButtonProps) {
   const baseStyles =
-    "inline-flex items-center justify-center px-6 py-3 rounded-xl font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4f46e5] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]";
+    "inline-flex items-center justify-center px-6 py-3 rounded-xl font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus-visible:ring-offset-2 focus-visible:ring-offset-[#FAFAF8]";
 
   const variants = {
     primary:
-      "glass-button text-white active:scale-[0.98]",
+      "bg-teal-600 text-white hover:bg-teal-700 shadow-[0_4px_14px_rgba(13,148,136,0.3)] hover:shadow-[0_6px_20px_rgba(13,148,136,0.4)] active:scale-[0.98]",
     secondary:
-      "border border-white/10 bg-white/[0.03] backdrop-blur-sm text-gray-200 hover:border-white/20 hover:bg-white/[0.08] active:scale-[0.98] shadow-lg",
+      "border border-gray-200 bg-white text-gray-700 hover:border-teal-300 hover:text-teal-600 active:scale-[0.98] shadow-sm",
   };
 
   const combinedClassName = `${baseStyles} ${variants[variant]} ${className}`;
