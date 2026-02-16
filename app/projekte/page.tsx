@@ -3,69 +3,76 @@
 import Card from "@/components/Card";
 import SectionHeading from "@/components/SectionHeading";
 import ProjectLink from "@/components/ProjectLink";
-import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useTranslatedProjects } from "@/hooks/useTranslatedData";
+
+type CardVariant = "white" | "teal" | "coral" | "light-teal" | "light-coral" | "gradient";
+
+const projectLayout: Record<string, { variant: CardVariant; span: string }> = {
+  "proj-1": { variant: "teal", span: "col-span-1" },
+  "proj-2": { variant: "white", span: "col-span-1" },
+  "proj-3": { variant: "coral", span: "col-span-2" },
+  "proj-4": { variant: "white", span: "col-span-2" },
+  "proj-5": { variant: "white", span: "col-span-1" },
+  "proj-6": { variant: "white", span: "col-span-1" },
+};
 
 export default function ProjektePage() {
   const { t } = useLanguage();
   const projects = useTranslatedProjects();
+
   return (
-    <div className="mx-auto max-w-[1200px] px-6 md:px-8 lg:px-12 py-20">
+    <div className="mx-auto max-w-[1200px] px-4 md:px-6 lg:px-8 py-12">
       <SectionHeading>{t.projects.heading}</SectionHeading>
+      <p className="text-gray-500 text-lg mb-8 max-w-2xl">{t.projects.intro}</p>
 
-      <p className="text-gray-500 text-lg mb-12 max-w-2xl">
-        {t.projects.intro}
-      </p>
+      <div className="bento-grid">
+        {projects.map((project) => {
+          const layout = projectLayout[project.id] || { variant: "white" as CardVariant, span: "col-span-1" };
+          const isColored = layout.variant === "teal" || layout.variant === "coral";
 
-      {/* Projekt-Grid */}
-      <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-        {projects.map((project) => (
-          <Card key={project.id} hoverable className="flex flex-col">
-            {/* Optional: Bild */}
-            {project.imageUrl && (
-              <div className="relative w-full h-48 mb-6 -mt-2 -mx-2 rounded-t-2xl overflow-hidden bg-gray-100">
-                <Image
-                  src={project.imageUrl}
-                  alt={project.title}
-                  fill
-                  className="object-cover"
-                />
+          return (
+            <Card
+              key={project.id}
+              variant={layout.variant}
+              hoverable
+              className={`${layout.span} flex flex-col`}
+            >
+              <h3 className={`text-xl font-semibold mb-2 ${isColored ? "" : "text-gray-900"}`}>
+                {project.title}
+              </h3>
+              <p className={`text-sm mb-4 leading-relaxed flex-grow line-clamp-3 ${isColored ? "text-white/80" : "text-gray-600"}`}>
+                {project.description}
+              </p>
+              <div className="flex flex-wrap gap-1.5 mb-4">
+                {project.techStack.map((tech) => (
+                  <span
+                    key={tech}
+                    className={`px-2 py-0.5 text-xs font-mono rounded-full ${
+                      isColored
+                        ? "bg-white/20 text-white"
+                        : "bg-teal-50 text-teal-700"
+                    }`}
+                  >
+                    {tech}
+                  </span>
+                ))}
               </div>
-            )}
-
-            <h3 className="text-xl md:text-2xl font-semibold mb-3 text-gray-900">{project.title}</h3>
-            <p className="text-gray-600 mb-4 leading-relaxed flex-grow">
-              {project.description}
-            </p>
-
-            {/* Tech Stack */}
-            <div className="flex flex-wrap gap-2 mb-4">
-              {project.techStack.map((tech) => (
-                <span
-                  key={tech}
-                  className="tech-tag px-3 py-1 text-xs font-mono bg-teal-50 text-teal-700 border border-teal-200 rounded-lg"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-
-            {/* Links */}
-            <div className="flex gap-4 text-sm font-medium">
-              {project.demoUrl && (
-                <ProjectLink href={project.demoUrl} variant="primary">
-                  {t.projects.viewDemo}
-                </ProjectLink>
-              )}
-              {project.repoUrl && (
-                <ProjectLink href={project.repoUrl} variant="secondary">
-                  {t.projects.viewCode}
-                </ProjectLink>
-              )}
-            </div>
-          </Card>
-        ))}
+              <div className="flex gap-4 text-sm font-medium">
+                {project.demoUrl && (
+                  <ProjectLink href={project.demoUrl} variant={isColored ? "light" : "primary"}>
+                    {t.projects.viewDemo}
+                  </ProjectLink>
+                )}
+                {project.repoUrl && (
+                  <ProjectLink href={project.repoUrl} variant={isColored ? "light" : "secondary"}>
+                    {t.projects.viewCode}
+                  </ProjectLink>
+                )}
+              </div>
+            </Card>
+          );
+        })}
       </div>
     </div>
   );
