@@ -2,16 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Light Theme */
+/* Warm Bento Theme */
 :root {
-  --background: #FAFAF8;
-  --foreground: #1A1A1A;
-  --accent: #0D9488;
-  --accent-light: #CCFBF1;
-  --accent-dark: #0F766E;
+  --bg: #F5F0EB;
+  --text: #1A1A1A;
+  --text-muted: #6B7280;
+  --teal: #0D9488;
+  --teal-light: #CCFBF1;
+  --teal-dark: #0F766E;
+  --coral: #F97316;
+  --coral-light: #FFF7ED;
+  --coral-dark: #EA580C;
+  --card-white: #FFFFFF;
   --border: #E5E7EB;
-  --card-bg: #FFFFFF;
-  --card-shadow: rgba(0, 0, 0, 0.06);
 }
 
 * {
@@ -25,14 +28,70 @@ html {
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--bg);
+  color: var(--text);
   font-family: var(--font-inter), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Tech Stack Tags */
+/* Bento Grid */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 1024px) {
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Span utilities */
+.col-span-1 { grid-column: span 1; }
+.col-span-2 { grid-column: span 2; }
+.col-span-3 { grid-column: span 3; }
+.col-span-4 { grid-column: span 4; }
+.row-span-2 { grid-row: span 2; }
+
+@media (max-width: 1024px) {
+  .col-span-3 { grid-column: span 2; }
+  .col-span-4 { grid-column: span 2; }
+}
+
+@media (max-width: 640px) {
+  .col-span-2,
+  .col-span-3,
+  .col-span-4 {
+    grid-column: span 1;
+  }
+  .row-span-2 {
+    grid-row: span 1;
+  }
+}
+
+/* Tech Tags on colored cards */
+.tech-pill {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: transform 200ms ease;
+}
+
+.tech-pill:hover {
+  transform: translateY(-1px);
+}
+
+/* Tech Tags on white cards */
 .tech-tag {
   transition: all 200ms ease;
 }
@@ -43,22 +102,18 @@ body {
   transform: translateY(-1px);
 }
 
-/* Blinkender Punkt */
+/* Blinking dot */
 .blinking-dot {
   animation: blink 1.5s ease-in-out infinite;
-  color: #0D9488;
+  color: var(--coral);
 }
 
 @keyframes blink {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.3;
-  }
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
 }
 
-/* prefers-reduced-motion respektieren */
+/* prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -70,9 +125,9 @@ body {
   }
 }
 
-/* Fokus-Ringe */
+/* Focus rings */
 :focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--teal);
   outline-offset: 2px;
 }
 
@@ -83,7 +138,7 @@ a {
   transition: color 150ms ease;
 }
 
-/* Animierte Link-Underlines */
+/* Animated link underlines */
 .animated-link {
   position: relative;
   display: inline-block;
