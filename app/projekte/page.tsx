@@ -14,7 +14,7 @@ export default function ProjektePage() {
     <div className="mx-auto max-w-[1200px] px-6 md:px-8 lg:px-12 py-20">
       <SectionHeading>{t.projects.heading}</SectionHeading>
 
-      <p className="text-gray-300 text-lg mb-12 max-w-2xl">
+      <p className="text-gray-500 text-lg mb-12 max-w-2xl">
         {t.projects.intro}
       </p>
 
@@ -22,9 +22,9 @@ export default function ProjektePage() {
       <div className="grid md:grid-cols-2 gap-6 md:gap-8">
         {projects.map((project) => (
           <Card key={project.id} hoverable className="flex flex-col">
-            {/* Optional: Bild-Platzhalter */}
+            {/* Optional: Bild */}
             {project.imageUrl && (
-              <div className="relative w-full h-48 mb-6 -mt-2 -mx-2 rounded-t-2xl overflow-hidden bg-white/5">
+              <div className="relative w-full h-48 mb-6 -mt-2 -mx-2 rounded-t-2xl overflow-hidden bg-gray-100">
                 <Image
                   src={project.imageUrl}
                   alt={project.title}
@@ -34,8 +34,8 @@ export default function ProjektePage() {
               </div>
             )}
 
-            <h3 className="text-xl md:text-2xl font-semibold mb-3">{project.title}</h3>
-            <p className="text-gray-300 mb-4 leading-relaxed flex-grow">
+            <h3 className="text-xl md:text-2xl font-semibold mb-3 text-gray-900">{project.title}</h3>
+            <p className="text-gray-600 mb-4 leading-relaxed flex-grow">
               {project.description}
             </p>
 
@@ -44,7 +44,7 @@ export default function ProjektePage() {
               {project.techStack.map((tech) => (
                 <span
                   key={tech}
-                  className="tech-tag px-3 py-1 text-xs font-mono bg-white/[0.03] border border-white/10 rounded-lg"
+                  className="tech-tag px-3 py-1 text-xs font-mono bg-teal-50 text-teal-700 border border-teal-200 rounded-lg"
                 >
                   {tech}
                 </span>
