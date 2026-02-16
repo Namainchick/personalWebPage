@@ -8,14 +8,10 @@ export const metadata: Metadata = {
 
 export default function ImpressumPage() {
   return (
-    <div className="mx-auto max-w-[1200px] px-6 md:px-8 lg:px-12 py-20">
+    <div className="mx-auto max-w-[1200px] px-4 md:px-6 lg:px-8 py-12">
       <SectionHeading>Impressum</SectionHeading>
 
-      <div className="max-w-2xl prose prose-gray">
-        <p className="text-gray-500 mb-8">
-          {/* TODO: Inhalt ergänzen – Rechtliche Pflichtangaben nach §5 TMG */}
-        </p>
-
+      <div className="max-w-2xl bg-white rounded-2xl border border-gray-200 shadow-sm p-6 md:p-8">
         <div className="text-gray-600 leading-relaxed space-y-4">
           <div>
             <h3 className="text-xl font-semibold text-gray-900 mb-2">Angaben gemäß § 5 TMG</h3>
@@ -30,9 +26,7 @@ export default function ImpressumPage() {
 
           <div>
             <h3 className="text-xl font-semibold text-gray-900 mb-2">Kontakt</h3>
-            <p>
-              E-Mail: kontakt@namanh.dev
-            </p>
+            <p>E-Mail: kontakt@namanh.dev</p>
           </div>
 
           <div>
