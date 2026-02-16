@@ -12,7 +12,7 @@ export default function ErfahrungenPage() {
     <div className="mx-auto max-w-[1200px] px-6 md:px-8 lg:px-12 py-20">
       <SectionHeading>{t.experiences.heading}</SectionHeading>
 
-      <p className="text-gray-300 text-lg mb-12 max-w-2xl">
+      <p className="text-gray-500 text-lg mb-12 max-w-2xl">
         {t.experiences.intro}
       </p>
 
@@ -22,20 +22,15 @@ export default function ErfahrungenPage() {
           <Card key={exp.id} hoverable>
             <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
               <div>
-                <h3 className="text-xl md:text-2xl font-semibold mb-1">{exp.role}</h3>
-                <p className="text-gray-400 text-lg">{exp.organization}</p>
+                <h3 className="text-xl md:text-2xl font-semibold mb-1 text-gray-900">{exp.role}</h3>
+                <p className="text-gray-500 text-lg">{exp.organization}</p>
               </div>
-              <span className="text-sm text-gray-500 font-mono md:text-right whitespace-nowrap">
+              <span className="text-sm text-gray-400 font-mono md:text-right whitespace-nowrap">
                 {exp.period}
               </span>
             </div>
-            <div 
-              className="border-l-2 border-[#4f46e5] pl-4"
-              style={{
-                boxShadow: '-2px 0 15px rgba(79, 70, 229, 0.2)'
-              }}
-            >
-              <p className="text-gray-300 leading-relaxed whitespace-pre-line">{exp.impact}</p>
+            <div className="border-l-2 border-teal-500 pl-4">
+              <p className="text-gray-600 leading-relaxed whitespace-pre-line">{exp.impact}</p>
             </div>
           </Card>
         ))}
