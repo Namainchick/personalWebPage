@@ -10,6 +10,15 @@
       "tagline": "Computer Science Student, der Sachen mit KI baut",
       "cta": "Schreib mir"
     },
+    "hackathon": {
+      "title": "3x 1. Platz",
+      "events": "Cursor AI Hamburg · CodeRabbit Hackathon · {Tech: Europe} Berlin"
+    },
+    "location": "TUHH, Hamburg",
+    "tiktok": {
+      "title": "50k+ Follower",
+      "subtitle": "20 Mio.+ Views auf TikTok"
+    },
     "about": {
       "heading": "/ über mich",
       "intro": "Moin! Ich bin Namanh, 20 Jahre alt und studiere Computer Science an der Technischen Universität Hamburg. Nebenbei arbeite ich als Werkstudent im Bereich KI-Automation und baue als CTO ein Startup für Studierende.",
@@ -24,6 +33,10 @@
     "projects": {
       "heading": "/ projekte",
       "viewAll": "Alle Projekte ansehen"
+    },
+    "cta": {
+      "projects": "Alle Projekte",
+      "experiences": "Alle Erfahrungen"
     }
   },
   "experiences": {

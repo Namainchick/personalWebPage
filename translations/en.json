@@ -10,6 +10,15 @@
       "tagline": "Computer Science Student building things with AI",
       "cta": "Get in touch"
     },
+    "hackathon": {
+      "title": "3x 1st Place",
+      "events": "Cursor AI Hamburg · CodeRabbit Hackathon · {Tech: Europe} Berlin"
+    },
+    "location": "TUHH, Hamburg",
+    "tiktok": {
+      "title": "50k+ Followers",
+      "subtitle": "20M+ Views on TikTok"
+    },
     "about": {
       "heading": "/ about me",
       "intro": "Hey! I'm Namanh, 20 years old and studying Computer Science at Hamburg University of Technology. On the side, I work as a working student in AI automation and build a startup for students as CTO.",
@@ -24,6 +33,10 @@
     "projects": {
       "heading": "/ projects",
       "viewAll": "View all projects"
+    },
+    "cta": {
+      "projects": "All Projects",
+      "experiences": "All Experience"
     }
   },
   "experiences": {
