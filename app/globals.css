@@ -77,6 +77,162 @@ body {
   }
 }
 
+/* ============================================
+   CREATIVE CARD EFFECTS
+   ============================================ */
+
+/* Dot grid pattern overlay (for dark/colored cards) */
+.card-dots {
+  position: relative;
+  overflow: hidden;
+}
+.card-dots::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.12) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* Dot grid for light cards */
+.card-dots-dark {
+  position: relative;
+  overflow: hidden;
+}
+.card-dots-dark::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(0,0,0,0.06) 1px, transparent 1px);
+  background-size: 20px 20px;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* Diagonal lines pattern */
+.card-lines {
+  position: relative;
+  overflow: hidden;
+}
+.card-lines::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 8px,
+    rgba(255,255,255,0.05) 8px,
+    rgba(255,255,255,0.05) 9px
+  );
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* Radial spotlight glow */
+.card-spotlight {
+  position: relative;
+  overflow: hidden;
+}
+.card-spotlight::after {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -40%;
+  width: 90%;
+  height: 90%;
+  background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* Gradient text */
+.text-gradient {
+  background: linear-gradient(135deg, var(--teal-dark), var(--coral));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Hover glow effect */
+.hover-glow {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.hover-glow:hover {
+  box-shadow: 0 0 30px rgba(13, 148, 136, 0.2), 0 8px 32px rgba(0,0,0,0.08);
+}
+
+/* Coral hover glow */
+.hover-glow-coral {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.hover-glow-coral:hover {
+  box-shadow: 0 0 30px rgba(249, 115, 22, 0.2), 0 8px 32px rgba(0,0,0,0.08);
+}
+
+/* Shimmer sweep animation */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+.card-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.card-shimmer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255,255,255,0.08) 50%,
+    transparent 100%
+  );
+  animation: shimmer 4s ease-in-out infinite;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* Pulsing ring animation */
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+/* Concentric rings decoration */
+.rings-decoration {
+  position: relative;
+  overflow: hidden;
+}
+.rings-decoration::before {
+  content: '';
+  position: absolute;
+  bottom: -30px;
+  right: -30px;
+  width: 120px;
+  height: 120px;
+  border: 2px solid rgba(255,255,255,0.15);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.rings-decoration::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  width: 80px;
+  height: 80px;
+  border: 2px solid rgba(255,255,255,0.1);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* ============================================
+   TECH TAGS
+   ============================================ */
+
 /* Tech Tags on colored cards */
 .tech-pill {
   display: inline-block;
