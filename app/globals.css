@@ -2,13 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Dark-only Theme */
+/* Light Theme */
 :root {
-  --background: #0a0a0a;
-  --foreground: #fafafa;
-  --accent: #4f46e5;
-  --border: #1f1f1f;
-  --card-shadow: rgba(0, 0, 0, 0.3);
+  --background: #FAFAF8;
+  --foreground: #1A1A1A;
+  --accent: #0D9488;
+  --accent-light: #CCFBF1;
+  --accent-dark: #0F766E;
+  --border: #E5E7EB;
+  --card-bg: #FFFFFF;
+  --card-shadow: rgba(0, 0, 0, 0.06);
 }
 
 * {
@@ -29,45 +32,29 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Verbesserte Glassmorphism-Unterstützung */
-@supports (backdrop-filter: blur(12px)) or (-webkit-backdrop-filter: blur(12px)) {
-  .glass-card {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-  }
-}
-
-/* Tech Stack Tags mit Glow */
+/* Tech Stack Tags */
 .tech-tag {
-  box-shadow: 0 0 10px rgba(79, 70, 229, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.05);
   transition: all 200ms ease;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
 }
 
 .tech-tag:hover {
-  box-shadow: 0 0 25px rgba(79, 70, 229, 0.4), 0 0 50px rgba(79, 70, 229, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  border-color: rgba(79, 70, 229, 0.5);
-  background: rgba(79, 70, 229, 0.1);
+  background: #99F6E4;
+  border-color: #5EEAD4;
   transform: translateY(-1px);
 }
 
 /* Blinkender Punkt */
 .blinking-dot {
   animation: blink 1.5s ease-in-out infinite;
-  color: #4f46e5;
-  text-shadow: 0 0 20px rgba(79, 70, 229, 0.8);
+  color: #0D9488;
 }
 
 @keyframes blink {
-  0%, 100% { 
+  0%, 100% {
     opacity: 1;
-    text-shadow: 0 0 20px rgba(79, 70, 229, 0.8), 0 0 40px rgba(79, 70, 229, 0.4);
   }
-  50% { 
+  50% {
     opacity: 0.3;
-    text-shadow: 0 0 5px rgba(79, 70, 229, 0.3);
   }
 }
 
@@ -87,7 +74,6 @@ body {
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
-  box-shadow: 0 0 20px rgba(79, 70, 229, 0.4);
 }
 
 /* Link Styles */
@@ -97,7 +83,7 @@ a {
   transition: color 150ms ease;
 }
 
-/* Animierte Link-Underlines mit Glow */
+/* Animierte Link-Underlines */
 .animated-link {
   position: relative;
   display: inline-block;
@@ -113,7 +99,6 @@ a {
   width: 100%;
   height: 1px;
   background: currentColor;
-  box-shadow: 0 0 8px currentColor;
   transform-origin: right;
   transform: scaleX(0);
   transition: transform 180ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -123,57 +108,4 @@ a {
 .animated-link:focus-visible::after {
   transform: scaleX(1);
   transform-origin: left;
-}
-
-.animated-link:hover {
-  text-shadow: 0 0 20px currentColor;
-}
-
-/* Vertikale Hairline (links, fixiert) mit Glow */
-.hairline-gradient {
-  position: fixed;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(79, 70, 229, 0.3) 20%,
-    rgba(79, 70, 229, 0.2) 50%,
-    rgba(79, 70, 229, 0.3) 80%,
-    transparent 100%
-  );
-  box-shadow: 0 0 20px rgba(79, 70, 229, 0.3);
-  pointer-events: none;
-  z-index: 50;
-}
-
-@media (max-width: 768px) {
-  .hairline-gradient {
-    display: none;
-  }
-}
-
-/* Glassmorphism Button Style mit Glow */
-.glass-button {
-  background: rgba(79, 70, 229, 0.1);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(79, 70, 229, 0.3);
-  box-shadow: 
-    0 4px 24px rgba(79, 70, 229, 0.2),
-    0 0 40px rgba(79, 70, 229, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.glass-button:hover {
-  background: rgba(79, 70, 229, 0.2);
-  border-color: rgba(79, 70, 229, 0.5);
-  box-shadow: 
-    0 8px 32px rgba(79, 70, 229, 0.35),
-    0 0 60px rgba(79, 70, 229, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15);
-  transform: translateY(-2px);
 }
