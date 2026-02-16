@@ -62,9 +62,6 @@ export default function RootLayout({
     <html lang="de" className={`${inter.variable} ${jetbrainsMono.variable}`}>
       <body className="antialiased">
         <LanguageProvider>
-          {/* Hairline Gradient */}
-          <div className="hairline-gradient" aria-hidden="true" />
-
           <Nav />
           <main className="min-h-screen">{children}</main>
           <Footer />
