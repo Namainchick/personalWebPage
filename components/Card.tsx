@@ -2,25 +2,37 @@
 
 import { ReactNode } from "react";
 
+type CardVariant = "white" | "teal" | "coral" | "light-teal" | "light-coral" | "gradient";
+
 interface CardProps {
   children: ReactNode;
   className?: string;
+  variant?: CardVariant;
   hoverable?: boolean;
 }
 
-export default function Card({ children, className = "", hoverable = false }: CardProps) {
+const variantStyles: Record<CardVariant, string> = {
+  white: "bg-white border border-gray-200 shadow-sm text-gray-900",
+  teal: "bg-teal-600 text-white",
+  coral: "bg-orange-500 text-white",
+  "light-teal": "bg-teal-50 text-gray-900",
+  "light-coral": "bg-orange-50 text-gray-900",
+  gradient: "bg-gradient-to-br from-teal-500 to-orange-500 text-white",
+};
+
+export default function Card({
+  children,
+  className = "",
+  variant = "white",
+  hoverable = false,
+}: CardProps) {
   const hoverStyles = hoverable
-    ? "hover:border-teal-300 hover:shadow-[0_4px_12px_rgba(0,0,0,0.06),0_12px_40px_rgba(0,0,0,0.1)] hover:-translate-y-0.5 transition-all duration-200 cursor-pointer"
+    ? "hover:-translate-y-1 hover:shadow-lg transition-all duration-200 cursor-pointer"
     : "";
 
   return (
     <article
-      className={`
-        rounded-2xl border border-gray-200 bg-white p-6 md:p-8
-        shadow-[0_1px_3px_rgba(0,0,0,0.04),0_6px_24px_rgba(0,0,0,0.06)]
-        ${hoverStyles}
-        ${className}
-      `}
+      className={`rounded-2xl p-6 ${variantStyles[variant]} ${hoverStyles} ${className}`}
       tabIndex={hoverable ? 0 : undefined}
     >
       {children}
