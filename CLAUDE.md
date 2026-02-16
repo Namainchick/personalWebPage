@@ -41,11 +41,15 @@ When adding new content: add the base entry in `data/`, then add translated stri
 
 ### Styling
 
-- Light theme: background `#FAFAF8` (warm off-white), text `#1A1A1A`, accent `#0D9488` (teal)
-- Layered soft shadows on cards (no glassmorphism)
+- Warm Bento theme: background `#F5F0EB` (warm beige), teal `#0D9488` + coral/orange `#F97316` dual-accent
+- Bento-Grid layout system: 4-column desktop, 2-column tablet, 1-column mobile (CSS Grid)
+- Card component with 6 variants: white, teal, coral, light-teal, light-coral, gradient
+- Cards span 1-4 columns via `.col-span-N` utility classes
 - Custom colors defined in `tailwind.config.ts`
 - Fonts: Inter (sans) and JetBrains Mono (mono) via `next/font`
-- Global animations in `app/globals.css`
+- Global animations and bento grid utilities in `app/globals.css`
+- Footer: dark teal (`bg-teal-900`)
+- Nav: pill-style active links on beige/80 backdrop-blur
 
 ### Key Patterns
 
