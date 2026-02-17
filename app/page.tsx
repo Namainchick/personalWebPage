@@ -19,7 +19,7 @@ export default function Home() {
     <div className="mx-auto max-w-[1200px] px-4 md:px-6 lg:px-8 py-8 md:py-12">
       <div className="bento-grid">
 
-        {/* ═══ ROW 1-2: Hero (2×2) + About + Hackathon ═══ */}
+        {/* ═══ ROW 1-2: Hero (2×2) + Location + TikTok / Tech Stack ═══ */}
 
         {/* HERO — gradient + dot grid pattern overlay */}
         <Card variant="gradient" className="card-dots col-span-2 row-span-2 flex flex-col justify-center min-h-[280px]">
@@ -29,55 +29,6 @@ export default function Home() {
           </h1>
           <p className="mt-4 text-lg text-white/80 relative z-10">
             {t.home.hero.tagline}
-          </p>
-        </Card>
-
-        {/* ABOUT — light-teal with subtle dark dot grid texture */}
-        <Card variant="light-teal" className="card-dots-dark col-span-1 flex flex-col justify-center">
-          <p className="text-teal-900 leading-relaxed text-sm relative z-10">
-            {t.home.about.intro}
-          </p>
-        </Card>
-
-        {/* HACKATHON — coral with spotlight glow + oversized background number */}
-        <Card variant="coral" className="card-spotlight col-span-1 flex flex-col justify-center relative overflow-hidden">
-          {/* Watermark number */}
-          <span className="absolute -right-2 -bottom-4 text-[7rem] font-black text-white/10 leading-none select-none pointer-events-none" aria-hidden="true">
-            3×
-          </span>
-          <p className="text-4xl font-black mb-2 relative z-10">{t.home.hackathon.title}</p>
-          <p className="text-white/80 text-sm leading-relaxed relative z-10">
-            {t.home.hackathon.events}
-          </p>
-        </Card>
-
-        {/* ═══ ROW 2 (cols 3-4): Tech Stack ═══ */}
-
-        {/* TECH STACK — teal + diagonal lines pattern + glass pills */}
-        <Card variant="teal" className="card-lines col-span-2">
-          <p className="text-sm font-medium text-teal-100 mb-3 relative z-10">{t.home.about.techStack}</p>
-          <div className="flex flex-wrap gap-2 relative z-10">
-            {techStack.map((tech) => (
-              <span
-                key={tech}
-                className="tech-pill bg-white/20 text-white backdrop-blur-sm border border-white/10"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-        </Card>
-
-        {/* ═══ ROW 3: Mission + Location + TikTok (2+1+1=4) ═══ */}
-
-        {/* MISSION — light-coral with gradient text quote */}
-        <Card variant="light-coral" className="col-span-2 flex items-center relative overflow-hidden">
-          {/* Decorative quote mark */}
-          <span className="absolute top-2 left-4 text-[5rem] font-serif text-orange-200/50 leading-none select-none pointer-events-none" aria-hidden="true">
-            &ldquo;
-          </span>
-          <p className="text-2xl md:text-3xl font-black leading-snug relative z-10">
-            <span className="text-gradient">{t.home.mission}</span>
           </p>
         </Card>
 
@@ -96,19 +47,51 @@ export default function Home() {
           <p className="text-white/80 text-sm mt-1 relative z-10">{t.home.tiktok.subtitle}</p>
         </Card>
 
-        {/* ═══ ROW 4: 2 Featured Projects (2+2=4) ═══ */}
+        {/* TECH STACK — teal + diagonal lines pattern + glass pills */}
+        <Card variant="teal" className="card-lines col-span-2">
+          <p className="text-sm font-medium text-teal-100 mb-3 relative z-10">{t.home.about.techStack}</p>
+          <div className="flex flex-wrap gap-2 relative z-10">
+            {techStack.map((tech) => (
+              <span
+                key={tech}
+                className="tech-pill bg-white/20 text-white backdrop-blur-sm border border-white/10"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        </Card>
+
+        {/* ═══ ROW 3-4: About (1×2) + Hackathon + Project / Mission ═══ */}
+
+        {/* ABOUT — light-teal, spans 2 rows so intro text fits */}
+        <Card variant="light-teal" className="card-dots-dark col-span-1 row-span-2 flex flex-col justify-center">
+          <p className="text-teal-900 leading-relaxed text-sm relative z-10">
+            {t.home.about.intro}
+          </p>
+        </Card>
+
+        {/* HACKATHON — coral with spotlight glow + oversized background number */}
+        <Card variant="coral" className="card-spotlight col-span-2 flex flex-col justify-center relative overflow-hidden">
+          <span className="absolute -right-2 -bottom-4 text-[7rem] font-black text-white/10 leading-none select-none pointer-events-none" aria-hidden="true">
+            3×
+          </span>
+          <p className="text-4xl font-black mb-2 relative z-10">{t.home.hackathon.title}</p>
+          <p className="text-white/80 text-sm leading-relaxed relative z-10">
+            {t.home.hackathon.events}
+          </p>
+        </Card>
 
         {/* PROJECT DIP — teal + shimmer + hover glow */}
         {projects.slice(0, 1).map((project) => (
-          <Card key={project.id} variant="teal" hoverable className="card-shimmer hover-glow col-span-2">
+          <Card key={project.id} variant="teal" hoverable className="card-shimmer hover-glow col-span-1">
             <p className="text-xs font-mono text-teal-200 mb-2 uppercase tracking-widest relative z-10">
               🏆 Hackathon Winner
             </p>
-            <h3 className="text-xl font-bold mb-2 relative z-10">{project.title}</h3>
-            <p className="text-white/70 text-sm mb-3 line-clamp-2 relative z-10">{project.description}</p>
-            <div className="flex flex-wrap gap-1.5 relative z-10">
-              {project.techStack.map((tech) => (
-                <span key={tech} className="px-2.5 py-0.5 text-xs font-mono rounded-full bg-white/15 text-white border border-white/10">
+            <h3 className="text-lg font-bold mb-1 relative z-10">{project.title}</h3>
+            <div className="flex flex-wrap gap-1 relative z-10">
+              {project.techStack.slice(0, 4).map((tech) => (
+                <span key={tech} className="px-2 py-0.5 text-xs font-mono rounded-full bg-white/15 text-white border border-white/10">
                   {tech}
                 </span>
               ))}
@@ -116,28 +99,20 @@ export default function Home() {
           </Card>
         ))}
 
-        {/* PROJECT MINDFLAYER — white + dot grid bg + hover glow */}
-        {projects.slice(1, 2).map((project) => (
-          <Card key={project.id} variant="white" hoverable className="card-dots-dark hover-glow col-span-2">
-            <p className="text-xs font-mono text-orange-500 mb-2 uppercase tracking-widest relative z-10">
-              🏆 Hackathon Winner
-            </p>
-            <h3 className="text-xl font-bold text-gray-900 mb-2 relative z-10">{project.title}</h3>
-            <p className="text-gray-600 text-sm mb-3 line-clamp-2 relative z-10">{project.description}</p>
-            <div className="flex flex-wrap gap-1.5 relative z-10">
-              {project.techStack.map((tech) => (
-                <span key={tech} className="px-2.5 py-0.5 text-xs font-mono rounded-full bg-teal-50 text-teal-700 border border-teal-200">
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </Card>
-        ))}
+        {/* MISSION — light-coral with gradient text quote, wide */}
+        <Card variant="light-coral" className="col-span-3 flex items-center relative overflow-hidden">
+          <span className="absolute top-2 left-4 text-[5rem] font-serif text-orange-200/50 leading-none select-none pointer-events-none" aria-hidden="true">
+            &ldquo;
+          </span>
+          <p className="text-2xl md:text-3xl font-black leading-snug relative z-10">
+            <span className="text-gradient">{t.home.mission}</span>
+          </p>
+        </Card>
 
-        {/* ═══ ROW 5: 2 Experiences (2+2=4) ═══ */}
+        {/* ═══ ROW 5: Experiences (3+1=4) ═══ */}
 
         {/* EXPERIENCE 1 — white with teal accent border + dot pattern */}
-        <Card variant="white" hoverable className="card-dots-dark hover-glow col-span-2 border-l-4 border-l-teal-500">
+        <Card variant="white" hoverable className="card-dots-dark hover-glow col-span-3 border-l-4 border-l-teal-500">
           {experiences.slice(0, 1).map((exp) => (
             <div key={exp.id} className="relative z-10">
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-3">
@@ -153,7 +128,7 @@ export default function Home() {
         </Card>
 
         {/* EXPERIENCE 2 — teal with lines pattern + hover glow */}
-        <Card variant="teal" hoverable className="card-lines hover-glow col-span-2">
+        <Card variant="teal" hoverable className="card-lines hover-glow col-span-1">
           {experiences.slice(1, 2).map((exp) => (
             <div key={exp.id} className="relative z-10">
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-3">
@@ -172,7 +147,6 @@ export default function Home() {
 
         {/* HOBBIES — light-teal with emoji composition */}
         <Card variant="light-teal" className="col-span-1 relative overflow-hidden">
-          {/* Large decorative emoji */}
           <span className="absolute -right-2 -bottom-2 text-[4rem] opacity-[0.08] select-none pointer-events-none" aria-hidden="true">🎸</span>
           <div className="flex flex-col gap-3 relative z-10">
             <div className="flex items-center gap-3">
