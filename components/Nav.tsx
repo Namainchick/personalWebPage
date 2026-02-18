@@ -1,13 +1,14 @@
-"use client";
-
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import LanguageSwitcher from "./LanguageSwitcher";
-import { useLanguage } from "@/contexts/LanguageContext";
+import type { Language } from "@/lib/i18n-shared";
+import { getTranslations } from "@/lib/i18n";
+import NavMenu from "@/components/NavMenu";
 
-export default function Nav() {
-  const pathname = usePathname();
-  const { t } = useLanguage();
+interface NavProps {
+  language: Language;
+}
+
+export default function Nav({ language }: NavProps) {
+  const t = getTranslations(language);
 
   const navItems = [
     { label: t.nav.experiences, href: "/erfahrungen" },
@@ -16,40 +17,19 @@ export default function Nav() {
   ];
 
   return (
-    <header className="sticky top-0 z-30 w-full bg-[#F5F0EB]/80 backdrop-blur-md">
+    <header className="sticky top-0 z-30 w-full bg-[#F5F0EB]/80 backdrop-blur-md relative">
       <nav className="mx-auto max-w-[1200px] px-4 md:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          {/* Left: Logo + Nav */}
-          <div className="flex items-center gap-6">
-            <Link href="/" className="text-xl font-black tracking-tight text-gray-900 hover:text-teal-600 transition-colors">
+          <div className="flex items-center gap-4">
+            <Link
+              href="/"
+              className="text-xl font-black tracking-tight text-gray-900 hover:text-teal-600 transition-colors"
+            >
               Namanh
             </Link>
-
-            <ul className="hidden md:flex items-center gap-1">
-              {navItems.map((item) => {
-                const isActive = pathname === item.href;
-                return (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      className={`px-3 py-1 text-sm font-medium rounded-full transition-all duration-150 ${
-                        isActive
-                          ? "bg-teal-500 text-white"
-                          : "text-gray-500 hover:bg-gray-100 hover:text-gray-900"
-                      }`}
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
           </div>
 
-          {/* Right: Language Switcher */}
-          <div className="flex items-center gap-3">
-            <LanguageSwitcher />
-          </div>
+          <NavMenu items={navItems} language={language} />
         </div>
       </nav>
     </header>

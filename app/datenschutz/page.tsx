@@ -16,8 +16,9 @@ export default function DatenschutzPage() {
           <div>
             <h3 className="text-xl font-semibold text-gray-900 mb-2">1. Datenschutz auf einen Blick</h3>
             <p className="text-sm">
-              Diese Website erhebt und speichert keine personenbezogenen Daten. Es werden keine
-              Cookies verwendet und keine Analytics-Tools eingesetzt.
+              Diese Website nutzt Vercel Web Analytics, um anonymisierte und aggregierte
+              Nutzungsdaten (z. B. Seitenaufrufe) auszuwerten. Es erfolgt keine
+              personenbezogene Profilbildung.
             </p>
           </div>
 

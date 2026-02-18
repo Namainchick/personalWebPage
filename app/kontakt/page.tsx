@@ -1,11 +1,9 @@
-"use client";
-
 import Card from "@/components/Card";
 import SectionHeading from "@/components/SectionHeading";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { getServerI18n } from "@/lib/i18n-server";
 
-export default function KontaktPage() {
-  const { t } = useLanguage();
+export default async function KontaktPage() {
+  const { t } = await getServerI18n();
 
   return (
     <div className="mx-auto max-w-[1200px] px-4 md:px-6 lg:px-8 py-12">

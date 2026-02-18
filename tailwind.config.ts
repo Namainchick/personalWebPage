@@ -32,8 +32,8 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
-        mono: ["var(--font-jetbrains-mono)", "monospace"],
+        sans: ["Avenir Next", "SF Pro Display", "Segoe UI", "system-ui", "sans-serif"],
+        mono: ["JetBrains Mono", "SFMono-Regular", "Consolas", "Menlo", "monospace"],
       },
     },
   },

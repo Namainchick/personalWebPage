@@ -1,11 +1,14 @@
-"use client";
-
 import Link from "next/link";
-import { useLanguage } from "@/contexts/LanguageContext";
+import type { Language } from "@/lib/i18n-shared";
+import { getTranslations } from "@/lib/i18n";
 
-export default function Footer() {
+interface FooterProps {
+  language: Language;
+}
+
+export default function Footer({ language }: FooterProps) {
   const currentYear = new Date().getFullYear();
-  const { t } = useLanguage();
+  const t = getTranslations(language);
 
   return (
     <footer className="mt-20 bg-teal-900 text-white">

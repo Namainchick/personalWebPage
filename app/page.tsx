@@ -1,14 +1,12 @@
-"use client";
-
 import Card from "@/components/Card";
 import ViewAllButton from "@/components/ViewAllButton";
-import { useLanguage } from "@/contexts/LanguageContext";
-import { useTranslatedExperiences, useTranslatedProjects } from "@/hooks/useTranslatedData";
+import { getTranslatedExperiences, getTranslatedProjects } from "@/lib/i18n";
+import { getServerI18n } from "@/lib/i18n-server";
 
-export default function Home() {
-  const { t } = useLanguage();
-  const experiences = useTranslatedExperiences();
-  const projects = useTranslatedProjects();
+export default async function Home() {
+  const { language, t } = await getServerI18n();
+  const experiences = getTranslatedExperiences(language);
+  const projects = getTranslatedProjects(language);
 
   const techStack = [
     "TypeScript", "React", "Next.js", "Python", "FastAPI",

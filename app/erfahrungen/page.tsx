@@ -1,9 +1,7 @@
-"use client";
-
 import Card from "@/components/Card";
 import SectionHeading from "@/components/SectionHeading";
-import { useLanguage } from "@/contexts/LanguageContext";
-import { useTranslatedExperiences } from "@/hooks/useTranslatedData";
+import { getTranslatedExperiences } from "@/lib/i18n";
+import { getServerI18n } from "@/lib/i18n-server";
 
 type CardVariant = "white" | "teal" | "coral" | "light-teal" | "light-coral" | "gradient";
 
@@ -15,9 +13,9 @@ const experienceLayout: Record<string, { variant: CardVariant; span: string; ext
   "exp-5": { variant: "coral", span: "col-span-1" },
 };
 
-export default function ErfahrungenPage() {
-  const { t } = useLanguage();
-  const experiences = useTranslatedExperiences();
+export default async function ErfahrungenPage() {
+  const { language, t } = await getServerI18n();
+  const experiences = getTranslatedExperiences(language);
 
   return (
     <div className="mx-auto max-w-[1200px] px-4 md:px-6 lg:px-8 py-12">

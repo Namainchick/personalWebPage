@@ -1,22 +1,9 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
-import { LanguageProvider } from "@/contexts/LanguageContext";
 import { Analytics } from "@vercel/analytics/next";
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
-  subsets: ["latin"],
-  display: "swap",
-});
+import { getServerLanguage } from "@/lib/i18n-server";
 
 export const metadata: Metadata = {
   title: "Namanh Bui Vu – Portfolio",
@@ -54,19 +41,19 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const language = await getServerLanguage();
+
   return (
-    <html lang="de" className={`${inter.variable} ${jetbrainsMono.variable}`}>
+    <html lang={language}>
       <body className="antialiased">
-        <LanguageProvider>
-          <Nav />
-          <main className="min-h-screen">{children}</main>
-          <Footer />
-        </LanguageProvider>
+        <Nav language={language} />
+        <main className="min-h-screen">{children}</main>
+        <Footer language={language} />
         <Analytics />
       </body>
     </html>

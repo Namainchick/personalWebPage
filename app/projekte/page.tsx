@@ -1,10 +1,8 @@
-"use client";
-
 import Card from "@/components/Card";
 import SectionHeading from "@/components/SectionHeading";
 import ProjectLink from "@/components/ProjectLink";
-import { useLanguage } from "@/contexts/LanguageContext";
-import { useTranslatedProjects } from "@/hooks/useTranslatedData";
+import { getTranslatedProjects } from "@/lib/i18n";
+import { getServerI18n } from "@/lib/i18n-server";
 
 type CardVariant = "white" | "teal" | "coral" | "light-teal" | "light-coral" | "gradient";
 
@@ -17,9 +15,9 @@ const projectLayout: Record<string, { variant: CardVariant; span: string }> = {
   "proj-6": { variant: "white", span: "col-span-1" },
 };
 
-export default function ProjektePage() {
-  const { t } = useLanguage();
-  const projects = useTranslatedProjects();
+export default async function ProjektePage() {
+  const { language, t } = await getServerI18n();
+  const projects = getTranslatedProjects(language);
 
   return (
     <div className="mx-auto max-w-[1200px] px-4 md:px-6 lg:px-8 py-12">

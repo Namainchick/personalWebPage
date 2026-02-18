@@ -1,5 +1,3 @@
-"use client";
-
 import { ReactNode } from "react";
 
 type CardVariant = "white" | "teal" | "coral" | "light-teal" | "light-coral" | "gradient";
@@ -31,10 +29,7 @@ export default function Card({
     : "";
 
   return (
-    <article
-      className={`rounded-2xl p-6 ${variantStyles[variant]} ${hoverStyles} ${className}`}
-      tabIndex={hoverable ? 0 : undefined}
-    >
+    <article className={`rounded-2xl p-6 ${variantStyles[variant]} ${hoverStyles} ${className}`}>
       {children}
     </article>
   );
