@@ -83,27 +83,76 @@
   "projectsData": {
     "proj-1": {
       "title": "Dip – Give LLMs Eyes",
-      "description": "1. Platz, Google DeepMind Gemini Track – Cursor AI Hackathon Hamburg (Feb 2026, 400+ Teilnehmer). Ein Tool, das LLMs visuellen Echtzeit-Kontext des Bildschirms gibt und die manuelle Beschreibung von On-Screen-Inhalten überflüssig macht."
+      "description": "1. Platz, Google DeepMind Gemini Track – Cursor AI Hackathon Hamburg (Feb 2026, 400+ Teilnehmer). Ein Tool, das LLMs visuellen Echtzeit-Kontext des Bildschirms gibt und die manuelle Beschreibung von On-Screen-Inhalten überflüssig macht.",
+      "longDescription": "Dip entstand beim Cursor AI Hackathon Hamburg im Februar 2026 mit über 400 Teilnehmern. Das Tool gibt LLMs visuellen Echtzeit-Kontext, indem es den Bildschirm des Nutzers erfasst und als Kontext an das Modell übergibt. So entfällt die manuelle Beschreibung von On-Screen-Inhalten komplett.\n\nDie Architektur basiert auf einem Python-Backend, das Screen Captures über die Google Gemini API verarbeitet. Ein leichtgewichtiger Client erfasst den Bildschirminhalt und sendet ihn an den LLM-Kontext.",
+      "highlights": [
+        "1. Platz Google DeepMind Gemini Track",
+        "400+ Teilnehmer beim Cursor AI Hackathon Hamburg",
+        "Echtzeit-Bildschirmerfassung als LLM-Kontext",
+        "Eliminiert manuelle Beschreibung von Bildschirminhalten"
+      ],
+      "learnings": "Gelernt, wie man multimodale KI-Modelle effizient mit Echtzeit-Bilddaten füttert und dabei Latenz minimiert. Erfahrung mit Screen-Capture-APIs und der Gemini Vision API."
     },
     "proj-2": {
       "title": "Mindflayer – Semantischer Social-Media-Filter",
-      "description": "1. Platz Overall ($2.000 Preisgeld) – CodeRabbit × Windsurf Hackathon (Dez 2025, 110 Teilnehmer). Eine Chrome Extension, die mit Gemini Social-Media-Posts in Echtzeit semantisch filtert."
+      "description": "1. Platz Overall ($2.000 Preisgeld) – CodeRabbit × Windsurf Hackathon (Dez 2025, 110 Teilnehmer). Eine Chrome Extension, die mit Gemini Social-Media-Posts in Echtzeit semantisch filtert.",
+      "longDescription": "Mindflayer ist eine Chrome Extension, die Social-Media-Posts in Echtzeit semantisch filtert. Statt auf Keywords basiert der Filter auf dem tatsächlichen Inhalt und Kontext der Posts – powered by Google Gemini.\n\nDas Projekt gewann den 1. Platz Overall beim CodeRabbit × Windsurf Hackathon mit einem Preisgeld von $2.000. Die Extension analysiert Posts direkt im Browser und blendet unerwünschte Inhalte aus, ohne dass der Nutzer komplexe Filterregeln erstellen muss.",
+      "highlights": [
+        "1. Platz Overall mit $2.000 Preisgeld",
+        "110 Teilnehmer beim CodeRabbit × Windsurf Hackathon",
+        "Semantische Echtzeit-Filterung statt Keyword-basiert",
+        "Nahtlose Browser-Integration als Chrome Extension"
+      ],
+      "learnings": "Tiefes Verständnis der Chrome Extension API und Content Scripts aufgebaut. Gelernt, wie man KI-Modelle effizient im Browser-Kontext einsetzt und Latenz bei Echtzeit-Filterung minimiert."
     },
     "proj-3": {
       "title": "Airbn – KI Property Management",
-      "description": "1. Platz Arbio Track, 3. Platz Overall – {Tech: Europe} Hackathon Berlin (Jan 2026). Eine KI-native Immobilienverwaltungsplattform mit Microservices-Architektur, Voice-First-Gäste-Support und automatischer Schadenserkennung via OpenCV."
+      "description": "1. Platz Arbio Track, 3. Platz Overall – {Tech: Europe} Hackathon Berlin (Jan 2026). Eine KI-native Immobilienverwaltungsplattform mit Microservices-Architektur, Voice-First-Gäste-Support und automatischer Schadenserkennung via OpenCV.",
+      "longDescription": "Airbn ist eine KI-native Immobilienverwaltungsplattform, die beim {Tech: Europe} Hackathon in Berlin entstanden ist. Die Plattform kombiniert mehrere Microservices: Voice-First-Gäste-Support über WhatsApp, automatische Schadenserkennung via OpenCV und intelligente Property-Management-Features.\n\nDie Architektur nutzt GPT-4o für natürliche Konversationen, OpenCV für Bildanalyse bei Schadenmeldungen, und eine Kombination aus Flask, FastAPI und Node.js für die verschiedenen Backend-Services.",
+      "highlights": [
+        "1. Platz Arbio Track, 3. Platz Overall",
+        "{Tech: Europe} Hackathon Berlin",
+        "Microservices-Architektur mit 3 Backend-Services",
+        "Voice-First Gäste-Support via WhatsApp",
+        "Automatische Schadenserkennung mit OpenCV"
+      ],
+      "learnings": "Erfahrung mit Microservices-Architektur unter Zeitdruck gesammelt. Gelernt, wie man WhatsApp Business API für Voice-First-Interaktionen einsetzt und OpenCV für praktische Schadenerkennung nutzt."
     },
     "proj-4": {
       "title": "Hundewelt.space – KI-Hundeblog",
-      "description": "Vollautomatisierter deutscher Hundeblog mit KI-Content-Pipeline. Next.js Frontend mit SSR, Suche, RSS und Admin-Dashboard. Python LangGraph-Pipeline für Themenrecherche, Artikelgenerierung, Bildgenerierung und automatische Veröffentlichung."
+      "description": "Vollautomatisierter deutscher Hundeblog mit KI-Content-Pipeline. Next.js Frontend mit SSR, Suche, RSS und Admin-Dashboard. Python LangGraph-Pipeline für Themenrecherche, Artikelgenerierung, Bildgenerierung und automatische Veröffentlichung.",
+      "longDescription": "Hundewelt.space ist ein vollautomatisierter deutscher Hundeblog mit einer kompletten KI-Content-Pipeline. Das Next.js Frontend bietet SSR, Volltextsuche, RSS-Feeds und ein Admin-Dashboard.\n\nDas Herzstück ist eine Python LangGraph-Pipeline, die automatisch Themen recherchiert, Artikel generiert, passende Bilder erstellt und alles automatisch veröffentlicht. Ein Newsletter-System mit Double Opt-In rundet das Projekt ab.",
+      "highlights": [
+        "Vollautomatische KI-Content-Pipeline",
+        "LangGraph-basierte Multi-Step-Generierung",
+        "Next.js SSR Frontend mit Suche und RSS",
+        "Newsletter-System mit Double Opt-In",
+        "Live unter hundewelt.space"
+      ],
+      "learnings": "Umfangreiche Erfahrung mit LangGraph für komplexe, mehrstufige KI-Workflows. Gelernt, wie man eine vollautomatische Content-Pipeline von der Themenrecherche bis zur Veröffentlichung aufbaut."
     },
     "proj-5": {
       "title": "Video Journal Analyzer",
-      "description": "Eine Web-App zur Analyse von Video-URLs mit zwei Modi: Tagebucheintrag-Analyse (Emotionen und Stimmungen) und Rhetorik-Coach (Sprechweise, Artikulation, Verbesserungsvorschläge)."
+      "description": "Eine Web-App zur Analyse von Video-URLs mit zwei Modi: Tagebucheintrag-Analyse (Emotionen und Stimmungen) und Rhetorik-Coach (Sprechweise, Artikulation, Verbesserungsvorschläge).",
+      "longDescription": "Der Video Journal Analyzer ist eine Web-App, die Video-URLs analysiert und in zwei Modi arbeitet:\n\n1. Tagebucheintrag-Analyse: Erkennt Emotionen und Stimmungen aus Video-Tagebüchern und gibt strukturiertes Feedback.\n\n2. Rhetorik-Coach: Analysiert Sprechweise, Artikulation und Körpersprache und gibt konkrete Verbesserungsvorschläge.\n\nDas Frontend ist mit Next.js und TypeScript gebaut und nutzt Tailwind CSS für das Styling.",
+      "highlights": [
+        "Zwei Analyse-Modi: Emotions-Analyse und Rhetorik-Coaching",
+        "Video-URL-basierte Analyse",
+        "Strukturiertes Feedback mit konkreten Verbesserungsvorschlägen"
+      ],
+      "learnings": "Erfahrung mit Video-Analyse-APIs und der Verarbeitung von multimodalen Inhalten. Gelernt, wie man komplexe Analyse-Ergebnisse nutzerfreundlich aufbereitet."
     },
     "proj-6": {
       "title": "Song Splitter",
-      "description": "Ein Audio-Tool zum Aufteilen von Songs in einzelne Komponenten wie Schlagzeug, Gitarre, Bass, Vocals und weitere Instrumente mittels KI-gestützter Audio-Quellentrennung."
+      "description": "Ein Audio-Tool zum Aufteilen von Songs in einzelne Komponenten wie Schlagzeug, Gitarre, Bass, Vocals und weitere Instrumente mittels KI-gestützter Audio-Quellentrennung.",
+      "longDescription": "Song Splitter ist ein Audio-Tool, das Songs in ihre einzelnen Komponenten aufteilt – Schlagzeug, Gitarre, Bass, Vocals und weitere Instrumente. Das Tool nutzt KI-gestützte Audio-Quellentrennung mit Spleeter und Demucs.\n\nDer Workflow ist einfach: Song hochladen, Trennung starten, einzelne Spuren herunterladen. FFmpeg wird für die Audio-Verarbeitung und Konvertierung eingesetzt.",
+      "highlights": [
+        "KI-gestützte Audio-Quellentrennung",
+        "Unterstützung für Spleeter und Demucs Modelle",
+        "Trennung in Drums, Gitarre, Bass, Vocals und mehr",
+        "Einfacher Upload-und-Download-Workflow"
+      ],
+      "learnings": "Tiefes Verständnis von Audio-Verarbeitung und KI-basierter Quellentrennung aufgebaut. Erfahrung mit FFmpeg für Audio-Manipulation und den Unterschieden zwischen Spleeter und Demucs."
     }
   },
   "experiencesData": {
@@ -111,31 +160,104 @@
       "role": "Werkstudent – KI Automation",
       "organization": "Position One GmbH",
       "period": "Okt. 2025 – Heute",
-      "impact": "Entwicklung von Full-Stack KI-Anwendungen mit React + TailwindCSS (Frontend), Python (Backend) und PostgreSQL, inkl. KI-generierter Affiliate E-Commerce Shops.\n\nAufbau und Deployment von Multi-Level KI-Agenten und Automatisierungs-Workflows mit OpenAI API und n8n für interne und kundenseitige Produkte.\n\nDurchführung von KI-Workshops (intern & extern) zu Prompt Engineering, KI-Agenten und Automation Best Practices."
+      "impact": "Entwicklung von Full-Stack KI-Anwendungen mit React + TailwindCSS (Frontend), Python (Backend) und PostgreSQL, inkl. KI-generierter Affiliate E-Commerce Shops.\n\nAufbau und Deployment von Multi-Level KI-Agenten und Automatisierungs-Workflows mit OpenAI API und n8n für interne und kundenseitige Produkte.\n\nDurchführung von KI-Workshops (intern & extern) zu Prompt Engineering, KI-Agenten und Automation Best Practices.",
+      "longDescription": "Als Werkstudent bei Position One entwickle ich Full-Stack KI-Anwendungen für interne und kundenseitige Produkte. Ich arbeite an der gesamten Pipeline – vom React-Frontend über Python-Backends bis zur PostgreSQL-Datenbank.\n\nEin Schwerpunkt liegt auf dem Aufbau von Multi-Level KI-Agenten mit der OpenAI API und n8n-Workflows für Automatisierung. Zusätzlich führe ich KI-Workshops durch, sowohl intern als auch für Kunden, zu Themen wie Prompt Engineering und Automation Best Practices.",
+      "achievements": [
+        "Entwicklung KI-generierter Affiliate E-Commerce Shops",
+        "Aufbau von Multi-Level KI-Agenten-Systemen",
+        "Durchführung von KI-Workshops für interne und externe Teams"
+      ],
+      "skills": ["React", "TailwindCSS", "Python", "PostgreSQL", "OpenAI API", "n8n"]
     },
     "exp-2": {
       "role": "CTO / Co-Founder",
       "organization": "Stealth Startup",
       "period": "Dez. 2025 – Heute",
-      "impact": "Aufbau eines vertrauenswürdigen Campus-Marktplatzes für Studierende – Full-Stack-Plattform mit User-Authentifizierung, Listings, Suche und Transaktionen.\n\nAlleinige Verantwortung für Softwareentwicklung, Datenbankdesign, Systemarchitektur und Deployment der produktiven Anwendung."
+      "impact": "Aufbau eines vertrauenswürdigen Campus-Marktplatzes für Studierende – Full-Stack-Plattform mit User-Authentifizierung, Listings, Suche und Transaktionen.\n\nAlleinige Verantwortung für Softwareentwicklung, Datenbankdesign, Systemarchitektur und Deployment der produktiven Anwendung.",
+      "longDescription": "Als CTO und Co-Founder baue ich einen vertrauenswürdigen Campus-Marktplatz für Studierende. Die Full-Stack-Plattform umfasst User-Authentifizierung, Listings, Suche und Transaktionen.\n\nIch trage die alleinige Verantwortung für die gesamte technische Seite: Softwareentwicklung, Datenbankdesign, Systemarchitektur und Deployment der produktiven Anwendung.",
+      "achievements": [
+        "Aufbau einer Full-Stack-Plattform von Grund auf",
+        "Alleinige technische Verantwortung als CTO",
+        "User-Authentifizierung, Listings und Transaktions-System"
+      ],
+      "skills": ["Full-Stack Development", "Systemarchitektur", "Datenbankdesign", "Deployment"]
     },
     "exp-3": {
       "role": "Praktikant – E-Commerce & KI Automation",
       "organization": "Position One GmbH",
       "period": "Sept. 2025",
-      "impact": "Automatisierung von Produktimporten in Shopware 6 mit Delta-Checks, Reduzierung manueller Dateneingabe und Sicherstellung der Katalog-Konsistenz über 1.000+ SKUs.\n\nAufbau von Datenverarbeitungs-Pipelines mit OpenAI API und n8n für automatisierte Produktbeschreibungen und strukturiertes Logging."
+      "impact": "Automatisierung von Produktimporten in Shopware 6 mit Delta-Checks, Reduzierung manueller Dateneingabe und Sicherstellung der Katalog-Konsistenz über 1.000+ SKUs.\n\nAufbau von Datenverarbeitungs-Pipelines mit OpenAI API und n8n für automatisierte Produktbeschreibungen und strukturiertes Logging.",
+      "longDescription": "Während meines Praktikums bei Position One habe ich Produktimporte in Shopware 6 automatisiert. Mit Delta-Checks konnte die manuelle Dateneingabe erheblich reduziert und die Katalog-Konsistenz über 1.000+ SKUs sichergestellt werden.\n\nZusätzlich habe ich Datenverarbeitungs-Pipelines mit der OpenAI API und n8n aufgebaut, die automatisch Produktbeschreibungen generieren und strukturiertes Logging ermöglichen.",
+      "achievements": [
+        "Automatisierung von Produktimporten über 1.000+ SKUs",
+        "Aufbau von KI-Pipelines für Produktbeschreibungen",
+        "Reduzierung manueller Dateneingabe durch Delta-Checks"
+      ],
+      "skills": ["Shopware 6", "OpenAI API", "n8n", "E-Commerce", "Datenverarbeitung"]
     },
     "exp-4": {
       "role": "Tutor",
       "organization": "Technische Universität Hamburg",
       "period": "Okt. 2025 – Jan. 2026",
-      "impact": "Betreuung von 25+ Erstsemester-Informatikstudierenden in wöchentlichen Workshops zu Lernstrategien und Programmiergrundlagen."
+      "impact": "Betreuung von 25+ Erstsemester-Informatikstudierenden in wöchentlichen Workshops zu Lernstrategien und Programmiergrundlagen.",
+      "longDescription": "Als Tutor an der TUHH habe ich 25+ Erstsemester-Informatikstudierenden in wöchentlichen Workshops betreut. Der Fokus lag auf Lernstrategien für das Informatik-Studium und Programmiergrundlagen.\n\nDie Workshops haben mir geholfen, komplexe technische Konzepte verständlich zu vermitteln und meine Kommunikationsfähigkeiten zu stärken.",
+      "achievements": [
+        "Betreuung von 25+ Studierenden",
+        "Wöchentliche Workshops zu Lernstrategien",
+        "Vermittlung von Programmiergrundlagen"
+      ],
+      "skills": ["Lehre", "Programmiergrundlagen", "Kommunikation", "Mentoring"]
     },
     "exp-5": {
       "role": "Content Creator",
       "organization": "TikTok",
       "period": "Jul. 2023 – Heute",
-      "impact": "Tech Creator auf TikTok mit über 50.000 Followern und 20 Mio.+ Views. Einnahmen über das TikTok Creator Program."
+      "impact": "Tech Creator auf TikTok mit über 50.000 Followern und 20 Mio.+ Views. Einnahmen über das TikTok Creator Program.",
+      "longDescription": "Seit Juli 2023 bin ich als Tech Creator auf TikTok aktiv und erstelle Content über Programmierung, KI und das Informatik-Studium. Mit über 50.000 Followern und mehr als 20 Millionen Views habe ich eine engagierte Community aufgebaut.\n\nDurch das TikTok Creator Program generiere ich Einnahmen und habe wertvolle Erfahrungen in Content-Erstellung, Community-Building und Personal Branding gesammelt.",
+      "achievements": [
+        "50.000+ Follower aufgebaut",
+        "20 Mio.+ Views erreicht",
+        "Monetarisierung über TikTok Creator Program"
+      ],
+      "skills": ["Content Creation", "Video-Editing", "Community Building", "Personal Branding"]
+    }
+  },
+  "homepageDetailsData": {
+    "hero": {
+      "title": "Hi, ich bin Namanh",
+      "content": "Ich bin 20 Jahre alt und studiere Computer Science an der Technischen Universität Hamburg. Nebenbei arbeite ich als Werkstudent im Bereich KI-Automation bei Position One GmbH und baue als CTO ein Startup für Studierende.\n\nMeine Leidenschaft liegt in der Entwicklung von KI-gestützten Anwendungen. Bei drei Hackathons habe ich jeweils den ersten Platz gewonnen – in Hamburg, Berlin und remote."
+    },
+    "location": {
+      "title": "TUHH, Hamburg",
+      "content": "Ich studiere Computer Science (B.Sc.) an der Technischen Universität Hamburg (TUHH). Hamburg ist meine Basis für Studium, Arbeit und die Tech-Community."
+    },
+    "tiktok": {
+      "title": "50k+ Follower auf TikTok",
+      "content": "Als Tech Creator auf TikTok erreiche ich über 50.000 Follower und mehr als 20 Millionen Views. Ich erstelle Content über Programmierung, KI und das Informatik-Studium.\n\nDurch das TikTok Creator Program generiere ich Einnahmen und habe eine Community aufgebaut, die sich für Tech-Themen begeistert."
+    },
+    "techStack": {
+      "title": "Mein Tech Stack",
+      "content": "Mein Fokus liegt auf modernen Web-Technologien und KI-Integration:\n\nFrontend: React, Next.js, TypeScript, TailwindCSS\nBackend: Python, FastAPI, Node.js\nDatenbanken: PostgreSQL, Supabase\nKI/ML: OpenAI API, Google Gemini, LangGraph\nDevOps: Docker, Vercel, n8n"
+    },
+    "about": {
+      "title": "Über mich",
+      "content": "Moin! Ich bin Namanh, 20 Jahre alt und studiere Computer Science an der TUHH. Nebenbei arbeite ich als Werkstudent im Bereich KI-Automation und baue als CTO ein Startup.\n\nMeine Leidenschaft liegt in der Entwicklung von KI-gestützten Anwendungen und modernen Web-Technologien. Bei drei Hackathons habe ich jeweils den ersten Platz gewonnen.\n\nAußerhalb der Arbeit mache ich Calisthenics, spiele in meiner Band und erstelle Tech-Content auf TikTok."
+    },
+    "hackathon": {
+      "title": "3x 1. Platz bei Hackathons",
+      "content": "Ich habe bei drei verschiedenen Hackathons den ersten Platz gewonnen:\n\n1. Cursor AI Hackathon Hamburg (Feb 2026, 400+ Teilnehmer) – Google DeepMind Gemini Track mit 'Dip'\n\n2. CodeRabbit × Windsurf Hackathon (Dez 2025, 110 Teilnehmer) – Overall Winner mit 'Mindflayer' ($2.000 Preisgeld)\n\n3. {Tech: Europe} Hackathon Berlin (Jan 2026) – Arbio Track Winner mit 'Airbn'"
+    },
+    "mission": {
+      "title": "Meine Mission",
+      "content": "Ich baue KI-Apps, die echte Probleme lösen. Mein Ziel ist es, KI-Technologie zugänglich und nützlich zu machen – nicht als Spielerei, sondern als Werkzeug, das den Alltag verbessert.\n\nOb Automatisierung, Content-Generierung oder Echtzeit-Analyse – ich suche immer nach Wegen, wie KI konkret helfen kann."
+    },
+    "hobbies": {
+      "title": "Hobbies",
+      "content": "Calisthenics – Bodyweight-Training ist mein Ausgleich zum Programmieren. Ich trainiere regelmäßig und arbeite an fortgeschrittenen Skills.\n\nBand – Ich spiele in einer Band und liebe es, Musik zu machen.\n\nTech Content – Auf TikTok erstelle ich Content über Programmierung, KI und das Informatik-Studium."
+    },
+    "emailCta": {
+      "title": "Kontakt",
+      "content": "Schreib mir gerne eine E-Mail – ich freue mich über Nachrichten zu Projekten, Zusammenarbeit oder einfach zum Austausch."
     }
   }
 }

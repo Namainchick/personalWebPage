@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-type CardVariant = "white" | "teal" | "coral" | "light-teal" | "light-coral" | "gradient";
+export type CardVariant = "white" | "teal" | "coral" | "light-teal" | "light-coral" | "gradient";
 
 interface CardProps {
   children: ReactNode;
@@ -9,7 +9,7 @@ interface CardProps {
   hoverable?: boolean;
 }
 
-const variantStyles: Record<CardVariant, string> = {
+export const variantStyles: Record<CardVariant, string> = {
   white: "bg-white border border-gray-200 shadow-sm text-gray-900",
   teal: "bg-teal-600 text-white",
   coral: "bg-orange-500 text-white",
