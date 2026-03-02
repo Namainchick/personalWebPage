@@ -57,6 +57,19 @@ export default function ExperienceExpanded({
           </div>
         </div>
       )}
+
+      {experience.url && (
+        <a
+          href={experience.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-opacity hover:opacity-80 ${
+            isColored ? "bg-white/20 text-white" : "bg-teal-600 text-white"
+          }`}
+        >
+          Website besuchen ↗
+        </a>
+      )}
     </div>
   );
 }

@@ -7,6 +7,7 @@ export interface Experience {
   longDescription?: string;
   achievements?: string[];
   skills?: string[];
+  url?: string;
 }
 
 export const experiences: Experience[] = [
@@ -45,6 +46,7 @@ Alleinige Verantwortung für Softwareentwicklung, Datenbankdesign, Systemarchite
       "User-Authentifizierung, Listings und Transaktions-System",
     ],
     skills: ["Full-Stack Development", "Systemarchitektur", "Datenbankdesign", "Deployment"],
+    url: "https://flohh-landing-page.vercel.app/",
   },
   {
     id: "exp-3",
