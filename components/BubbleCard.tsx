@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect, ReactNode } from "react";
-import { motion, useInView, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { useBubbleGrid } from "@/components/BubbleGrid";
 import type { CardVariant } from "@/components/Card";
 
@@ -25,11 +25,9 @@ function getGlowShadow(variant: CardVariant): string {
   switch (variant) {
     case "teal":
     case "gradient":
-      return "0 0 30px rgba(13, 148, 136, 0.3), 0 8px 32px rgba(0,0,0,0.1)";
-    case "coral":
-      return "0 0 30px rgba(249, 115, 22, 0.3), 0 8px 32px rgba(0,0,0,0.1)";
     case "light-teal":
       return "0 0 30px rgba(13, 148, 136, 0.3), 0 8px 32px rgba(0,0,0,0.1)";
+    case "coral":
     case "light-coral":
       return "0 0 30px rgba(249, 115, 22, 0.3), 0 8px 32px rgba(0,0,0,0.1)";
     default:
@@ -40,7 +38,7 @@ function getGlowShadow(variant: CardVariant): string {
 function getNeighborOffset(
   myIndex: number,
   hoveredIndex: number | null,
-  colCount: number
+  colCount: number,
 ): { x: number; y: number } {
   if (hoveredIndex === null || hoveredIndex === myIndex || colCount <= 1) {
     return { x: 0, y: 0 };
@@ -60,7 +58,6 @@ function getNeighborOffset(
 
   const isDirect = dRow === 0 || dCol === 0;
   const strength = isDirect ? 5 : 2.5;
-
   const len = Math.sqrt(dRow * dRow + dCol * dCol) || 1;
   return {
     x: (dCol / len) * strength,
@@ -83,45 +80,61 @@ export default function BubbleCard({
   variant = "white" as CardVariant,
   className = "",
 }: BubbleCardProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.15 });
+  const outerRef = useRef<HTMLDivElement>(null);
   const prefersReduced = useReducedMotion();
   const { hoveredIndex, colCount, setHoveredIndex } = useBubbleGrid();
   const [isHovered, setIsHovered] = useState(false);
-  const [entranceDone, setEntranceDone] = useState(false);
+  const [entranceState, setEntranceState] = useState<"pending" | "animating" | "done">("pending");
 
   const delay = getDelayFromId(id);
   const floatDuration = getFloatDuration(id);
   const offset = getNeighborOffset(index, hoveredIndex, colCount);
 
-  useEffect(() => {
-    if (!isInView || entranceDone) return;
-    const timer = setTimeout(() => setEntranceDone(true), (delay + 0.6) * 1000);
-    return () => clearTimeout(timer);
-  }, [isInView, delay, entranceDone]);
-
-  const entranceVariants = prefersReduced
-    ? {
-        hidden: { opacity: 0 },
-        visible: { opacity: 1, transition: { duration: 0.3, delay } },
-      }
-    : {
-        hidden: { opacity: 0, scale: 0.85, y: 40 },
-        visible: {
-          opacity: 1,
-          scale: 1,
-          y: 0,
-          transition: {
-            type: "spring" as const,
-            stiffness: 260,
-            damping: 20,
-            mass: 0.8,
-            delay,
-          },
-        },
-      };
-
   const hoverSpring = { type: "spring" as const, stiffness: 400, damping: 15 };
+
+  // Intersection Observer: only fires client-side after mount
+  // Cards start VISIBLE (no SSR opacity:0). When the observer fires,
+  // we briefly hide then animate in — but only for cards that were
+  // NOT already in the viewport on first paint (below the fold).
+  useEffect(() => {
+    const el = outerRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setEntranceState("animating");
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 },
+    );
+
+    // Check if already in viewport — if so, skip entrance animation
+    const rect = el.getBoundingClientRect();
+    const inViewport =
+      rect.top < window.innerHeight && rect.bottom > 0 && rect.left < window.innerWidth && rect.right > 0;
+
+    if (inViewport) {
+      // Already visible on screen — no entrance animation needed
+      setEntranceState("done");
+    } else {
+      // Below the fold — will animate when scrolled into view
+      observer.observe(el);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  // After entrance animation completes via spring, mark as done
+  useEffect(() => {
+    if (entranceState !== "animating") return;
+    const timer = setTimeout(
+      () => setEntranceState("done"),
+      (delay + 0.6) * 1000,
+    );
+    return () => clearTimeout(timer);
+  }, [entranceState, delay]);
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -133,54 +146,83 @@ export default function BubbleCard({
     setHoveredIndex(null);
   };
 
+  // Entrance animation values
+  const getEntranceAnimate = () => {
+    if (entranceState === "pending") {
+      // Not yet observed — render visible (SSR safe)
+      return { opacity: 1, scale: 1, y: 0 };
+    }
+    if (entranceState === "animating") {
+      // Animate in with spring
+      return {
+        opacity: 1,
+        scale: 1,
+        y: 0,
+        transition: prefersReduced
+          ? { duration: 0.3, delay }
+          : {
+              type: "spring" as const,
+              stiffness: 260,
+              damping: 20,
+              mass: 0.8,
+              delay,
+            },
+      };
+    }
+    // Done — just hold position
+    return { opacity: 1, scale: 1, y: 0 };
+  };
+
+  // For below-fold cards that need entrance: start hidden
+  const initialStyles =
+    entranceState === "animating"
+      ? prefersReduced
+        ? { opacity: 0 }
+        : { opacity: 0, scale: 0.85, y: 40 }
+      : undefined;
+
   return (
     <motion.div
-      ref={ref}
+      ref={outerRef}
       className={className}
-      variants={entranceVariants}
-      initial="hidden"
-      animate={
-        !isInView
-          ? "hidden"
-          : entranceDone
-            ? {
-                x: offset.x,
-                y: offset.y,
-                transition: {
-                  x: { type: "spring", stiffness: 300, damping: 25 },
-                  y: { type: "spring", stiffness: 300, damping: 25 },
-                },
-              }
-            : "visible"
-      }
+      animate={{ x: offset.x, y: offset.y }}
+      transition={{ type: "spring", stiffness: 300, damping: 25 }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      whileHover={
-        prefersReduced
-          ? { scale: 1.015 }
-          : {
-              scale: 1.035,
-              boxShadow: getGlowShadow(variant),
-              transition: hoverSpring,
-            }
-      }
-      whileTap={{ scale: 0.98, transition: { type: "spring", stiffness: 500, damping: 20 } }}
     >
       <motion.div
-        animate={
-          entranceDone && !isHovered && !prefersReduced
-            ? {
-                y: [0, -2, 0, 2, 0],
-                transition: {
-                  duration: floatDuration,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                },
+        initial={initialStyles}
+        animate={getEntranceAnimate()}
+        whileHover={
+          prefersReduced
+            ? { scale: 1.015 }
+            : {
+                scale: 1.035,
+                boxShadow: getGlowShadow(variant),
+                transition: hoverSpring,
               }
-            : { y: 0 }
         }
+        whileTap={{
+          scale: 0.98,
+          transition: { type: "spring", stiffness: 500, damping: 20 },
+        }}
       >
-        {children}
+        <motion.div
+          animate={
+            entranceState === "done" && !isHovered && !prefersReduced
+              ? {
+                  y: [0, -2, 0, 2, 0],
+                  transition: {
+                    duration: floatDuration,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  },
+                }
+              : { y: 0 }
+          }
+        >
+          {children}
+        </motion.div>
       </motion.div>
     </motion.div>
   );
