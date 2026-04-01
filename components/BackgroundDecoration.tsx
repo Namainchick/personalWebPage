@@ -5,137 +5,161 @@ export default function BackgroundDecoration() {
       style={{ zIndex: 1 }}
       aria-hidden="true"
     >
-      {/* Dot Grid — covers entire background */}
+      {/* Dot Grid — strong, full coverage */}
       <div
         className="absolute inset-0"
         style={{
           backgroundImage:
-            "radial-gradient(circle, rgba(13,148,136,0.18) 1.2px, transparent 1.2px)",
-          backgroundSize: "28px 28px",
+            "radial-gradient(circle, rgba(13,148,136,0.25) 1.4px, transparent 1.4px)",
+          backgroundSize: "30px 30px",
         }}
       />
 
-      {/* Teal glow — top right */}
+      {/* Large teal blob — top right */}
       <div
         className="absolute animate-[glow-pulse_8s_ease-in-out_infinite]"
         style={{
-          top: "-15%",
-          right: "-10%",
-          width: "60%",
-          height: "65%",
+          top: "-20%",
+          right: "-15%",
+          width: "70%",
+          height: "70%",
           background:
-            "radial-gradient(circle, rgba(13,148,136,0.14) 0%, transparent 55%)",
+            "radial-gradient(circle, rgba(13,148,136,0.22) 0%, transparent 50%)",
         }}
       />
 
-      {/* Coral glow — bottom left-center */}
+      {/* Large coral blob — bottom center-left */}
       <div
         className="absolute animate-[glow-pulse_8s_ease-in-out_infinite_2s]"
         style={{
-          bottom: "-10%",
-          left: "20%",
-          width: "50%",
-          height: "55%",
+          bottom: "-15%",
+          left: "10%",
+          width: "65%",
+          height: "65%",
+          background:
+            "radial-gradient(circle, rgba(249,115,22,0.18) 0%, transparent 50%)",
+        }}
+      />
+
+      {/* Medium coral blob — top left */}
+      <div
+        className="absolute animate-[glow-pulse_10s_ease-in-out_infinite_4s]"
+        style={{
+          top: "5%",
+          left: "0%",
+          width: "45%",
+          height: "45%",
           background:
             "radial-gradient(circle, rgba(249,115,22,0.12) 0%, transparent 55%)",
         }}
       />
 
-      {/* Coral glow — top left */}
-      <div
-        className="absolute animate-[glow-pulse_10s_ease-in-out_infinite_4s]"
-        style={{
-          top: "10%",
-          left: "5%",
-          width: "35%",
-          height: "40%",
-          background:
-            "radial-gradient(circle, rgba(249,115,22,0.08) 0%, transparent 60%)",
-        }}
-      />
-
-      {/* Teal glow — bottom right */}
+      {/* Medium teal blob — bottom right */}
       <div
         className="absolute animate-[glow-pulse_9s_ease-in-out_infinite_1s]"
         style={{
-          bottom: "5%",
-          right: "0%",
-          width: "45%",
-          height: "50%",
+          bottom: "0%",
+          right: "-5%",
+          width: "50%",
+          height: "55%",
           background:
-            "radial-gradient(circle, rgba(13,148,136,0.10) 0%, transparent 55%)",
+            "radial-gradient(circle, rgba(13,148,136,0.15) 0%, transparent 50%)",
         }}
       />
 
-      {/* Geometric rings — right side */}
+      {/* Ring — top right */}
       <div
         className="absolute animate-[spin-slow_30s_linear_infinite]"
         style={{
-          right: "60px",
-          top: "20%",
-          width: "160px",
-          height: "160px",
-          border: "2px solid rgba(13,148,136,0.2)",
+          right: "80px",
+          top: "15%",
+          width: "180px",
+          height: "180px",
+          border: "2.5px solid rgba(13,148,136,0.25)",
           borderRadius: "50%",
         }}
       />
       <div
         className="absolute animate-[spin-slow_30s_linear_infinite_reverse]"
         style={{
-          right: "90px",
-          top: "calc(20% + 30px)",
-          width: "100px",
-          height: "100px",
-          border: "2px solid rgba(13,148,136,0.14)",
+          right: "110px",
+          top: "calc(15% + 35px)",
+          width: "110px",
+          height: "110px",
+          border: "2px solid rgba(13,148,136,0.18)",
           borderRadius: "50%",
         }}
       />
 
-      {/* Geometric rings — left side (spread across page) */}
+      {/* Ring — bottom left */}
       <div
         className="absolute animate-[spin-slow_25s_linear_infinite_reverse]"
         style={{
-          left: "15%",
-          bottom: "15%",
-          width: "120px",
-          height: "120px",
+          left: "12%",
+          bottom: "12%",
+          width: "150px",
+          height: "150px",
+          border: "2.5px solid rgba(249,115,22,0.18)",
+          borderRadius: "50%",
+        }}
+      />
+      <div
+        className="absolute animate-[spin-slow_20s_linear_infinite]"
+        style={{
+          left: "calc(12% + 30px)",
+          bottom: "calc(12% + 30px)",
+          width: "90px",
+          height: "90px",
           border: "2px solid rgba(249,115,22,0.12)",
           borderRadius: "50%",
         }}
       />
 
-      {/* Decorative lines — scattered */}
+      {/* Lines — right side */}
       <div
         className="absolute"
         style={{
-          right: "80px",
+          right: "100px",
           bottom: "35%",
-          width: "140px",
-          height: "2px",
+          width: "160px",
+          height: "2.5px",
           background:
-            "linear-gradient(90deg, rgba(249,115,22,0.25), transparent)",
+            "linear-gradient(90deg, rgba(249,115,22,0.3), transparent)",
         }}
       />
       <div
         className="absolute"
         style={{
-          right: "50px",
-          bottom: "calc(35% + 28px)",
-          width: "90px",
-          height: "2px",
-          background:
-            "linear-gradient(90deg, rgba(13,148,136,0.22), transparent)",
-        }}
-      />
-      <div
-        className="absolute"
-        style={{
-          left: "10%",
-          top: "45%",
+          right: "70px",
+          bottom: "calc(35% + 30px)",
           width: "100px",
           height: "2px",
           background:
-            "linear-gradient(270deg, rgba(13,148,136,0.18), transparent)",
+            "linear-gradient(90deg, rgba(13,148,136,0.25), transparent)",
+        }}
+      />
+
+      {/* Lines — left side */}
+      <div
+        className="absolute"
+        style={{
+          left: "8%",
+          top: "40%",
+          width: "130px",
+          height: "2.5px",
+          background:
+            "linear-gradient(270deg, rgba(13,148,136,0.25), transparent)",
+        }}
+      />
+      <div
+        className="absolute"
+        style={{
+          left: "5%",
+          top: "calc(40% + 28px)",
+          width: "80px",
+          height: "2px",
+          background:
+            "linear-gradient(270deg, rgba(249,115,22,0.2), transparent)",
         }}
       />
     </div>

@@ -199,23 +199,7 @@ export default function BubbleCard({
           transition: { type: "spring", stiffness: 500, damping: 20 },
         }}
       >
-        <motion.div
-          animate={
-            entranceDone && !isHovered && !prefersReduced
-              ? {
-                  y: [-2, 2],
-                  transition: {
-                    duration: floatDuration,
-                    repeat: Infinity,
-                    repeatType: "mirror" as const,
-                    ease: "easeInOut",
-                  },
-                }
-              : { y: 0 }
-          }
-        >
-          {children}
-        </motion.div>
+        {children}
       </motion.div>
     </motion.div>
   );
