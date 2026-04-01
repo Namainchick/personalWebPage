@@ -92,14 +92,24 @@ export default function BubbleCard({
 
   const hoverSpring = { type: "spring" as const, stiffness: 400, damping: 15 };
 
-  // Intersection Observer: only fires client-side after mount
-  // Cards start VISIBLE (no SSR opacity:0). When the observer fires,
-  // we briefly hide then animate in — but only for cards that were
-  // NOT already in the viewport on first paint (below the fold).
+  // Trigger entrance animation for ALL cards — above and below fold.
+  // Above-fold cards animate immediately on mount, below-fold cards
+  // animate when scrolled into view.
   useEffect(() => {
     const el = outerRef.current;
     if (!el) return;
 
+    const rect = el.getBoundingClientRect();
+    const inViewport =
+      rect.top < window.innerHeight && rect.bottom > 0 && rect.left < window.innerWidth && rect.right > 0;
+
+    if (inViewport) {
+      // In viewport on mount — animate in with a small delay for stagger effect
+      const timer = setTimeout(() => setEntranceState("animating"), 50);
+      return () => clearTimeout(timer);
+    }
+
+    // Below the fold — observe and animate when scrolled into view
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -109,20 +119,7 @@ export default function BubbleCard({
       },
       { threshold: 0.15 },
     );
-
-    // Check if already in viewport — if so, skip entrance animation
-    const rect = el.getBoundingClientRect();
-    const inViewport =
-      rect.top < window.innerHeight && rect.bottom > 0 && rect.left < window.innerWidth && rect.right > 0;
-
-    if (inViewport) {
-      // Already visible on screen — no entrance animation needed
-      setEntranceState("done");
-    } else {
-      // Below the fold — will animate when scrolled into view
-      observer.observe(el);
-    }
-
+    observer.observe(el);
     return () => observer.disconnect();
   }, []);
 

@@ -25,7 +25,7 @@ export default function Sidebar({ language, navItems }: SidebarProps) {
   }
 
   return (
-    <aside className="hidden lg:flex flex-col w-60 h-screen sticky top-0 bg-teal-900 p-6 flex-shrink-0">
+    <aside className="hidden lg:flex flex-col w-72 h-screen sticky top-0 bg-teal-900 p-6 flex-shrink-0">
       {/* Name + Tagline */}
       <div className="mb-10">
         <Link href="/" className="text-xl font-black text-white hover:text-teal-200 transition-colors">
