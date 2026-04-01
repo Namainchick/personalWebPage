@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function ImpressumPage() {
   return (
-    <div className="mx-auto max-w-[1200px] px-4 md:px-6 lg:px-8 py-12">
+    <div className="mx-auto max-w-[1100px] px-4 md:px-6 lg:px-8 py-12">
       <SectionHeading>Impressum</SectionHeading>
 
       <div className="max-w-2xl bg-white rounded-2xl border border-gray-200 shadow-sm p-6 md:p-8">

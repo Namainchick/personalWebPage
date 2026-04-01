@@ -6,7 +6,7 @@ export default async function KontaktPage() {
   const { t } = await getServerI18n();
 
   return (
-    <div className="mx-auto max-w-[1200px] px-4 md:px-6 lg:px-8 py-12">
+    <div className="mx-auto max-w-[1100px] px-4 md:px-6 lg:px-8 py-12">
       <SectionHeading>{t.contact.heading}</SectionHeading>
       <p className="text-gray-500 text-lg mb-8 max-w-2xl">{t.contact.intro}</p>
 

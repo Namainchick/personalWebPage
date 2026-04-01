@@ -8,7 +8,7 @@ export default async function ProjektePage() {
   const projects = getTranslatedProjects(language);
 
   return (
-    <div className="mx-auto max-w-[1200px] px-4 md:px-6 lg:px-8 py-12">
+    <div className="mx-auto max-w-[1100px] px-4 md:px-6 lg:px-8 py-12">
       <SectionHeading>{t.projects.heading}</SectionHeading>
       <p className="text-gray-500 text-lg mb-8 max-w-2xl">{t.projects.intro}</p>
       <ProjectsGrid
