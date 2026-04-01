@@ -4,6 +4,9 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/next";
 import { getServerLanguage } from "@/lib/i18n-server";
+import Sidebar from "@/components/Sidebar";
+import BackgroundDecoration from "@/components/BackgroundDecoration";
+import { getTranslations } from "@/lib/i18n";
 
 export const metadata: Metadata = {
   title: "Namanh Bui Vu – Portfolio",
@@ -48,12 +51,26 @@ export default async function RootLayout({
 }>) {
   const language = await getServerLanguage();
 
+  const t = getTranslations(language);
+
+  const navItems = [
+    { label: t.nav.experiences, href: "/erfahrungen" },
+    { label: t.nav.projects, href: "/projekte" },
+    { label: t.nav.contact, href: "/kontakt" },
+  ];
+
   return (
     <html lang={language}>
       <body className="antialiased">
-        <Nav language={language} />
-        <main className="min-h-screen">{children}</main>
-        <Footer language={language} />
+        <div className="flex">
+          <Sidebar language={language} navItems={navItems} />
+          <div className="flex-1 min-w-0 relative">
+            <BackgroundDecoration />
+            <Nav language={language} />
+            <main className="min-h-screen relative z-10">{children}</main>
+            <Footer language={language} />
+          </div>
+        </div>
         <Analytics />
       </body>
     </html>
