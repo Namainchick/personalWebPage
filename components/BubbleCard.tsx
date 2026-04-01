@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, ReactNode } from "react";
+import { useRef, useState, useEffect, ReactNode } from "react";
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useBubbleGrid } from "@/components/BubbleGrid";
 
@@ -89,6 +89,12 @@ export default function BubbleCard({
   const floatDuration = getFloatDuration(id);
   const offset = getNeighborOffset(index, hoveredIndex, colCount);
 
+  useEffect(() => {
+    if (!isInView || entranceDone) return;
+    const timer = setTimeout(() => setEntranceDone(true), (delay + 0.6) * 1000);
+    return () => clearTimeout(timer);
+  }, [isInView, delay, entranceDone]);
+
   const entranceVariants = prefersReduced
     ? {
         hidden: { opacity: 0 },
@@ -142,9 +148,6 @@ export default function BubbleCard({
             }
           : "hidden"
       }
-      onAnimationComplete={() => {
-        if (!entranceDone) setEntranceDone(true);
-      }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       whileHover={
