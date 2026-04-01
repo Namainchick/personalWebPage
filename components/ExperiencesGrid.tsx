@@ -2,6 +2,8 @@
 
 import ExpandableCard from "@/components/ExpandableCard";
 import ExperienceExpanded from "@/components/expanded/ExperienceExpanded";
+import BubbleGrid from "@/components/BubbleGrid";
+import BubbleCard from "@/components/BubbleCard";
 import type { Experience } from "@/data/experiences";
 import type { CardVariant } from "@/components/Card";
 
@@ -26,8 +28,8 @@ interface ExperiencesGridProps {
 
 export default function ExperiencesGrid({ experiences }: ExperiencesGridProps) {
   return (
-    <div className="bento-grid">
-      {experiences.map((exp) => {
+    <BubbleGrid>
+      {experiences.map((exp, i) => {
         const layout = experienceLayout[exp.id] || {
           variant: "white" as CardVariant,
           span: "col-span-1",
@@ -35,50 +37,57 @@ export default function ExperiencesGrid({ experiences }: ExperiencesGridProps) {
         const isColored = layout.variant === "teal" || layout.variant === "coral";
 
         return (
-          <ExpandableCard
+          <BubbleCard
             key={exp.id}
+            index={i}
             id={exp.id}
             variant={layout.variant}
-            className={`${layout.span} ${layout.extraClass || ""}`}
-            expandedContent={
-              <ExperienceExpanded experience={exp} isColored={isColored} />
-            }
+            className={layout.span}
           >
-            <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-3">
-              <div>
-                <h3
-                  className={`text-xl font-semibold mb-1 ${
-                    isColored ? "" : "text-gray-900"
+            <ExpandableCard
+              id={exp.id}
+              variant={layout.variant}
+              className={`${layout.extraClass || ""} h-full`}
+              expandedContent={
+                <ExperienceExpanded experience={exp} isColored={isColored} />
+              }
+            >
+              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-3">
+                <div>
+                  <h3
+                    className={`text-xl font-semibold mb-1 ${
+                      isColored ? "" : "text-gray-900"
+                    }`}
+                  >
+                    {exp.role}
+                  </h3>
+                  <p
+                    className={`text-sm ${
+                      isColored ? "text-white/80" : "text-gray-500"
+                    }`}
+                  >
+                    {exp.organization}
+                  </p>
+                </div>
+                <span
+                  className={`text-xs font-mono whitespace-nowrap ${
+                    isColored ? "text-white/60" : "text-gray-400"
                   }`}
                 >
-                  {exp.role}
-                </h3>
-                <p
-                  className={`text-sm ${
-                    isColored ? "text-white/80" : "text-gray-500"
-                  }`}
-                >
-                  {exp.organization}
-                </p>
+                  {exp.period}
+                </span>
               </div>
-              <span
-                className={`text-xs font-mono whitespace-nowrap ${
-                  isColored ? "text-white/60" : "text-gray-400"
+              <p
+                className={`text-sm leading-relaxed whitespace-pre-line line-clamp-3 ${
+                  isColored ? "text-white/80" : "text-gray-600"
                 }`}
               >
-                {exp.period}
-              </span>
-            </div>
-            <p
-              className={`text-sm leading-relaxed whitespace-pre-line line-clamp-3 ${
-                isColored ? "text-white/80" : "text-gray-600"
-              }`}
-            >
-              {exp.impact}
-            </p>
-          </ExpandableCard>
+                {exp.impact}
+              </p>
+            </ExpandableCard>
+          </BubbleCard>
         );
       })}
-    </div>
+    </BubbleGrid>
   );
 }
