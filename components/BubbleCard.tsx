@@ -84,7 +84,10 @@ export default function BubbleCard({
   const prefersReduced = useReducedMotion();
   const { hoveredIndex, colCount, setHoveredIndex } = useBubbleGrid();
   const [isHovered, setIsHovered] = useState(false);
-  const [entranceState, setEntranceState] = useState<"pending" | "animating" | "done">("pending");
+  // "hidden" = card is invisible, waiting to animate
+  // "visible" = card is animating in or has finished
+  const [show, setShow] = useState(false);
+  const [entranceDone, setEntranceDone] = useState(false);
 
   const delay = getDelayFromId(id);
   const floatDuration = getFloatDuration(id);
@@ -92,28 +95,35 @@ export default function BubbleCard({
 
   const hoverSpring = { type: "spring" as const, stiffness: 400, damping: 15 };
 
-  // Trigger entrance animation for ALL cards — above and below fold.
-  // Above-fold cards animate immediately on mount, below-fold cards
-  // animate when scrolled into view.
+  // On mount: observe and trigger entrance
   useEffect(() => {
     const el = outerRef.current;
     if (!el) return;
 
+    const triggerEntrance = () => {
+      setShow(true);
+    };
+
     const rect = el.getBoundingClientRect();
     const inViewport =
-      rect.top < window.innerHeight && rect.bottom > 0 && rect.left < window.innerWidth && rect.right > 0;
+      rect.top < window.innerHeight &&
+      rect.bottom > 0 &&
+      rect.left < window.innerWidth &&
+      rect.right > 0;
 
     if (inViewport) {
-      // In viewport on mount — animate in with a small delay for stagger effect
-      const timer = setTimeout(() => setEntranceState("animating"), 50);
-      return () => clearTimeout(timer);
+      // In viewport — trigger after a frame so initial styles are applied
+      requestAnimationFrame(() => {
+        requestAnimationFrame(triggerEntrance);
+      });
+      return;
     }
 
-    // Below the fold — observe and animate when scrolled into view
+    // Below fold — observe
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setEntranceState("animating");
+          triggerEntrance();
           observer.disconnect();
         }
       },
@@ -123,15 +133,15 @@ export default function BubbleCard({
     return () => observer.disconnect();
   }, []);
 
-  // After entrance animation completes via spring, mark as done
+  // Mark entrance done after spring settles
   useEffect(() => {
-    if (entranceState !== "animating") return;
+    if (!show) return;
     const timer = setTimeout(
-      () => setEntranceState("done"),
+      () => setEntranceDone(true),
       (delay + 0.6) * 1000,
     );
     return () => clearTimeout(timer);
-  }, [entranceState, delay]);
+  }, [show, delay]);
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -143,40 +153,16 @@ export default function BubbleCard({
     setHoveredIndex(null);
   };
 
-  // Entrance animation values
-  const getEntranceAnimate = () => {
-    if (entranceState === "pending") {
-      // Not yet observed — render visible (SSR safe)
-      return { opacity: 1, scale: 1, y: 0 };
-    }
-    if (entranceState === "animating") {
-      // Animate in with spring
-      return {
-        opacity: 1,
-        scale: 1,
-        y: 0,
-        transition: prefersReduced
-          ? { duration: 0.3, delay }
-          : {
-              type: "spring" as const,
-              stiffness: 260,
-              damping: 20,
-              mass: 0.8,
-              delay,
-            },
+  // Spring transition for entrance
+  const entranceTransition = prefersReduced
+    ? { duration: 0.3, delay }
+    : {
+        type: "spring" as const,
+        stiffness: 260,
+        damping: 20,
+        mass: 0.8,
+        delay,
       };
-    }
-    // Done — just hold position
-    return { opacity: 1, scale: 1, y: 0 };
-  };
-
-  // For below-fold cards that need entrance: start hidden
-  const initialStyles =
-    entranceState === "animating"
-      ? prefersReduced
-        ? { opacity: 0 }
-        : { opacity: 0, scale: 0.85, y: 40 }
-      : undefined;
 
   return (
     <motion.div
@@ -189,8 +175,16 @@ export default function BubbleCard({
     >
       <motion.div
         className="rounded-2xl overflow-hidden"
-        initial={initialStyles}
-        animate={getEntranceAnimate()}
+        initial={
+          prefersReduced
+            ? { opacity: 0 }
+            : { opacity: 0, scale: 0.85, y: 40 }
+        }
+        animate={
+          show
+            ? { opacity: 1, scale: 1, y: 0, transition: entranceTransition }
+            : undefined
+        }
         whileHover={
           prefersReduced
             ? { scale: 1.015 }
@@ -207,7 +201,7 @@ export default function BubbleCard({
       >
         <motion.div
           animate={
-            entranceState === "done" && !isHovered && !prefersReduced
+            entranceDone && !isHovered && !prefersReduced
               ? {
                   y: [-2, 2],
                   transition: {
