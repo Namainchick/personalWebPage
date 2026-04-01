@@ -17,7 +17,7 @@ export default function Nav({ language }: NavProps) {
   ];
 
   return (
-    <header className="sticky top-0 z-30 w-full bg-[#F5F0EB]/80 backdrop-blur-md relative">
+    <header className="sticky top-0 z-30 w-full bg-[#F5F0EB]/80 backdrop-blur-md relative lg:hidden">
       <nav className="mx-auto max-w-[1200px] px-4 md:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center gap-4">
