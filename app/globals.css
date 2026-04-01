@@ -155,22 +155,6 @@ body {
   background-clip: text;
 }
 
-/* Hover glow effect */
-.hover-glow {
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-.hover-glow:hover {
-  box-shadow: 0 0 30px rgba(13, 148, 136, 0.2), 0 8px 32px rgba(0,0,0,0.08);
-}
-
-/* Coral hover glow */
-.hover-glow-coral {
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-.hover-glow-coral:hover {
-  box-shadow: 0 0 30px rgba(249, 115, 22, 0.2), 0 8px 32px rgba(0,0,0,0.08);
-}
-
 /* Shimmer sweep animation */
 @keyframes shimmer {
   0% { transform: translateX(-100%); }

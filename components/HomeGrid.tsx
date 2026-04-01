@@ -160,7 +160,7 @@ export default function HomeGrid({
           key={project.id}
           id={`home-${project.id}`}
           variant="teal"
-          className="card-shimmer hover-glow col-span-1"
+          className="card-shimmer col-span-1"
           expandedContent={
             <ProjectExpanded
               project={project}
@@ -215,7 +215,7 @@ export default function HomeGrid({
           key={exp.id}
           id={`home-${exp.id}`}
           variant="white"
-          className="card-dots-dark hover-glow col-span-3 border-l-4 border-l-teal-500"
+          className="card-dots-dark col-span-3 border-l-4 border-l-teal-500"
           expandedContent={
             <ExperienceExpanded experience={exp} isColored={false} />
           }
@@ -241,7 +241,7 @@ export default function HomeGrid({
           key={exp.id}
           id={`home-${exp.id}`}
           variant="teal"
-          className="card-lines hover-glow col-span-1"
+          className="card-lines col-span-1"
           expandedContent={
             <ExperienceExpanded experience={exp} isColored={true} />
           }

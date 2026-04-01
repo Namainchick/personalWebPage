@@ -82,7 +82,7 @@ export default function ExpandableCard({
       <article
         ref={cardRef}
         onClick={open}
-        className={`rounded-2xl p-6 ${variantStyles[variant]} hover:-translate-y-1 hover:shadow-lg transition-all duration-200 cursor-pointer ${className} relative group`}
+        className={`rounded-2xl p-6 ${variantStyles[variant]} cursor-pointer ${className} relative group`}
       >
         {children}
         <span className="absolute top-3 right-3 opacity-0 group-hover:opacity-60 transition-opacity text-xs pointer-events-none">
