@@ -3,12 +3,13 @@
 import { useRef, useState, useEffect, ReactNode } from "react";
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useBubbleGrid } from "@/components/BubbleGrid";
+import type { CardVariant } from "@/components/Card";
 
 interface BubbleCardProps {
   children: ReactNode;
   index: number;
   id: string;
-  variant?: string;
+  variant?: CardVariant;
   className?: string;
 }
 
@@ -20,12 +21,16 @@ function getDelayFromId(id: string): number {
   return (hash % 300) / 1000;
 }
 
-function getGlowShadow(variant: string): string {
+function getGlowShadow(variant: CardVariant): string {
   switch (variant) {
     case "teal":
     case "gradient":
       return "0 0 30px rgba(13, 148, 136, 0.3), 0 8px 32px rgba(0,0,0,0.1)";
     case "coral":
+      return "0 0 30px rgba(249, 115, 22, 0.3), 0 8px 32px rgba(0,0,0,0.1)";
+    case "light-teal":
+      return "0 0 30px rgba(13, 148, 136, 0.3), 0 8px 32px rgba(0,0,0,0.1)";
+    case "light-coral":
       return "0 0 30px rgba(249, 115, 22, 0.3), 0 8px 32px rgba(0,0,0,0.1)";
     default:
       return "0 0 30px rgba(0,0,0,0.08), 0 8px 32px rgba(0,0,0,0.06)";
@@ -68,14 +73,14 @@ function getFloatDuration(id: string): number {
   for (let i = 0; i < id.length; i++) {
     hash = (hash * 17 + id.charCodeAt(i)) % 1000;
   }
-  return 3 + (hash % 2000) / 1000;
+  return 3 + (hash / 1000) * 2;
 }
 
 export default function BubbleCard({
   children,
   index,
   id,
-  variant = "white",
+  variant = "white" as CardVariant,
   className = "",
 }: BubbleCardProps) {
   const ref = useRef<HTMLDivElement>(null);
@@ -135,18 +140,18 @@ export default function BubbleCard({
       variants={entranceVariants}
       initial="hidden"
       animate={
-        isInView
-          ? {
-              ...entranceVariants.visible,
-              x: offset.x,
-              y: offset.y,
-              transition: {
-                ...entranceVariants.visible.transition,
-                x: { type: "spring", stiffness: 300, damping: 25 },
-                y: { type: "spring", stiffness: 300, damping: 25 },
-              },
-            }
-          : "hidden"
+        !isInView
+          ? "hidden"
+          : entranceDone
+            ? {
+                x: offset.x,
+                y: offset.y,
+                transition: {
+                  x: { type: "spring", stiffness: 300, damping: 25 },
+                  y: { type: "spring", stiffness: 300, damping: 25 },
+                },
+              }
+            : "visible"
       }
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -160,7 +165,6 @@ export default function BubbleCard({
             }
       }
       whileTap={{ scale: 0.98, transition: { type: "spring", stiffness: 500, damping: 20 } }}
-      style={{ willChange: "transform" }}
     >
       <motion.div
         animate={

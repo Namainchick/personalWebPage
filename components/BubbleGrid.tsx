@@ -42,7 +42,9 @@ export default function BubbleGrid({ children, className = "" }: BubbleGridProps
 
     const updateCols = () => {
       const style = getComputedStyle(el);
-      const cols = style.gridTemplateColumns.split(" ").length;
+      const templateCols = style.gridTemplateColumns;
+      if (templateCols === "none") return;
+      const cols = templateCols.split(" ").length;
       setColCount(cols);
     };
 
