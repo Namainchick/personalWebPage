@@ -68,7 +68,7 @@ export default function Sidebar({ language, navItems }: SidebarProps) {
       {/* Social Icons */}
       <div className="flex gap-2.5 mb-4">
         <a
-          href="https://github.com/namanhbui"
+          href="https://github.com/Namainchick"
           target="_blank"
           rel="noopener noreferrer"
           className="w-[34px] h-[34px] flex items-center justify-center rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
@@ -79,7 +79,7 @@ export default function Sidebar({ language, navItems }: SidebarProps) {
           </svg>
         </a>
         <a
-          href="https://linkedin.com/in/namanhbui"
+          href="https://www.linkedin.com/in/namanh-bui-vu-37b05a2a9/"
           target="_blank"
           rel="noopener noreferrer"
           className="w-[34px] h-[34px] flex items-center justify-center rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
@@ -90,7 +90,7 @@ export default function Sidebar({ language, navItems }: SidebarProps) {
           </svg>
         </a>
         <a
-          href="https://tiktok.com/@namanhbui"
+          href="https://www.tiktok.com/@namb.tech"
           target="_blank"
           rel="noopener noreferrer"
           className="w-[34px] h-[34px] flex items-center justify-center rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
