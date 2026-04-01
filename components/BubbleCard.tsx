@@ -191,6 +191,7 @@ export default function BubbleCard({
       onMouseLeave={handleMouseLeave}
     >
       <motion.div
+        className="rounded-2xl overflow-hidden"
         initial={initialStyles}
         animate={getEntranceAnimate()}
         whileHover={
@@ -211,10 +212,11 @@ export default function BubbleCard({
           animate={
             entranceState === "done" && !isHovered && !prefersReduced
               ? {
-                  y: [0, -2, 0, 2, 0],
+                  y: [-2, 2],
                   transition: {
                     duration: floatDuration,
                     repeat: Infinity,
+                    repeatType: "mirror" as const,
                     ease: "easeInOut",
                   },
                 }
