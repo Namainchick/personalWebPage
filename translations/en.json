@@ -250,6 +250,32 @@
       ]
     }
   },
+  "common": {
+    "backHome": "Back to home",
+    "viewProject": "View project",
+    "demo": "Demo",
+    "code": "Code"
+  },
+  "sections": {
+    "about": { "label": "about", "title": "About me" },
+    "work": { "label": "work", "title": "Work", "sub": "Professional roles & positions" },
+    "projects": { "label": "projects", "title": "Projects", "sub": "What I've built" },
+    "competitions": { "label": "competitions", "title": "Competitions", "sub": "Hackathons & contests" },
+    "coding": { "label": "the grind", "title": "The Grind", "sub": "LeetCode · live" },
+    "contact": { "label": "contact", "title": "Contact" }
+  },
+  "coding": {
+    "totalSolved": "total solved",
+    "currentStreak": "current streak",
+    "longestStreak": "longest streak",
+    "neetcode": "NeetCode 250",
+    "easy": "Easy",
+    "medium": "Medium",
+    "hard": "Hard",
+    "recent": "Recent Solves",
+    "error": "LeetCode currently unavailable.",
+    "retry": "Try again"
+  },
   "homepageDetailsData": {
     "hero": {
       "title": "Hi, I'm Namanh",

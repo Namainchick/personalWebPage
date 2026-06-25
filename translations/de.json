@@ -222,6 +222,32 @@
       "skills": ["Content Creation", "Video-Editing", "Community Building", "Personal Branding"]
     }
   },
+  "common": {
+    "backHome": "Zurück zur Startseite",
+    "viewProject": "Projekt ansehen",
+    "demo": "Demo",
+    "code": "Code"
+  },
+  "sections": {
+    "about": { "label": "about", "title": "Über mich" },
+    "work": { "label": "work", "title": "Work", "sub": "Berufliche Stationen & Rollen" },
+    "projects": { "label": "projects", "title": "Projects", "sub": "Was ich gebaut habe" },
+    "competitions": { "label": "competitions", "title": "Competitions", "sub": "Hackathons & Wettbewerbe" },
+    "coding": { "label": "the grind", "title": "The Grind", "sub": "LeetCode · live" },
+    "contact": { "label": "contact", "title": "Kontakt" }
+  },
+  "coding": {
+    "totalSolved": "insgesamt gelöst",
+    "currentStreak": "aktuelle Streak",
+    "longestStreak": "längste Streak",
+    "neetcode": "NeetCode 250",
+    "easy": "Easy",
+    "medium": "Medium",
+    "hard": "Hard",
+    "recent": "Letzte Solves",
+    "error": "LeetCode gerade nicht erreichbar.",
+    "retry": "Erneut versuchen"
+  },
   "homepageDetailsData": {
     "hero": {
       "title": "Hi, ich bin Namanh",
