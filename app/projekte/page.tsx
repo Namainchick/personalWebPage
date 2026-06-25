@@ -1,21 +1,18 @@
-import SectionHeading from "@/components/SectionHeading";
-import ProjectsGrid from "@/components/ProjectsGrid";
-import { getTranslatedProjects } from "@/lib/i18n";
-import { getServerI18n } from "@/lib/i18n-server";
+import { projects } from "@/data/projects";
+import { ProjectCard } from "@/components/ProjectCard";
+import { SectionHeader } from "@/components/SectionHeader";
+import { BackLink } from "@/components/BackLink";
 
-export default async function ProjektePage() {
-  const { language, t } = await getServerI18n();
-  const projects = getTranslatedProjects(language);
-
+export default function ProjektePage() {
   return (
-    <div className="px-4 md:px-6 lg:px-10 xl:px-16 py-12">
-      <SectionHeading>{t.projects.heading}</SectionHeading>
-      <p className="text-gray-500 text-lg mb-8 max-w-2xl">{t.projects.intro}</p>
-      <ProjectsGrid
-        projects={projects}
-        viewDemoLabel={t.projects.viewDemo}
-        viewCodeLabel={t.projects.viewCode}
-      />
+    <div>
+      <BackLink />
+      <SectionHeader eyebrow="projects" title="Projects" sub="Was ich gebaut habe" />
+      <div className="flex flex-col gap-4">
+        {projects.map((proj) => (
+          <ProjectCard key={proj.id} project={proj} />
+        ))}
+      </div>
     </div>
   );
 }
