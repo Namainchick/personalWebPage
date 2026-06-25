@@ -3,11 +3,16 @@ import { CodingStats } from "@/components/CodingStats";
 import { SectionHeader } from "@/components/SectionHeader";
 import { BackLink } from "@/components/BackLink";
 import { GlassPanel } from "@/components/ui/glass-panel";
+import { getServerI18n } from "@/lib/i18n-server";
+import type { Metadata } from "next";
 
 export const revalidate = 3600;
 const USERNAME = "nam_bui";
 
+export const metadata: Metadata = { title: "The Grind – Namanh Bui Vu" };
+
 export default async function CodingPage() {
+  const { t } = await getServerI18n();
   let view = null;
   try {
     view = await getCodingView(USERNAME);
@@ -22,7 +27,7 @@ export default async function CodingPage() {
         <CodingStats v={view} />
       ) : (
         <GlassPanel className="p-6">
-          <p className="text-[var(--muted)]">LeetCode gerade nicht erreichbar. Lade die Seite gleich neu.</p>
+          <p className="text-[var(--muted)]">{t.coding.error}</p>
         </GlassPanel>
       )}
     </div>

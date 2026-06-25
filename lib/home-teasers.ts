@@ -5,7 +5,7 @@ export type HomeSection = { key: string; label: string; teaser: string; href: st
 
 export function getHomeSections(opts?: { coding?: { streak: number; solved: number } }): HomeSection[] {
   const latest = experiences[0];
-  const wins = projects.filter((p) => /1\.\s*Platz|1st|Overall|Winner|Gewinner/i.test(p.description)).length;
+  const wins = projects.filter((p) => p.award).length;
   const coding = opts?.coding
     ? `live: ${opts.coding.streak}d streak · ${opts.coding.solved} solved`
     : "live: LeetCode & NeetCode";

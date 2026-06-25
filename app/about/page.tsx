@@ -1,6 +1,9 @@
 import { homepageDetails } from "@/data/homepage-details";
 import { SectionHeader } from "@/components/SectionHeader";
 import { BackLink } from "@/components/BackLink";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = { title: "Über mich – Namanh Bui Vu" };
 
 export default function AboutPage() {
   const blocks = [homepageDetails.about, homepageDetails.mission, homepageDetails.hobbies].filter(Boolean);

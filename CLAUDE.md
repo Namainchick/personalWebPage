@@ -13,7 +13,7 @@ There are no tests configured in this project.
 
 ## Architecture
 
-This is a **Next.js 16 App Router** portfolio site (TypeScript, Tailwind CSS, React 19) with bilingual support (German/English). Deployed on Vercel.
+This is a **Next.js 16 App Router** portfolio site (TypeScript, Tailwind CSS v3, React 19) with bilingual support (German/English). Deployed on Vercel.
 
 ### Routing
 
@@ -21,39 +21,55 @@ Routes use German path names. All pages are in `app/`:
 
 | Route | Purpose |
 |-------|---------|
-| `/` | Home (hero, about, experiences preview, projects preview) |
-| `/erfahrungen` | Full experiences list |
-| `/projekte` | Full projects grid |
+| `/` | Home — hero + section list with teasers (`HomeSectionList`) |
+| `/about` | About me — bio blocks from `data/homepage-details.ts` |
+| `/erfahrungen` | Experiences list |
+| `/erfahrungen/[id]` | Experience detail |
+| `/projekte` | Projects grid |
+| `/projekte/[id]` | Project detail |
+| `/competitions` | Hackathon/competition entries (projects with `award` field) |
+| `/coding` | Live LeetCode stats + NeetCode progress |
 | `/kontakt` | Contact page |
 | `/impressum` | Legal imprint |
 | `/datenschutz` | Privacy policy |
 
 ### i18n System
 
-Internationalization is client-side via React Context — not Next.js middleware or route-based:
+Internationalization is **server-side** — no client React Context:
 
-- `contexts/LanguageContext.tsx` — provides `useLanguage()` hook, persists to localStorage
-- `translations/de.json` and `translations/en.json` — all UI strings plus data translations (keyed by `projectsData` and `experiencesData` objects)
-- `hooks/useTranslatedData.ts` — `useTranslatedExperiences()` and `useTranslatedProjects()` hooks that overlay translations onto base data
-- `data/experiences.ts` and `data/projects.ts` — base data with TypeScript interfaces (German defaults)
+- `lib/i18n-server.ts` — `getServerI18n()` reads the language cookie and returns `{ language, t }`
+- `lib/i18n.ts` — `getTranslations(language)` returns the typed translation object
+- `lib/i18n-shared.ts` — shared cookie name + `normalizeLanguage()` utility
+- `translations/de.json` and `translations/en.json` — all UI strings
 
-When adding new content: add the base entry in `data/`, then add translated strings in both `translations/de.json` and `translations/en.json`.
+Section-page **content** (experiences, projects) is served from `data/*.ts` (German base). EN overlay for that content is a pending decision; `getTranslatedProjects` / `getTranslatedExperiences` helpers in `lib/i18n.ts` exist but are not yet wired into page routes.
+
+When adding UI strings: add keys to both `translations/de.json` and `translations/en.json`, then use `const { t } = await getServerI18n()` in the server component.
 
 ### Styling
 
-- Warm Bento theme: background `#F5F0EB` (warm beige), teal `#0D9488` + coral/orange `#F97316` dual-accent
-- Bento-Grid layout system: 4-column desktop, 2-column tablet, 1-column mobile (CSS Grid)
-- Card component with 6 variants: white, teal, coral, light-teal, light-coral, gradient
-- Cards span 1-4 columns via `.col-span-N` utility classes
-- Custom colors defined in `tailwind.config.ts`
-- Fonts: Inter (sans) and JetBrains Mono (mono) via `next/font`
-- Global animations and bento grid utilities in `app/globals.css`
-- Footer: dark teal (`bg-teal-900`)
-- Nav: pill-style active links on beige/80 backdrop-blur
+- **Greenhouse** glass theme: pale-green sky (`.sky` + `.grain` texture in `app/globals.css`), frosted-white glass panels, single green accent via CSS variables (`--accent`, `--accent-deep`, `--muted`, `--ink`, etc.)
+- CSS variables defined in `app/globals.css` `:root`
+- Fonts: Newsreader (serif), Hanken Grotesk (sans), IBM Plex Mono (mono) — loaded via `lib/fonts.ts` using `next/font/google`
+- Minimal single-column layout — no sidebar, no bento grid
+- Home page: hero section + `HomeSectionList` (from `components/HomeSectionList.tsx`); teaser data from `lib/home-teasers.ts`
+
+### Component Structure
+
+**UI primitives** (`components/ui/`): `glass-panel`, `pill`, `button`, `badge`, `progress-bar`, `stat-tile`, `eyebrow`
+
+**Section components** (`components/`): `JobCard`, `JobDetail`, `ProjectCard`, `ProjectDetail`, `CompetitionCard`, `CodingStats`, `SectionHeader`, `BackLink`, `SkyBackground`, `HomeSectionList`, `LanguageSwitcher`, `Footer`
+
+### /coding Route
+
+- Live public LeetCode GraphQL via `lib/leetcode/`
+- NeetCode problem list in `lib/neetcode/problems.ts` (~50 problems)
+- Aggregated in `lib/coding.ts`, fetched server-side with `revalidate = 3600` (hourly cache)
+- Username: `nam_bui`
 
 ### Key Patterns
 
-- Most components are client components (`"use client"`) due to i18n context dependency
+- All pages are **server components** (async); `"use client"` only where interactivity requires it
 - React Compiler is enabled in `next.config.ts`
 - Path alias: `@/*` maps to project root
 - Prettier: 2 spaces, semicolons, double quotes, 100-char line width

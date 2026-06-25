@@ -2,6 +2,9 @@ import { projects } from "@/data/projects";
 import { CompetitionCard } from "@/components/CompetitionCard";
 import { SectionHeader } from "@/components/SectionHeader";
 import { BackLink } from "@/components/BackLink";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = { title: "Competitions – Namanh Bui Vu" };
 
 export default function CompetitionsPage() {
   const comps = projects.filter((p) => p.award);
