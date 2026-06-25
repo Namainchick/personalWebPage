@@ -107,7 +107,7 @@ German route names are kept (`/erfahrungen`, `/projekte`, `/kontakt`). New route
 ```
 Namanh Bui Vu                         ← serif, large
 CS @ TUHH · AI builder                ← role/subtitle (sans, muted)
-location: Hamburg · cv: pdf           ← meta line (mono)  [age ticker optional]
+location: Hamburg · cv: pdf↗          ← meta line (mono); cv → /Namanh_Bui_Vu_CV.pdf
 github↗  linkedin↗  tiktok↗           ← social links (ghost)
 
 [one short serif intro line]
@@ -236,7 +236,7 @@ No other data shape changes. `experiences.ts`, `homepage-details.ts`, `translati
 
 ## 11. Out of Scope (now) / Later
 
-- **Content filling** — refining prose, adding more experiences/projects/competitions, real images, an actual CV PDF, the age ticker. Structure must look complete with current data.
+- **Content filling** — refining prose, adding more experiences/projects/competitions, real images. Structure must look complete with current data.
 - Blog, Open Source, Research sections (explicitly excluded).
 - Any backend, auth, database, or write features.
 - Tailwind v4 / shadcn migration.
@@ -247,6 +247,7 @@ No other data shape changes. `experiences.ts`, `homepage-details.ts`, `translati
 
 - LeetCode username: **`nam_bui`** (confirmed). Neetcode progress derives from LeetCode solves + the ported Neetcode list.
 - Contact email **`namanh.bui2005@gmail.com`**; socials: GitHub `Namainchick`, LinkedIn (existing URL), TikTok `@namb.tech`.
-- `cv: pdf` link target and age ticker are **placeholders** until content is provided.
+- **CV PDF:** present at `public/Namanh_Bui_Vu_CV.pdf` — the meta-line `cv: pdf` links to `/Namanh_Bui_Vu_CV.pdf`.
+- **No age ticker** (explicitly dropped).
 - "Competitions" entries are the three hackathon winners present in `projects`; more can be added later via the `award` field.
 - Light theme only (no dark mode) in this iteration.
