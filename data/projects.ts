@@ -10,6 +10,7 @@ export interface Project {
   images?: string[];
   learnings?: string;
   highlights?: string[];
+  award?: { event: string; placement: string; prize?: string; date: string };
 }
 
 export const projects: Project[] = [
@@ -31,6 +32,11 @@ export const projects: Project[] = [
     learnings:
       "Gelernt, wie man multimodale KI-Modelle effizient mit Echtzeit-Bilddaten füttert und dabei Latenz minimiert. Erfahrung mit Screen-Capture-APIs und der Gemini Vision API.",
     images: [],
+    award: {
+      event: "Cursor AI Hackathon Hamburg",
+      placement: "1. Platz · Google DeepMind Gemini Track",
+      date: "Feb 2026",
+    },
   },
   {
     id: "proj-2",
@@ -50,6 +56,12 @@ export const projects: Project[] = [
     learnings:
       "Tiefes Verständnis der Chrome Extension API und Content Scripts aufgebaut. Gelernt, wie man KI-Modelle effizient im Browser-Kontext einsetzt und Latenz bei Echtzeit-Filterung minimiert.",
     images: [],
+    award: {
+      event: "CodeRabbit × Windsurf Hackathon",
+      placement: "1. Platz Overall",
+      prize: "$2.000",
+      date: "Dez 2025",
+    },
   },
   {
     id: "proj-3",
@@ -70,6 +82,11 @@ export const projects: Project[] = [
     learnings:
       "Erfahrung mit Microservices-Architektur unter Zeitdruck gesammelt. Gelernt, wie man WhatsApp Business API für Voice-First-Interaktionen einsetzt und OpenCV für praktische Schadenerkennung nutzt.",
     images: [],
+    award: {
+      event: "{Tech: Europe} Hackathon Berlin",
+      placement: "1. Platz Arbio Track · 3. Platz Overall",
+      date: "Jan 2026",
+    },
   },
   {
     id: "proj-4",
