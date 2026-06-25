@@ -1,59 +1,40 @@
-import Card from "@/components/Card";
-import SectionHeading from "@/components/SectionHeading";
-import { getServerI18n } from "@/lib/i18n-server";
+import { SectionHeader } from "@/components/SectionHeader";
+import { BackLink } from "@/components/BackLink";
+import { Button } from "@/components/ui/button";
 
-export default async function KontaktPage() {
-  const { t } = await getServerI18n();
+const SOCIALS = [
+  { label: "GitHub", href: "https://github.com/Namainchick" },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/namanh-bui-vu-37b05a2a9/"
+  },
+  { label: "TikTok", href: "https://www.tiktok.com/@namb.tech" }
+];
 
+export default function KontaktPage() {
   return (
-    <div className="px-4 md:px-6 lg:px-10 xl:px-16 py-12">
-      <SectionHeading>{t.contact.heading}</SectionHeading>
-      <p className="text-gray-500 text-lg mb-8 max-w-2xl">{t.contact.intro}</p>
-
-      <div className="bento-grid">
-        {/* Email - teal, span-2 */}
-        <Card variant="teal" className="col-span-2">
-          <h3 className="text-xl font-semibold mb-3">{t.contact.email.heading}</h3>
-          <p className="text-white/80 mb-6">{t.contact.email.description}</p>
+    <div>
+      <BackLink />
+      <SectionHeader
+        eyebrow="contact"
+        title="Kontakt"
+        sub="Schreib mir gerne — zu Projekten, Zusammenarbeit oder einfach zum Austausch."
+      />
+      <Button href="mailto:namanh.bui2005@gmail.com">
+        namanh.bui2005@gmail.com
+      </Button>
+      <div className="mt-8 flex flex-wrap gap-5 font-sans text-[15px] text-[var(--muted)]">
+        {SOCIALS.map((s) => (
           <a
-            href="mailto:namanh.bui2005@gmail.com"
-            className="inline-flex items-center justify-center px-6 py-3 rounded-full font-medium bg-white text-teal-700 hover:bg-teal-50 transition-all duration-200"
-          >
-            {t.contact.email.cta}
-          </a>
-        </Card>
-
-        {/* LinkedIn - white, span-1 */}
-        <Card variant="white" hoverable className="col-span-1 flex flex-col justify-between">
-          <div>
-            <h3 className="text-xl font-semibold mb-2 text-gray-900">{t.contact.linkedin.heading}</h3>
-            <p className="text-gray-600 text-sm mb-4">{t.contact.linkedin.description}</p>
-          </div>
-          <a
-            href="https://www.linkedin.com/in/namanh-bui-vu-37b05a2a9/"
+            key={s.label}
+            href={s.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="animated-link text-teal-600 hover:text-teal-700 font-medium text-sm"
+            className="hover:text-[var(--accent-deep)]"
           >
-            {t.contact.linkedin.cta}
+            {s.label} ↗
           </a>
-        </Card>
-
-        {/* GitHub - white, span-1 */}
-        <Card variant="white" hoverable className="col-span-1 flex flex-col justify-between">
-          <div>
-            <h3 className="text-xl font-semibold mb-2 text-gray-900">{t.contact.github.heading}</h3>
-            <p className="text-gray-600 text-sm mb-4">{t.contact.github.description}</p>
-          </div>
-          <a
-            href="https://github.com/Namainchick"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="animated-link text-teal-600 hover:text-teal-700 font-medium text-sm"
-          >
-            {t.contact.github.cta}
-          </a>
-        </Card>
+        ))}
       </div>
     </div>
   );
