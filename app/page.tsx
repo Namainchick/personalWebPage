@@ -18,7 +18,7 @@ export default function Home() {
       <p className="mt-4 font-mono text-[13px] text-[var(--muted-2)] flex flex-wrap gap-x-4 gap-y-1">
         <span>location: Hamburg, DE</span>
         <span>·</span>
-        <a href="/Namanh_Bui_Vu_CV.pdf" target="_blank" className="hover:text-[var(--accent-deep)]">cv: pdf ↗</a>
+        <a href="/Namanh_Bui_Vu_CV.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--accent-deep)]">cv: pdf ↗</a>
       </p>
       <div className="mt-4 flex flex-wrap gap-4 font-sans text-[14px] text-[var(--muted)]">
         {SOCIALS.map((s) => (

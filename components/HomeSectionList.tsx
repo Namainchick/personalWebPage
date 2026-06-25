@@ -12,7 +12,7 @@ export function HomeSectionList({ sections }: { sections: HomeSection[] }) {
         >
           <span className="font-sans text-[15px] text-[var(--ink)] w-[120px] shrink-0">{s.label}</span>
           <span className="font-sans text-[14px] text-[var(--muted-2)] flex-1 truncate">{s.teaser}</span>
-          <span className="font-mono text-[12px] text-[var(--faint)] group-hover:text-[var(--accent-deep)]">[open]</span>
+          <span className="font-mono text-[12px] text-[var(--faint)] group-hover:text-[var(--accent-deep)] transition-colors">[open]</span>
         </Link>
       ))}
     </nav>

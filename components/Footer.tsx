@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 export default function Footer({ language }: { language: string }) {
-  const year = 2026;
+  const year = new Date().getFullYear();
   const impressum = language === "en" ? "Imprint" : "Impressum";
   const privacy = language === "en" ? "Privacy" : "Datenschutz";
   return (

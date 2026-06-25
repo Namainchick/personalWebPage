@@ -5,10 +5,11 @@ import { Pill } from "@/components/ui/pill";
 import type { CodingView } from "@/lib/coding";
 
 export function CodingStats({ v }: { v: CodingView }) {
+  const max = Math.max(v.easy, v.medium, v.hard, 1);
   const diffs = [
-    { key: "easy", label: "Easy", count: v.easy, tone: "easy" as const, max: Math.max(v.easy, v.medium, v.hard, 1) },
-    { key: "medium", label: "Medium", count: v.medium, tone: "medium" as const, max: Math.max(v.easy, v.medium, v.hard, 1) },
-    { key: "hard", label: "Hard", count: v.hard, tone: "hard" as const, max: Math.max(v.easy, v.medium, v.hard, 1) },
+    { key: "easy", label: "Easy", count: v.easy, tone: "easy" as const, max },
+    { key: "medium", label: "Medium", count: v.medium, tone: "medium" as const, max },
+    { key: "hard", label: "Hard", count: v.hard, tone: "hard" as const, max },
   ];
   return (
     <div className="flex flex-col gap-8">

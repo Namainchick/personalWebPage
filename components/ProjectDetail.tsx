@@ -64,16 +64,17 @@ export function ProjectDetail({ project }: { project: Project }) {
       ) : null}
       {project.images?.length ? (
         <div className="mt-8 flex flex-col gap-4">
-          {project.images.map((src) => (
+          {project.images.map((src, i) => (
             <div
               key={src}
               className="rounded-[var(--radius-tile)] overflow-hidden border border-[var(--glass-border)]"
             >
               <Image
                 src={src}
-                alt={project.title}
+                alt={`${project.title} – ${i + 1}`}
                 width={1200}
                 height={750}
+                sizes="(max-width: 768px) 100vw, 760px"
                 className="w-full h-auto"
               />
             </div>

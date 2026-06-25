@@ -31,7 +31,7 @@ export default function DatenschutzPage() {
               href="https://vercel.com/legal/privacy-policy"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-teal-600 hover:text-teal-700 underline"
+              className="text-[var(--accent-deep)] underline hover:text-[var(--accent)]"
             >
               Vercel Privacy Policy
             </a>
