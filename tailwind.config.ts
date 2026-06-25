@@ -9,31 +9,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#F5F0EB",
-        foreground: "#1A1A1A",
-        muted: "#6B7280",
-        border: "#E5E7EB",
-        "card-white": "#FFFFFF",
-        teal: {
-          50: "#F0FDFA",
-          100: "#CCFBF1",
-          200: "#99F6E4",
-          300: "#5EEAD4",
-          500: "#14B8A6",
-          600: "#0D9488",
-          700: "#0F766E",
-          900: "#134E4A",
-        },
-        orange: {
-          50: "#FFF7ED",
-          100: "#FFEDD5",
-          500: "#F97316",
-          600: "#EA580C",
-        },
+        bg: "#EDF1E7",
+        ink: "#2B3328",
+        muted: "#6F7B68",
+        accent: { DEFAULT: "#5D8A57", bright: "#6AA564", deep: "#4F7A4D" },
       },
       fontFamily: {
-        sans: ["Avenir Next", "SF Pro Display", "Segoe UI", "system-ui", "sans-serif"],
-        mono: ["JetBrains Mono", "SFMono-Regular", "Consolas", "Menlo", "monospace"],
+        serif: ["var(--font-serif)", "Georgia", "serif"],
+        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+        mono: ["var(--font-mono)", "SFMono-Regular", "Menlo", "monospace"],
       },
     },
   },
