@@ -14,135 +14,178 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  // ───────────────────────── Competitions (hackathon wins) ─────────────────────────
   {
-    id: "proj-1",
-    title: "Dip – Give LLMs Eyes",
+    id: "dip",
+    title: "Dip — Give LLMs Eyes",
     description:
-      "1. Platz, Google DeepMind Gemini Track – Cursor AI Hackathon Hamburg (Feb 2026, 400+ Teilnehmer). Ein Tool, das LLMs visuellen Echtzeit-Kontext des Bildschirms gibt und die manuelle Beschreibung von On-Screen-Inhalten überflüssig macht.",
+      "A tool that gives LLMs real-time visual context of your screen, so you never have to describe what's on it.",
     techStack: ["Python", "Google Gemini API", "Screen Capture"],
     demoUrl: "https://dip-landing-page.vercel.app/",
     longDescription:
-      "Dip entstand beim Cursor AI Hackathon Hamburg im Februar 2026 mit über 400 Teilnehmern. Das Tool gibt LLMs visuellen Echtzeit-Kontext, indem es den Bildschirm des Nutzers erfasst und als Kontext an das Modell übergibt. So entfällt die manuelle Beschreibung von On-Screen-Inhalten komplett.\n\nDie Architektur basiert auf einem Python-Backend, das Screen Captures über die Google Gemini API verarbeitet. Ein leichtgewichtiger Client erfasst den Bildschirminhalt und sendet ihn an den LLM-Kontext.",
+      "Dip streams real-time screen context into an LLM: it captures what's on your screen and feeds it to the model, so describing on-screen content by hand becomes unnecessary. A lightweight client captures the screen and a Python backend pipes it into Gemini for pair-programming and debugging workflows.",
     highlights: [
-      "1. Platz Google DeepMind Gemini Track",
-      "400+ Teilnehmer beim Cursor AI Hackathon Hamburg",
-      "Echtzeit-Bildschirmerfassung als LLM-Kontext",
-      "Eliminiert manuelle Beschreibung von Bildschirminhalten",
+      "1st Place, Google DeepMind Gemini Track",
+      "400+ participants at the Cursor AI Hackathon Hamburg",
+      "Real-time screen capture as live LLM context",
     ],
     learnings:
-      "Gelernt, wie man multimodale KI-Modelle effizient mit Echtzeit-Bilddaten füttert und dabei Latenz minimiert. Erfahrung mit Screen-Capture-APIs und der Gemini Vision API.",
-    images: [],
+      "Learned how to feed multimodal models with real-time image data while keeping latency low, working with screen-capture APIs and the Gemini Vision API.",
     award: {
       event: "Cursor AI Hackathon Hamburg",
-      placement: "1. Platz · Google DeepMind Gemini Track",
+      placement: "1st · Google DeepMind Gemini Track",
       date: "Feb 2026",
     },
   },
   {
-    id: "proj-2",
-    title: "Mindflayer – Semantischer Social-Media-Filter",
+    id: "mindflayer",
+    title: "Mindflayer — Semantic Social-Media Filter",
     description:
-      "1. Platz Overall ($2.000 Preisgeld) – CodeRabbit × Windsurf Hackathon (Dez 2025, 110 Teilnehmer). Eine Chrome Extension, die mit Gemini Social-Media-Posts in Echtzeit semantisch filtert.",
+      "A Chrome extension that filters social-media feeds by meaning, not keywords — powered by Gemini, in real time.",
     techStack: ["Chrome Extension", "Google Gemini API", "JavaScript"],
     repoUrl: "https://github.com/jpzk/mindflayer",
     longDescription:
-      "Mindflayer ist eine Chrome Extension, die Social-Media-Posts in Echtzeit semantisch filtert. Statt auf Keywords basiert der Filter auf dem tatsächlichen Inhalt und Kontext der Posts – powered by Google Gemini.\n\nDas Projekt gewann den 1. Platz Overall beim CodeRabbit × Windsurf Hackathon mit einem Preisgeld von $2.000. Die Extension analysiert Posts direkt im Browser und blendet unerwünschte Inhalte aus, ohne dass der Nutzer komplexe Filterregeln erstellen muss.",
+      "Mindflayer filters social-media posts in real time based on their actual content and context rather than keyword lists. The extension analyses posts directly in the browser and hides unwanted content without the user writing complex filter rules.",
     highlights: [
-      "1. Platz Overall mit $2.000 Preisgeld",
-      "110 Teilnehmer beim CodeRabbit × Windsurf Hackathon",
-      "Semantische Echtzeit-Filterung statt Keyword-basiert",
-      "Nahtlose Browser-Integration als Chrome Extension",
+      "1st Place Overall, $2,000 prize",
+      "110 participants at the CodeRabbit × Windsurf Hackathon",
+      "Semantic real-time filtering instead of keyword-based",
     ],
     learnings:
-      "Tiefes Verständnis der Chrome Extension API und Content Scripts aufgebaut. Gelernt, wie man KI-Modelle effizient im Browser-Kontext einsetzt und Latenz bei Echtzeit-Filterung minimiert.",
-    images: [],
+      "Built a deep understanding of the Chrome Extension API and content scripts, and how to run AI models efficiently in the browser while keeping real-time filtering fast.",
     award: {
       event: "CodeRabbit × Windsurf Hackathon",
-      placement: "1. Platz Overall",
-      prize: "$2.000",
-      date: "Dez 2025",
+      placement: "1st Overall",
+      prize: "$2,000",
+      date: "Dec 2025",
     },
   },
   {
-    id: "proj-3",
-    title: "Airbn – KI Property Management",
+    id: "airbn",
+    title: "Airbn — AI Property Management",
     description:
-      "1. Platz Arbio Track, 3. Platz Overall – {Tech: Europe} Hackathon Berlin (Jan 2026). Eine KI-native Immobilienverwaltungsplattform mit Microservices-Architektur, Voice-First-Gäste-Support und automatischer Schadenserkennung via OpenCV.",
+      "An AI-native property-management platform: voice-first guest support over WhatsApp and automatic damage detection via OpenCV.",
     techStack: ["GPT-4o", "OpenCV", "Flask", "FastAPI", "Node.js", "WhatsApp API"],
     repoUrl: "https://github.com/MohiCodeHub/airbio-track",
     longDescription:
-      "Airbn ist eine KI-native Immobilienverwaltungsplattform, die beim {Tech: Europe} Hackathon in Berlin entstanden ist. Die Plattform kombiniert mehrere Microservices: Voice-First-Gäste-Support über WhatsApp, automatische Schadenserkennung via OpenCV und intelligente Property-Management-Features.\n\nDie Architektur nutzt GPT-4o für natürliche Konversationen, OpenCV für Bildanalyse bei Schadenmeldungen, und eine Kombination aus Flask, FastAPI und Node.js für die verschiedenen Backend-Services.",
+      "Airbn combines several microservices: voice-first guest support over WhatsApp, automatic damage detection from checkout photos via OpenCV, and intelligent property-management features. GPT-4o handles the conversations, OpenCV the image analysis, and a mix of Flask, FastAPI and Node.js powers the backend services.",
     highlights: [
-      "1. Platz Arbio Track, 3. Platz Overall",
-      "{Tech: Europe} Hackathon Berlin",
-      "Microservices-Architektur mit 3 Backend-Services",
-      "Voice-First Gäste-Support via WhatsApp",
-      "Automatische Schadenserkennung mit OpenCV",
+      "1st Place Arbio Track · 3rd Place Overall",
+      "Microservices architecture with 3 backend services",
+      "Voice-first guest support + OpenCV damage detection",
     ],
     learnings:
-      "Erfahrung mit Microservices-Architektur unter Zeitdruck gesammelt. Gelernt, wie man WhatsApp Business API für Voice-First-Interaktionen einsetzt und OpenCV für praktische Schadenerkennung nutzt.",
-    images: [],
+      "Got hands-on with microservices under time pressure, the WhatsApp Business API for voice-first interactions, and OpenCV for practical damage detection.",
     award: {
       event: "{Tech: Europe} Hackathon Berlin",
-      placement: "1. Platz Arbio Track · 3. Platz Overall",
+      placement: "1st Arbio Track · 3rd Overall",
       date: "Jan 2026",
     },
   },
   {
-    id: "proj-4",
-    title: "Hundewelt.space – KI-Hundeblog",
+    id: "rushhour",
+    title: "RushHour — AI Brand × Creator Matching",
     description:
-      "Vollautomatisierter deutscher Hundeblog mit KI-Content-Pipeline. Next.js Frontend mit SSR, Suche, RSS und Admin-Dashboard. Python LangGraph-Pipeline für Themenrecherche, Artikelgenerierung, Bildgenerierung und automatische Veröffentlichung. Newsletter-System mit Double Opt-In.",
+      "Airbnb meets LinkedIn for creator collaborations: AI predicts which local brand × creator partnership actually works, instead of endless scrolling.",
+    techStack: ["Next.js", "TypeScript", "Qwen", "Supabase", "Tailwind CSS"],
+    demoUrl: "https://rush-hour-two.vercel.app",
+    repoUrl: "https://github.com/Namainchick/RushHour",
+    longDescription:
+      "Local businesses burn time and budget finding creators by hand; creators struggle with outreach and visibility. RushHour predicts which business–creator combination will actually perform — the \"Moneyball\" effect, where a small hyper-local creator with real engagement beats a 200k-follower account for a neighbourhood goal. Qwen handles extraction and the human-readable reasoning, the scoring is deterministic math (local audience, engagement, style match, reach), and everything persists in Supabase so the match pool grows with every new creator.",
+    highlights: [
+      "1st Place Overall + 1st Place Qwen Track",
+      "AI-predicted brand × creator fit, not a catalogue to scroll",
+      "Qwen for extraction & reasoning, deterministic scoring, Supabase persistence",
+    ],
+    award: {
+      event: "AI BEAVERS × Mollie Founder Hackathon",
+      placement: "1st Overall · 1st Qwen Track",
+      date: "2026",
+    },
+  },
+  {
+    id: "horsegpt",
+    title: "HorseGPT — a fun AI app",
+    description:
+      "A playful novelty AI app, built as a distribution experiment: how far can great marketing and distribution carry a product? 100+ users within two days.",
+    techStack: ["base44", "AI", "Growth"],
+    demoUrl: "https://horsegpt.vercel.app/",
+    longDescription:
+      "HorseGPT started as a fun, intentionally silly AI app — and as an experiment in growth: instead of obsessing over features, we focused on marketing and distribution to see how far that alone gets you. The answer: 100+ users within the first two days.",
+    highlights: [
+      "base44 Track Winner",
+      "100+ users within 2 days",
+      "A pure distribution & marketing experiment",
+    ],
+    award: {
+      event: "Hackathon · base44 Track",
+      placement: "base44 Track Winner",
+      date: "2026",
+    },
+  },
+
+  // ───────────────────────── Projects (builds & ventures) ─────────────────────────
+  {
+    id: "football-models",
+    title: "Football Prediction Models",
+    description:
+      "Leakage-safe match-prediction pipelines with CatBoost — SHAP feature selection, calibration and walk-forward validation.",
+    techStack: ["Python", "CatBoost", "scikit-learn", "pandas", "pytest"],
+    repoUrl: "https://github.com/Namainchick/bundesliga-prediction-model",
+    longDescription:
+      "Built leakage-safe match-prediction pipelines with CatBoost, SHAP-based feature selection, probability calibration and walk-forward validation. As a sanity check on the edge, I backtested a Serie A draw-gap strategy that returned >30% ROI over the last eight seasons.",
+    highlights: [
+      "Leakage-safe pipelines: SHAP selection, calibration, walk-forward validation",
+      ">30% ROI backtest on a Serie A draw-gap strategy (8 seasons)",
+    ],
+  },
+  {
+    id: "account-business",
+    title: "Social Media & Account Business",
+    description:
+      "From age 13: turned Instagram pages and viral TikToks into real income — then sold the shovels in the gold rush by flipping Creator-Program-eligible accounts.",
+    techStack: ["Instagram", "TikTok", "Growth", "Monetization"],
+    longDescription:
+      "I started early with a feel for what makes attention move — building Instagram pages and making viral TikToks, and earning my first real money through the Creator Program. When everyone rushed in to monetize video, I switched sides and sold the shovels: buying accounts that were eligible for the Creator Program, growing them and flipping them. Across it all I built and flipped 16–18 accounts, with 50k+ followers and 20M+ views.",
+    highlights: [
+      "50k+ followers · 20M+ views across accounts",
+      "16–18 accounts built, grown and flipped",
+      "\"Sold shovels in the gold rush\" — flipped Creator-Program-eligible accounts",
+      "Self-taught, first real income as a teenager",
+    ],
+  },
+  {
+    id: "content-community",
+    title: "Tech Content & Community",
+    description:
+      "Personal content on AI, tech and startup life as a student in Germany — plus a 250+ member Discord helping ambitious DACH students break into FAANG and startups.",
+    techStack: ["TikTok", "Content", "Discord", "Community"],
+    demoUrl: "https://discord.gg/g6JnnfyHx",
+    longDescription:
+      "I make personal content about AI, tech and startups — and what it actually looks like to be a tech student in Germany. The mission is simple: a lot of people never find out what's possible or how to get there, just because of their environment and because this stuff is gatekept. So I show it — how to get into FAANG, how to break into startups, career tips — and I built a Discord community of 250+ ambitious students across the DACH region around exactly that.",
+    highlights: [
+      "250+ member Discord for ambitious DACH students",
+      "Helping people break into FAANG & startups, plus career tips",
+      "Mission: un-gatekeep tech & startup access for those outside the usual circles",
+      "Content as @namb.tech on TikTok",
+    ],
+  },
+  {
+    id: "hundewelt",
+    title: "Hundewelt.space — AI Dog Blog",
+    description:
+      "A fully automated German dog blog with an end-to-end AI content pipeline — from topic research to published article, hands-free.",
     techStack: ["Next.js", "TypeScript", "Python", "FastAPI", "Supabase", "Google Gemini", "LangGraph"],
     demoUrl: "https://hundewelt.space",
     longDescription:
-      "Hundewelt.space ist ein vollautomatisierter deutscher Hundeblog mit einer kompletten KI-Content-Pipeline. Das Next.js Frontend bietet SSR, Volltextsuche, RSS-Feeds und ein Admin-Dashboard.\n\nDas Herzstück ist eine Python LangGraph-Pipeline, die automatisch Themen recherchiert, Artikel generiert, passende Bilder erstellt und alles automatisch veröffentlicht. Ein Newsletter-System mit Double Opt-In rundet das Projekt ab.",
+      "Hundewelt.space is a fully automated German dog blog. The Next.js frontend offers SSR, full-text search, RSS feeds and an admin dashboard. The core is a Python LangGraph pipeline that researches topics, writes articles, generates matching images and publishes everything automatically — rounded off with a double-opt-in newsletter.",
     highlights: [
-      "Vollautomatische KI-Content-Pipeline",
-      "LangGraph-basierte Multi-Step-Generierung",
-      "Next.js SSR Frontend mit Suche und RSS",
-      "Newsletter-System mit Double Opt-In",
-      "Live unter hundewelt.space",
+      "Fully automated AI content pipeline",
+      "LangGraph multi-step generation",
+      "Next.js SSR frontend with search & RSS",
+      "Live at hundewelt.space",
     ],
     learnings:
-      "Umfangreiche Erfahrung mit LangGraph für komplexe, mehrstufige KI-Workflows. Gelernt, wie man eine vollautomatische Content-Pipeline von der Themenrecherche bis zur Veröffentlichung aufbaut.",
-    images: [],
-  },
-  {
-    id: "proj-5",
-    title: "Video Journal Analyzer",
-    description:
-      "Eine Web-App zur Analyse von Video-URLs mit zwei Modi: Tagebucheintrag-Analyse (Emotionen und Stimmungen) und Rhetorik-Coach (Sprechweise, Artikulation, Verbesserungsvorschläge).",
-    techStack: ["Next.js", "TypeScript", "Tailwind CSS"],
-    imageUrl: "/Projekt1.png",
-    longDescription:
-      "Der Video Journal Analyzer ist eine Web-App, die Video-URLs analysiert und in zwei Modi arbeitet:\n\n1. Tagebucheintrag-Analyse: Erkennt Emotionen und Stimmungen aus Video-Tagebüchern und gibt strukturiertes Feedback.\n\n2. Rhetorik-Coach: Analysiert Sprechweise, Artikulation und Körpersprache und gibt konkrete Verbesserungsvorschläge.\n\nDas Frontend ist mit Next.js und TypeScript gebaut und nutzt Tailwind CSS für das Styling.",
-    highlights: [
-      "Zwei Analyse-Modi: Emotions-Analyse und Rhetorik-Coaching",
-      "Video-URL-basierte Analyse",
-      "Strukturiertes Feedback mit konkreten Verbesserungsvorschlägen",
-    ],
-    learnings:
-      "Erfahrung mit Video-Analyse-APIs und der Verarbeitung von multimodalen Inhalten. Gelernt, wie man komplexe Analyse-Ergebnisse nutzerfreundlich aufbereitet.",
-    images: ["/Projekt1.png"],
-  },
-  {
-    id: "proj-6",
-    title: "Song Splitter",
-    description:
-      "Ein Audio-Tool zum Aufteilen von Songs in einzelne Komponenten wie Schlagzeug, Gitarre, Bass, Vocals und weitere Instrumente mittels KI-gestützter Audio-Quellentrennung.",
-    techStack: ["Python", "Spleeter", "Demucs", "FFmpeg"],
-    imageUrl: "/Projekt2.png",
-    longDescription:
-      "Song Splitter ist ein Audio-Tool, das Songs in ihre einzelnen Komponenten aufteilt – Schlagzeug, Gitarre, Bass, Vocals und weitere Instrumente. Das Tool nutzt KI-gestützte Audio-Quellentrennung mit Spleeter und Demucs.\n\nDer Workflow ist einfach: Song hochladen, Trennung starten, einzelne Spuren herunterladen. FFmpeg wird für die Audio-Verarbeitung und Konvertierung eingesetzt.",
-    highlights: [
-      "KI-gestützte Audio-Quellentrennung",
-      "Unterstützung für Spleeter und Demucs Modelle",
-      "Trennung in Drums, Gitarre, Bass, Vocals und mehr",
-      "Einfacher Upload-und-Download-Workflow",
-    ],
-    learnings:
-      "Tiefes Verständnis von Audio-Verarbeitung und KI-basierter Quellentrennung aufgebaut. Erfahrung mit FFmpeg für Audio-Manipulation und den Unterschieden zwischen Spleeter und Demucs.",
-    images: ["/Projekt2.png"],
+      "Extensive experience with LangGraph for complex multi-step AI workflows, and how to build a content pipeline that runs from research to publication without a human in the loop.",
   },
 ];

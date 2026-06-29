@@ -7,7 +7,7 @@ export default function ErfahrungenPage() {
   return (
     <div>
       <BackLink />
-      <SectionHeader eyebrow="work" title="Work" sub="Berufliche Stationen & Rollen" />
+      <SectionHeader eyebrow="work" title="Work" sub="Professional experience & roles" />
       <div className="flex flex-col gap-4">
         {experiences.map((exp) => (
           <JobCard key={exp.id} exp={exp} />

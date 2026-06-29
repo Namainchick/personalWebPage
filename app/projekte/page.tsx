@@ -7,11 +7,13 @@ export default function ProjektePage() {
   return (
     <div>
       <BackLink />
-      <SectionHeader eyebrow="projects" title="Projects" sub="Was ich gebaut habe" />
+      <SectionHeader eyebrow="projects" title="Projects" sub="Things I've built" />
       <div className="flex flex-col gap-4">
-        {projects.map((proj) => (
-          <ProjectCard key={proj.id} project={proj} />
-        ))}
+        {projects
+          .filter((p) => !p.award)
+          .map((proj) => (
+            <ProjectCard key={proj.id} project={proj} />
+          ))}
       </div>
     </div>
   );

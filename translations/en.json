@@ -273,7 +273,7 @@
     "medium": "Medium",
     "hard": "Hard",
     "recent": "Recent Solves",
-    "error": "LeetCode currently unavailable.",
+    "error": "Couldn't load the latest numbers right now.",
     "retry": "Try again"
   },
   "homepageDetailsData": {

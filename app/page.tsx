@@ -27,9 +27,6 @@ export default function Home() {
           </a>
         ))}
       </div>
-      <p className="mt-8 font-serif text-[20px] leading-[1.5] text-[var(--ink)] max-w-[52ch]">
-        I build AI apps that solve real problems — and won three hackathons doing it.
-      </p>
       <HomeSectionList sections={sections} />
     </div>
   );

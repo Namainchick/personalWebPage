@@ -7,7 +7,6 @@ import { getServerI18n } from "@/lib/i18n-server";
 import type { Metadata } from "next";
 
 export const revalidate = 3600;
-const USERNAME = "nam_bui";
 
 export const metadata: Metadata = { title: "The Grind – Namanh Bui Vu" };
 
@@ -15,14 +14,18 @@ export default async function CodingPage() {
   const { t } = await getServerI18n();
   let view = null;
   try {
-    view = await getCodingView(USERNAME);
+    view = await getCodingView();
   } catch {
     view = null;
   }
   return (
     <div>
       <BackLink />
-      <SectionHeader eyebrow="the grind" title="The Grind" sub="LeetCode · live · NeetCode-Fortschritt aus den letzten Solves" />
+      <SectionHeader
+        eyebrow="the grind"
+        title="The Grind"
+        sub="The NeetCode 150 grind · synced live from my submissions on GitHub"
+      />
       {view ? (
         <CodingStats v={view} />
       ) : (

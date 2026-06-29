@@ -14,7 +14,7 @@ export default function CompetitionsPage() {
       <SectionHeader
         eyebrow="competitions"
         title="Competitions"
-        sub="Hackathons & Wettbewerbe"
+        sub="Hackathons & competitions"
       />
       <div className="flex flex-col gap-4">
         {comps.map((p) => (

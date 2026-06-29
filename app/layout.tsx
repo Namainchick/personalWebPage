@@ -5,17 +5,16 @@ import { Analytics } from "@vercel/analytics/next";
 import { getServerLanguage } from "@/lib/i18n-server";
 import { SkyBackground } from "@/components/SkyBackground";
 import Footer from "@/components/Footer";
-import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 export const metadata: Metadata = {
   title: "Namanh Bui Vu – Portfolio",
   description:
-    "Portfolio von Namanh Bui Vu: KI-interessierter CS-Student (TUHH). Projekte, Erfahrungen, Kontakt.",
+    "Portfolio of Namanh Bui Vu — Computer Science student at TUHH and Product Engineer. Projects, experience, contact.",
   metadataBase: new URL("https://namanh-portfolio.vercel.app"), // TODO: Anpassen nach Deployment
   openGraph: {
     title: "Namanh Bui Vu – Portfolio",
     description:
-      "Portfolio von Namanh Bui Vu: KI-interessierter CS-Student (TUHH). Projekte, Erfahrungen, Kontakt.",
+      "Portfolio of Namanh Bui Vu — Computer Science student at TUHH and Product Engineer. Projects, experience, contact.",
     url: "https://namanh-portfolio.vercel.app",
     siteName: "Namanh Bui Vu Portfolio",
     images: [
@@ -26,14 +25,14 @@ export const metadata: Metadata = {
         alt: "Namanh Bui Vu Portfolio",
       },
     ],
-    locale: "de_DE",
+    locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Namanh Bui Vu – Portfolio",
     description:
-      "Portfolio von Namanh Bui Vu: KI-interessierter CS-Student (TUHH). Projekte, Erfahrungen, Kontakt.",
+      "Portfolio of Namanh Bui Vu — Computer Science student at TUHH and Product Engineer. Projects, experience, contact.",
     images: ["/og.png"],
   },
   robots: {
@@ -57,9 +56,6 @@ export default async function RootLayout({
       <body className="antialiased">
         <SkyBackground />
         <div className="relative z-10 mx-auto w-full max-w-[760px] px-5 sm:px-6 py-10 sm:py-16 min-h-screen flex flex-col">
-          <div className="flex justify-end mb-6">
-            <LanguageSwitcher language={language} />
-          </div>
           <main className="flex-1">{children}</main>
           <Footer language={language} />
         </div>

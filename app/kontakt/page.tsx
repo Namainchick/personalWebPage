@@ -17,8 +17,8 @@ export default function KontaktPage() {
       <BackLink />
       <SectionHeader
         eyebrow="contact"
-        title="Kontakt"
-        sub="Schreib mir gerne — zu Projekten, Zusammenarbeit oder einfach zum Austausch."
+        title="Contact"
+        sub="Reach out — about projects, collaboration, or just to say hi."
       />
       <Button href="mailto:namanh.bui2005@gmail.com">
         namanh.bui2005@gmail.com
