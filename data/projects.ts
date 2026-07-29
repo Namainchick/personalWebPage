@@ -126,6 +126,24 @@ export const projects: Project[] = [
 
   // ───────────────────────── Projects (builds & ventures) ─────────────────────────
   {
+    id: "minus-one",
+    title: "Minus One — AI Stem Splitter for Musicians",
+    description:
+      "Upload a song, get it split into six instrument stems on a GPU, and mute the one you play — a practice tool with a mini mixing console in the browser.",
+    techStack: ["Next.js", "TypeScript", "Web Audio API", "Demucs", "PyTorch", "RunPod Serverless", "Vercel Blob", "Upstash Redis"],
+    demoUrl: "https://minus-one-nine.vercel.app",
+    longDescription:
+      "Minus One turns any song into a practice backing track: upload it, and Demucs (htdemucs_6s) running on a RunPod GPU worker splits it into vocals, drums, bass, guitar, piano and rest. A custom multi-track Web Audio engine plays all six stems in perfect sync with per-track faders and mute switches — so the band plays everything except the part you play yourself. The serverless pipeline keeps secrets server-side: scoped one-hour blob upload tokens, same-origin stem proxying, rate limits and a daily GPU budget.",
+    highlights: [
+      "~10s from upload to playable six-stem mixer (end-to-end, with warm GPU worker)",
+      "Custom Web Audio multi-track engine with coordinated seeking and drift correction",
+      "Self-built RunPod Serverless Demucs worker (CUDA image with baked model weights)",
+      "Hardened pipeline: scoped upload tokens, SSRF guards, rate limits, daily budget",
+    ],
+    learnings:
+      "Deep dive into browser audio (six HTMLAudioElements on one AudioContext, seek barriers, drift correction) and into shipping a GPU workload as a serverless worker — including cold-start economics, scoped storage tokens and provider-agnostic job orchestration.",
+  },
+  {
     id: "football-models",
     title: "Football Prediction Models",
     description:
