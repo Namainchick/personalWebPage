@@ -938,6 +938,9 @@ button {
     margin-left: auto;
     gap: 10px;
   }
+  .os-menubar .loc {
+    display: none;
+  }
   .os-area {
     top: 28px;
   }

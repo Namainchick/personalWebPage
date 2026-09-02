@@ -21,11 +21,11 @@ export const metadata: Metadata = {
     description,
     url: site.url,
     siteName: "namanh.dev",
-    images: [{ url: "/og.png", width: 1200, height: 630, alt: "namOS desktop with the about.sh terminal open" }],
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "namOS desktop with the about.sh terminal open" }],
     locale: "en_US",
     type: "website",
   },
-  twitter: { card: "summary_large_image", title: "Namanh Bui Vu — namOS", description, images: ["/og.png"] },
+  twitter: { card: "summary_large_image", title: "Namanh Bui Vu — namOS", description, images: ["/og.jpg"] },
   robots: { index: true, follow: true },
 };
 

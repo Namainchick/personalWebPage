@@ -51,7 +51,7 @@ export function Menubar() {
             {grind.list150Solved}/{grind.list150Total} NeetCode
           </button>
         ) : null}
-        <span>{site.location.now}</span>
+        <span className="loc">{site.location.now}</span>
         <span suppressHydrationWarning>{clock || "--:--"}</span>
       </div>
     </header>

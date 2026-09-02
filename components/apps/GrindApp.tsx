@@ -54,10 +54,10 @@ export function GrindApp() {
       </div>
 
       <h2 className="app-eyebrow mt-7">by pattern</h2>
-      <div className="mt-2 grid sm:grid-cols-2 gap-x-8 gap-y-2.5">
+      <div className="mt-2 grid gap-y-2.5">
         {v.byCategory.map((c) => (
-          <div key={c.name} className="grid grid-cols-[1fr_72px_44px] items-center gap-3">
-            <span className="text-[13px] text-ink-2 truncate">{c.name}</span>
+          <div key={c.name} className="grid grid-cols-[1fr_120px_48px] items-center gap-3">
+            <span className="text-[13px] text-ink-2">{c.name}</span>
             <div className="track">
               <b style={{ width: `${c.total ? (c.solved / c.total) * 100 : 0}%` }} />
             </div>

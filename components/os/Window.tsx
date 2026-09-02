@@ -34,7 +34,7 @@ export function Window({
     >
       <header className="os-titlebar" {...handlers} onDoubleClick={() => toggleMax(win.app)}>
         <button type="button" className="os-win-back" onClick={() => close(win.app)}>
-          ‹ Back
+          ‹ Home
         </button>
         <div className="os-lights">
           <button

@@ -19,7 +19,7 @@ export const trash: TrashItem[] = [
     id: "bento",
     name: "Bento (Feb 2026).png",
     deletedAt: "2026-06-25",
-    src: "",
-    note: "Teal and coral cards on warm beige. Maximum density, removed after four months.",
+    src: "/img/trash/bento-2026-02.jpg",
+    note: "Teal sidebar, coral accents, cards on warm beige. Removed after four months.",
   },
 ];
