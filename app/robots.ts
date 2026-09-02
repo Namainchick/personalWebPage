@@ -1,11 +1,9 @@
-import type { MetadataRoute } from 'next'
- 
+import type { MetadataRoute } from "next";
+import { site } from "@/data/site";
+
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: {
-      userAgent: '*',
-      allow: '/',
-    },
-    sitemap: 'https://namanh-portfolio.vercel.app/sitemap.xml', // TODO: URL anpassen
-  }
+    rules: { userAgent: "*", allow: "/", disallow: ["/impressum", "/datenschutz"] },
+    sitemap: `${site.url}/sitemap.xml`,
+  };
 }

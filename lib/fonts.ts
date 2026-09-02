@@ -1,12 +1,8 @@
-import {
-  Newsreader,
-  Hanken_Grotesk,
-  IBM_Plex_Mono,
-} from "next/font/google";
+import { Bricolage_Grotesque, Hanken_Grotesk, IBM_Plex_Mono } from "next/font/google";
 
-export const serif = Newsreader({
+export const display = Bricolage_Grotesque({
   subsets: ["latin"],
-  variable: "--font-serif",
+  variable: "--font-display",
   display: "swap",
 });
 

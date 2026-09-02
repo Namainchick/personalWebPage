@@ -1,64 +1,44 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { serif, sans, mono } from "@/lib/fonts";
 import { Analytics } from "@vercel/analytics/next";
-import { getServerLanguage } from "@/lib/i18n-server";
-import { SkyBackground } from "@/components/SkyBackground";
-import Footer from "@/components/Footer";
+import { display, sans, mono } from "@/lib/fonts";
+import { getCodingView } from "@/lib/coding";
+import { getTikTokCards } from "@/lib/tiktok";
+import { content } from "@/data/content";
+import { site } from "@/data/site";
+import { StoreProvider } from "@/components/os/StoreProvider";
+import { Desktop } from "@/components/os/Desktop";
+
+const description =
+  "Product Engineer at Arbio, CS at TUHH, six hackathon wins, TikTok about tech careers. A portfolio that boots.";
 
 export const metadata: Metadata = {
-  title: "Namanh Bui Vu – Portfolio",
-  description:
-    "Portfolio of Namanh Bui Vu — Computer Science student at TUHH and Product Engineer. Projects, experience, contact.",
-  metadataBase: new URL("https://namanh-portfolio.vercel.app"), // TODO: Anpassen nach Deployment
+  title: { default: "Namanh Bui Vu — namOS", template: "%s · namOS" },
+  description,
+  metadataBase: new URL(site.url),
   openGraph: {
-    title: "Namanh Bui Vu – Portfolio",
-    description:
-      "Portfolio of Namanh Bui Vu — Computer Science student at TUHH and Product Engineer. Projects, experience, contact.",
-    url: "https://namanh-portfolio.vercel.app",
-    siteName: "Namanh Bui Vu Portfolio",
-    images: [
-      {
-        url: "/og.png",
-        width: 1200,
-        height: 630,
-        alt: "Namanh Bui Vu Portfolio",
-      },
-    ],
+    title: "Namanh Bui Vu — namOS",
+    description,
+    url: site.url,
+    siteName: "namanh.dev",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "namOS desktop with the about.sh terminal open" }],
     locale: "en_US",
     type: "website",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Namanh Bui Vu – Portfolio",
-    description:
-      "Portfolio of Namanh Bui Vu — Computer Science student at TUHH and Product Engineer. Projects, experience, contact.",
-    images: ["/og.png"],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-    },
-  },
+  twitter: { card: "summary_large_image", title: "Namanh Bui Vu — namOS", description, images: ["/og.png"] },
+  robots: { index: true, follow: true },
 };
 
-export default async function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  const language = await getServerLanguage();
+export const revalidate = 3600;
+
+export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const [grind, tiktok] = await Promise.all([getCodingView(), getTikTokCards(content.featured)]);
   return (
-    <html lang={language} className={`${serif.variable} ${sans.variable} ${mono.variable}`}>
-      <body className="antialiased">
-        <SkyBackground />
-        <div className="relative z-10 mx-auto w-full max-w-[760px] px-5 sm:px-6 py-10 sm:py-16 min-h-screen flex flex-col">
-          <main className="flex-1">{children}</main>
-          <Footer language={language} />
-        </div>
+    <html lang="en" className={`${display.variable} ${sans.variable} ${mono.variable}`}>
+      <body>
+        <StoreProvider>
+          <Desktop data={{ grind, tiktok }}>{children}</Desktop>
+        </StoreProvider>
         <Analytics />
       </body>
     </html>

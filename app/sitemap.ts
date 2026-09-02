@@ -1,44 +1,16 @@
-import type { MetadataRoute } from 'next'
- 
+import type { MetadataRoute } from "next";
+import { site } from "@/data/site";
+import { experiences } from "@/data/experiences";
+import { hackathons } from "@/data/hackathons";
+import { projects } from "@/data/projects";
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://namanh-portfolio.vercel.app' // TODO: URL anpassen
-  
+  const now = new Date();
+  const statics = ["", "/about", "/work", "/hackathons", "/projects", "/grind", "/content", "/contact"];
   return [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/erfahrungen`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/projekte`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/kontakt`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/impressum`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/datenschutz`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-  ]
+    ...statics.map((p) => ({ url: `${site.url}${p}`, lastModified: now })),
+    ...experiences.map((e) => ({ url: `${site.url}/work/${e.id}`, lastModified: now })),
+    ...hackathons.map((h) => ({ url: `${site.url}/hackathons/${h.id}`, lastModified: now })),
+    ...projects.map((p) => ({ url: `${site.url}/projects/${p.id}`, lastModified: now })),
+  ];
 }
