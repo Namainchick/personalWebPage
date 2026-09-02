@@ -19,6 +19,12 @@ for (const l of BOOT_SCRIPT) {
 }
 const TOTAL = total;
 
+/** Time (ms after start) at which character n becomes visible. Line ends add a pause. */
+const TIMES: number[] = [START_DELAY_MS];
+for (let n = 1; n <= TOTAL; n++) {
+  TIMES[n] = TIMES[n - 1] + (OFFSETS.includes(n) ? LINE_PAUSE_MS : CHAR_MS);
+}
+
 function visible(line: Line, index: number, progress: number): string | null {
   const start = OFFSETS[index];
   if (progress <= start) return null;
@@ -70,21 +76,24 @@ export function Terminal({ win }: { win: Win }) {
   const shown = animate ? progress : TOTAL;
   const done = !animate;
 
+  // Time-based, not timer-chained: a throttled or hidden tab catches up instantly instead of crawling.
   useEffect(() => {
     if (!animate) return;
-    let n = 0;
-    let timer = 0;
-    const step = () => {
-      n += 1;
+    const start = performance.now();
+    let raf = 0;
+    const tick = () => {
+      const elapsed = performance.now() - start;
+      let n = 0;
+      while (n < TOTAL && TIMES[n + 1] <= elapsed) n += 1;
       setProgress(n);
       if (n >= TOTAL) {
         setTypingDone(true);
         return;
       }
-      timer = window.setTimeout(step, OFFSETS.includes(n) ? LINE_PAUSE_MS : CHAR_MS);
+      raf = window.requestAnimationFrame(tick);
     };
-    timer = window.setTimeout(step, START_DELAY_MS);
-    return () => window.clearTimeout(timer);
+    raf = window.requestAnimationFrame(tick);
+    return () => window.cancelAnimationFrame(raf);
   }, [animate]);
 
   useEffect(() => {
