@@ -76,24 +76,21 @@ export function Terminal({ win }: { win: Win }) {
   const shown = animate ? progress : TOTAL;
   const done = !animate;
 
-  // Time-based, not timer-chained: a throttled or hidden tab catches up instantly instead of crawling.
+  // Time-based, not timer-chained: a throttled or hidden tab catches up on its next tick instead of crawling.
   useEffect(() => {
     if (!animate) return;
     const start = performance.now();
-    let raf = 0;
-    const tick = () => {
+    const id = window.setInterval(() => {
       const elapsed = performance.now() - start;
       let n = 0;
       while (n < TOTAL && TIMES[n + 1] <= elapsed) n += 1;
       setProgress(n);
       if (n >= TOTAL) {
+        window.clearInterval(id);
         setTypingDone(true);
-        return;
       }
-      raf = window.requestAnimationFrame(tick);
-    };
-    raf = window.requestAnimationFrame(tick);
-    return () => window.cancelAnimationFrame(raf);
+    }, 24);
+    return () => window.clearInterval(id);
   }, [animate]);
 
   useEffect(() => {
