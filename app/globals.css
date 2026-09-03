@@ -70,7 +70,7 @@ button {
 }
 .os-wallpaper img {
   object-fit: cover;
-  object-position: 62% 42%;
+  object-position: 50% 55%;
 }
 .os-wallpaper::after {
   content: "";

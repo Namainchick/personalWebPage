@@ -29,7 +29,7 @@ export const content = {
   community: {
     name: "FAANG/MANGO+ für Deutsche",
     members: "300+",
-    href: "https://discord.gg/g6JnnfyHx",
+    href: "https://discord.gg/DXZtw6S72f",
     measuredAt: "2026-08",
     blurb:
       "The first German-language Big Tech career community. Students and working students helping each other into internships at Amazon, Google, Meta and friends. Free, no upsell, co-founded with an ex-Uber, Amazon and Google engineer.",
