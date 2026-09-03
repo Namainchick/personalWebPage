@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import type { ReactNode } from "react";
 import { useOS } from "./StoreProvider";
 import { DataProvider, type OSData } from "./DataProvider";
@@ -15,16 +14,16 @@ export function Desktop({ data, children }: { data: OSData; children: ReactNode 
   return (
     <DataProvider value={data}>
       <div className={`os${state.windows.length ? " has-window" : ""}`}>
-        <div className="os-wallpaper" aria-hidden="true">
-          <Image
-            src="/img/wallpaper/shanghai.jpg"
-            alt=""
-            fill
-            priority
-            sizes="100vw"
-            placeholder="blur"
-            blurDataURL={WALLPAPER_BLUR}
-          />
+        <div
+          className="os-wallpaper"
+          aria-hidden="true"
+          style={{ backgroundImage: `url(${WALLPAPER_BLUR})`, backgroundSize: "cover" }}
+        >
+          {/* Art direction (wide vs. portrait crop) needs <picture>; the files are pre-sized JPEGs. */}
+          <picture>
+            <source media="(max-width: 767px)" srcSet="/img/wallpaper/shanghai-wide-phone.jpg" />
+            <img src="/img/wallpaper/shanghai-wide.jpg" alt="" fetchPriority="high" decoding="async" />
+          </picture>
         </div>
         <Menubar />
         <div className="os-area">
