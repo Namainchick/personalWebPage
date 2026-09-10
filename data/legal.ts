@@ -3,11 +3,8 @@ export type LegalDoc = {
   sections: { heading: string; paragraphs: string[] }[];
 };
 
-/**
- * Address: Nam does not publish his home address. Use a c/o Impressum-Service address
- * (a real, ladungsfähige Anschrift where mail is received and forwarded). A Postfach is not enough.
- */
-const ADDRESS = ["Namanh Bui Vu", "[c/o Impressum-Service, Straße und Hausnummer]", "[PLZ Ort]"];
+/** Ladungsfähige Anschrift (Nam's decision, 2026-09-10). */
+const ADDRESS = ["Namanh Bui Vu", "Alter Postweg 14", "21075 Hamburg"];
 
 export const legal: Record<"impressum" | "datenschutz", LegalDoc> = {
   impressum: {
