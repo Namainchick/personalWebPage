@@ -6,6 +6,15 @@ const nextConfig: NextConfig = {
     root: process.cwd(),
   },
   outputFileTracingRoot: process.cwd(),
+  async rewrites() {
+    return [
+      { source: "/cv", destination: "/Namanh_Bui_Vu_CV.pdf" },
+      { source: "/cv.pdf", destination: "/Namanh_Bui_Vu_CV.pdf" },
+      { source: "/resume", destination: "/Namanh_Bui_Vu_CV.pdf" },
+      { source: "/resume.pdf", destination: "/Namanh_Bui_Vu_CV.pdf" },
+      { source: "/lebenslauf", destination: "/Namanh_Bui_Vu_CV.pdf" },
+    ];
+  },
   async redirects() {
     return [
       { source: "/erfahrungen", destination: "/work", permanent: true },
