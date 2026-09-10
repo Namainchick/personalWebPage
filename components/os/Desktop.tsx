@@ -10,7 +10,7 @@ import { WindowLayer } from "./WindowLayer";
 import { WALLPAPER_BLUR } from "@/lib/wallpaper";
 
 export function Desktop({ data, children }: { data: OSData; children: ReactNode }) {
-  const { state } = useOS();
+  const { state, open } = useOS();
   return (
     <DataProvider value={data}>
       <div className={`os${state.windows.length ? " has-window" : ""}`}>
@@ -31,6 +31,15 @@ export function Desktop({ data, children }: { data: OSData; children: ReactNode 
           <WindowLayer />
         </div>
         <Dock />
+        <nav className="os-legal" aria-label="Legal">
+          <button type="button" onClick={() => open("text", "impressum")}>
+            Impressum
+          </button>
+          <span aria-hidden="true">·</span>
+          <button type="button" onClick={() => open("text", "datenschutz")}>
+            Datenschutz
+          </button>
+        </nav>
         <div hidden>{children}</div>
       </div>
     </DataProvider>
